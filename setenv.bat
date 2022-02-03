@@ -1,0 +1,517 @@
+@echo off
+setlocal enabledelayedexpansion
+
+@rem only for interactive debugging
+set _DEBUG=0
+
+@rem #########################################################################
+@rem ## Environment setup
+
+set _EXITCODE=0
+
+call :env
+if not %_EXITCODE%==0 goto end
+
+call :args %*
+if not %_EXITCODE%==0 goto end
+
+@rem #########################################################################
+@rem ## Main
+
+if %_HELP%==1 (
+    call :help
+    exit /b !_EXITCODE!
+)
+
+set _GRADLE_PATH=
+set _JDK_PATH=
+set _MAVEN_PATH=
+set _VSCODE_PATH=
+
+call :java8
+if not %_EXITCODE%==0 goto end
+
+call :jdk11
+if not %_EXITCODE%==0 goto end
+
+call :gradle
+if not %_EXITCODE%==0  goto end
+
+call :maven
+if not %_EXITCODE%==0  goto end
+
+@rem optional (used in "python -m json.tool")
+call :python3
+@rem if not %_EXITCODE%==0 goto end
+
+call :vscode
+if not %_EXITCODE%==0 goto end
+
+call :git
+if not %_EXITCODE%==0 goto end
+
+goto end
+
+@rem #########################################################################
+@rem ## Subroutines
+
+@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+:env
+set _BASENAME=%~n0
+
+call :env_colors
+set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
+set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
+set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
+goto :eof
+
+:env_colors
+@rem ANSI colors in standard Windows 10 shell
+@rem see https://gist.github.com/mlocati/#file-win10colors-cmd
+set _RESET=[0m
+set _BOLD=[1m
+set _UNDERSCORE=[4m
+set _INVERSE=[7m
+
+@rem normal foreground colors
+set _NORMAL_FG_BLACK=[30m
+set _NORMAL_FG_RED=[31m
+set _NORMAL_FG_GREEN=[32m
+set _NORMAL_FG_YELLOW=[33m
+set _NORMAL_FG_BLUE=[34m
+set _NORMAL_FG_MAGENTA=[35m
+set _NORMAL_FG_CYAN=[36m
+set _NORMAL_FG_WHITE=[37m
+
+@rem normal background colors
+set _NORMAL_BG_BLACK=[40m
+set _NORMAL_BG_RED=[41m
+set _NORMAL_BG_GREEN=[42m
+set _NORMAL_BG_YELLOW=[43m
+set _NORMAL_BG_BLUE=[44m
+set _NORMAL_BG_MAGENTA=[45m
+set _NORMAL_BG_CYAN=[46m
+set _NORMAL_BG_WHITE=[47m
+
+@rem strong foreground colors
+set _STRONG_FG_BLACK=[90m
+set _STRONG_FG_RED=[91m
+set _STRONG_FG_GREEN=[92m
+set _STRONG_FG_YELLOW=[93m
+set _STRONG_FG_BLUE=[94m
+set _STRONG_FG_MAGENTA=[95m
+set _STRONG_FG_CYAN=[96m
+set _STRONG_FG_WHITE=[97m
+
+@rem strong background colors
+set _STRONG_BG_BLACK=[100m
+set _STRONG_BG_RED=[101m
+set _STRONG_BG_GREEN=[102m
+set _STRONG_BG_YELLOW=[103m
+set _STRONG_BG_BLUE=[104m
+goto :eof
+
+@rem input parameter: %*
+@rem output parameter: _HELP, _VERBOSE
+:args
+set _HELP=0
+set _BASH=0
+set _VERBOSE=0
+
+:args_loop
+set "__ARG=%~1"
+if not defined __ARG goto args_done
+if "%__ARG:~0,1%"=="-" (
+    @rem option
+    if "%__ARG%"=="-bash" ( set _BASH=1
+    ) else if "%__ARG%"=="-debug" ( set _DEBUG=1
+    ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
+    ) else (
+        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        set _EXITCODE=1
+        goto args_done
+    )
+) else (
+    @rem subcommand
+    if "%__ARG%"=="help" ( set _HELP=1
+    ) else (
+        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        set _EXITCODE=1
+        goto args_done
+    )
+)
+shift
+goto args_loop
+:args_done
+goto :eof
+
+:help
+if %_VERBOSE%==1 (
+    set __BEG_P=%_STRONG_FG_CYAN%%_UNDERSCORE%
+    set __BEG_O=%_STRONG_FG_GREEN%
+    set __BEG_N=%_NORMAL_FG_YELLOW%
+    set __END=%_RESET%
+) else (
+    set __BEG_P=
+    set __BEG_O=
+    set __BEG_N=
+    set __END=
+)
+echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
+echo.
+echo   %__BEG_P%Options:%__END%
+echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
+echo     %__BEG_O%-debug%__END%      show commands executed by this script
+echo     %__BEG_O%-verbose%__END%    display environment settings
+echo.
+echo   %__BEG_P%Subcommands:%__END%
+echo     %__BEG_O%help%__END%        display this help message
+goto :eof
+
+@rem output parameter: _JAVA_HOME
+:java8
+set __JDK_DISTRO=jdk-temurin-1.8
+set _JAVA_HOME=
+
+set __JAVAC_CMD=
+for /f %%f in ('where javac.exe 2^>NUL') do set "__JAVAC_CMD=%%f"
+if defined __JAVAC_CMD (
+    call :is_java11 "%__JAVAC_CMD%"
+    if not defined _IS_JAVA11 (
+        for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
+        for %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpi"
+    )
+)
+if defined JAVA_HOME (
+    set "_JAVA_HOME=%JAVA_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
+) else (
+    set _PATH=C:\opt
+    for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+    if not defined _JAVA_HOME (
+        set "_PATH=%ProgramFiles%\Java"
+        for /f %%f in ('dir /ad /b "!_PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+    )
+    if defined _JAVA_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory !_JAVA_HOME! 1>&2
+    )
+)
+if not exist "%_JAVA_HOME%\bin\javac.exe" (
+    echo %_ERROR_LABEL% javac executable not found ^(%_JAVA_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
+@rem output parameter: _JAVA11_HOME
+:jdk11
+set __JDK_DISTRO=jdk-temurin-11
+set _JAVA11_HOME=
+
+set __JAVAC_CMD=
+for /f %%f in ('where javac.exe 2^>NUL') do set "__JAVAC_CMD=%%f"
+if defined __JAVAC_CMD (
+    call :is_java11 "%__JAVAC_CMD%"
+    if defined _IS_JAVA11 (
+        for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
+        for %%f in ("%__BIN_DIR%") do set "_JAVA11_HOME=%%~dpi"
+    )
+)
+if not defined _JAVA11_HOME if defined JAVA_HOME (
+    call :is_java11 "%JAVA_HOME%\bin\javac.exe"
+    if defined _IS_JAVA11 (
+        set "_JAVA11_HOME=%JAVA_HOME%"
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
+    )
+)
+if not defined _JAVA11_HOME (
+    set __PATH=C:\opt
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA11_HOME=!__PATH!\%%f"
+)
+if not defined _JAVA11_HOME (
+    set "__PATH=%ProgramFiles%\Java"
+    for /f %%f in ('dir /ad /b "!__PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA11_HOME=!__PATH!\%%f"
+)
+if not exist "%_JAVA11_HOME%\bin\javac.exe" (
+    echo %_ERROR_LABEL% javac executable not found ^(%_JAVA11_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+goto :eof
+
+@rem input parameter(s): %1 = javac file path
+@rem output parameter: _IS_JAVA11
+:is_java11
+set _IS_JAVA11=
+
+set __JAVAC_CMD=%~1
+if not exist "%__JAVAC_CMD%" goto :eof
+
+set __JAVA_VERSION=
+for /f "tokens=1,*" %%i in ('%__JAVAC_CMD% -version 2^>^&1') do set __JAVA_VERSION=%%j
+if not "!__JAVA_VERSION:~0,2!"=="11" goto :eof
+set _IS_JAVA11=1
+goto :eof
+
+@rem output parameters: _GRADLE_HOME, _GRADLE_PATH
+:gradle
+set _GRADLE_HOME=
+set _GRADLE_PATH=
+
+set __GRADLE_CMD=
+for /f %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
+if defined __GRADLE_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
+    for %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
+    for %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
+    @rem keep _GRADLE_PATH undefined since executable already in path
+    goto :eof
+) else if defined GRADLE_HOME (
+    set "_GRADLE_HOME=%GRADLE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GRADLE_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!__PATH!\gradle*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+    if not defined _GRADLE_HOME (
+        set "__PATH=%ProgramFiles%"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\gradle*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+    )
+)
+if not exist "%_GRADLE_HOME%\bin\gradle.bat" (
+    echo %_ERROR_LABEL% Executable gradle.bat not found ^(%_GRADLE_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_GRADLE_PATH=;%_GRADLE_HOME%\bin"
+goto :eof
+
+@rem output parameters: _MAVEN_HOME, _MAVEN_PATH
+:maven
+set _MAVEN_HOME=
+set _MAVEN_PATH=
+
+set __MVN_CMD=
+for /f %%f in ('where mvn.cmd 2^>NUL') do (
+    set "__MVN_CMD=%%f"
+    @rem we ignore Scoop managed Maven installation
+    if not "!__MVN_CMD:scoop=!"=="!__MVN_CMD!" set __MVN_CMD=
+)
+if defined __MVN_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Maven executable found in PATH 1>&2
+    for %%i in ("%__MVN_CMD%") do set "__MAVEN_BIN_DIR=%%~dpi"
+    for %%f in ("!__MAVEN_BIN_DIR!\.") do set "_MAVEN_HOME=%%~dpf"
+) else if defined MAVEN_HOME (
+    set "_MAVEN_HOME=%MAVEN_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MAVEN_HOME 1>&2
+) else (
+    set _PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!_PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!_PATH!\%%f"
+    if defined _MAVEN_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory !_MAVEN_HOME! 1>&2
+    )
+)
+if not exist "%_MAVEN_HOME%\bin\mvn.cmd" (
+    echo %_ERROR_LABEL% Maven executable not found ^(%_MAVEN_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_MAVEN_PATH=;%_MAVEN_HOME%\bin"
+goto :eof
+
+@rem output parameters: _PYTHON_HOME, _PYTHON_PATH
+:python3
+set _PYTHON_HOME=
+set _PYTHON_PATH=
+
+set _PYTHON_CMD=
+for /f %%f in ('where python.exe 2^>NUL') do set "_PYTHON_CMD=%%f"
+if defined _PYTHON_CMD (
+    for %%i in ("%_PYTHON_CMD%") do set "_PYTHON_HOME=%%~dpi"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Python executable found in PATH 1>&2
+    goto :eof
+) else if defined PYTHON_HOME (
+    set "_PYTHON_HOME=%PYTHON_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable PYTHON_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\Python\" ( set "_PYTHON_HOME=!__PATH!\Python"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\Python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
+        if not defined _PYTHON_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f %%f in ('dir /ad /b "!__PATH!\Python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
+        )
+    )
+    if defined _PYTHON_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Python installation directory "!_PYTHON_HOME!" 1>&2
+    )
+)
+if not exist "%_PYTHON_HOME%\python.exe" (
+    echo %_ERROR_LABEL% Python executable not found ^(%_PYTHON_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_PYTHON_PATH=;%_PYTHON_HOME%;%_PYTHON_HOME%\Scripts"
+goto :eof
+
+@rem output parameter(s): _VSCODE_PATH
+:vscode
+set _VSCODE_PATH=
+
+set __VSCODE_HOME=
+set __CODE_CMD=
+for /f %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
+if defined __CODE_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
+    @rem keep _VSCODE_PATH undefined since executable already in path
+    goto :eof
+) else if defined VSCODE_HOME (
+    set "__VSCODE_HOME=%VSCODE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable VSCODE_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\VSCode\" ( set "__VSCODE_HOME=!__PATH!\VSCode"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "__VSCODE_HOME=!__PATH!\%%f"
+        if not defined __VSCODE_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "__VSCODE_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%__VSCODE_HOME%\code.exe" (
+    echo %_ERROR_LABEL% VSCode executable not found ^(%__VSCODE_HOME%^) 1>&2
+    if exist "%__VSCODE_HOME%\Code - Insiders.exe" (
+        echo %_WARNING_LABEL% It looks like you've installed an Insider version of VSCode 1>&2
+    )
+    set _EXITCODE=1
+    goto :eof
+)
+set "_VSCODE_PATH=;%__VSCODE_HOME%"
+goto :eof
+
+@rem output parameter(s): _GIT_HOME, _GIT_PATH
+:git
+set _GIT_HOME=
+set _GIT_PATH=
+
+set __GIT_CMD=
+for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+if defined __GIT_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
+    for %%i in ("%__GIT_CMD%") do set __GIT_BIN_DIR=%%~dpsi
+    for %%f in ("!__GIT_BIN_DIR!..") do set "_GIT_HOME=%%f"
+    @rem Executable git.exe is present both in bin\ and \mingw64\bin\
+    if not "!_GIT_HOME:mingw=!"=="!_GIT_HOME!" (
+        for %%f in ("!_GIT_HOME!\..") do set "_GIT_HOME=%%f"
+    )
+    @rem keep _GIT_PATH undefined since executable already in path
+    goto :eof
+) else if defined GIT_HOME (
+    set "_GIT_HOME=%GIT_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        if not defined _GIT_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        )
+    )
+    if defined _GIT_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Git installation directory "!_GIT_HOME!" 1>&2
+    )
+)
+if not exist "%_GIT_HOME%\bin\git.exe" (
+    echo %_ERROR_LABEL% Git executable not found ^(%_GIT_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\mingw64\bin;%_GIT_HOME%\usr\bin"
+goto :eof
+
+:print_env
+set __VERBOSE=%1
+set __VERSIONS_LINE1=
+set __VERSIONS_LINE2=
+set __VERSIONS_LINE3=
+set __WHERE_ARGS=
+where /q "%JAVA_HOME%\bin:javac.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('"%JAVA_HOME%\bin\javac.exe" -version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% javac %%j,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%JAVA_HOME%\bin:javac.exe"
+)
+where /q "%JAVA_HOME%\bin:java.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,3,*" %%i in ('"%JAVA_HOME%\bin\java.exe" -version 2^>^&1 ^| findstr version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% java %%~k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%JAVA_HOME%\bin:java.exe"
+)
+where /q "%GRADLE_HOME%\bin:gradle.bat"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,*" %%i in ('"%GRADLE_HOME%\bin\gradle.bat" -version ^| findstr Gradle') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% gradle %%j,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GRADLE_HOME%\bin:gradle.bat"
+)
+where /q "%MAVEN_HOME%\bin:mvn.cmd"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,3,*" %%i in ('"%MAVEN_HOME%\bin\mvn.cmd" -version ^| findstr Apache') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mvn %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MAVEN_HOME%\bin:mvn.cmd"
+)
+where /q "%GIT_HOME%\bin:git.exe"
+if %ERRORLEVEL%==0 (
+   for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% git %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
+)
+where /q "%GIT_HOME%\usr\bin:diff.exe"
+if %ERRORLEVEL%==0 (
+   for /f "tokens=1-3,*" %%i in ('"%GIT_HOME%\usr\bin\diff.exe" --version ^| findstr diff') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% diff %%l,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\usr\bin:diff.exe"
+)
+where /q "%GIT_HOME%\bin:bash.exe"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash %%l"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
+)
+echo Tool versions:
+echo   %__VERSIONS_LINE1%
+echo   %__VERSIONS_LINE2%
+echo   %__VERSIONS_LINE3%
+if %__VERBOSE%==1 (
+    echo Tool paths: 1>&2
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    echo Environment variables: 1>&2
+    if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
+    if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
+    if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
+    if defined JAVA11_HOME echo    "JAVA11_HOME=%JAVA11_HOME%" 1>&2
+    if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
+    if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
+    echo Path associations: 1>&2
+    for /f "delims=" %%i in ('subst') do echo    %%i 1>&2
+)
+goto :eof
+
+@rem #########################################################################
+@rem ## Cleanups
+
+:end
+endlocal & (
+    if %_EXITCODE%==0 (
+        if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
+        if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
+        if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
+        if not defined JAVA11_HOME set "JAVA11_HOME=%_JAVA11_HOME%"
+        if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
+        if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
+        set "PATH=%_JDK_PATH%%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
+        call :print_env %_VERBOSE%
+        if %_BASH%==1 (
+            @rem see https://conemu.github.io/en/GitForWindows.html
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% %_GIT_HOME%\usr\bin\bash.exe --login 1>&2
+            cmd.exe /c "%_GIT_HOME%\usr\bin\bash.exe --login"
+        )
+    )
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2
+    for /f "delims==" %%i in ('set ^| findstr /b "_"') do set %%i=
+)

@@ -1,0 +1,8 @@
+.gradle/
+.mvn/
+.settings/
+.vscode/
+*_LOCAL/
+bazel-*/
+target/
+*_LOCAL.txt
