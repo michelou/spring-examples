@@ -46,7 +46,7 @@ This project is organized as follows:
 
 <pre style="font-size:80%;">
 docs\
-examples\
+examples\{<a href="examples/README.md">README.md</a>, <a href="examples/demo/">demo</a>, <a href="examples/gs-rest-service/">gs-rest-service</a>, ..}
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -54,8 +54,8 @@ README.md
 
 where
 
-- directory [**`docs\`**](docs/) contains [Spring] related papers/articles (see file [**`docs\README.md`**](docs/README.md)).
-- directory [**`examples\`**](examples/) contains [Spring] examples grabbed from various websites (see file [**`examples\README.md`**](examples/README.md)).
+- directory [**`docs\`**](docs/) contains [Spring] related documents.
+- directory [**`examples\`**](examples/) contains [Spring] code examples (see file [**`examples\README.md`**](examples/README.md)).
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
 - file [**`setenv.bat`**](setenv.bat) is the batch command for setting up our environment.
