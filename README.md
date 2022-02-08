@@ -17,7 +17,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 - [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.35][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 7.3][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 7.4][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
 Optionally one may also install the following software:
@@ -32,7 +32,7 @@ For instance our development environment looks as follows (*February 2022*) <sup
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.8.4\         <i>( 10 MB)</i>
 C:\opt\Git-2.35.1\                 <i>(279 MB)</i>
-C:\opt\gradle-7.3.3\               <i>(122 MB)</i>
+C:\opt\gradle-7.4\                 <i>(122 MB)</i>
 C:\opt\jdk-temurin-11.0.14_9\      <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.2_8\       <i>(299 MB)</i>
 </pre>
@@ -70,7 +70,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.8.4-bin.zip</a>                        <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-7.3.3-bin.zip</a>                              <i>(103 MB)</i>
+<a href="https://gradle.org/install/">gradle-7.4-bin.zip</a>                                <i>(103 MB)</i>
 <a href="http://jdk.java.net/17/">openjdk-17_windows-x64_bin.zip</a>                    <i>(176 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.14_9.zip</a>  <i>( 99 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.35.1-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
@@ -101,7 +101,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
 [gradle_latest]: https://gradle.org/releases/
-[gradle_relnotes]: https://docs.gradle.org/7.3.3/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/7.4/release-notes.html
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
