@@ -25,6 +25,7 @@
 - [Introduction to Spring Framework for Java][blog_grogan] by Ross Grogan-Kaylor, January 2022.
 - [What is the Difference between Spring Boot and Spring?][blog_alibaba] by Alibaba Clouder, August 2021.
 - [Demystifying Spring Boot][blog_williams] by Jordan Williams, December 2020.
+- [Why Spring Boot Embedded Server is so important?][blog_suresh] by Suresh, October 2020.
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 2)][blog_khandelwal_2] by Arpit Khandelwal, March 2019.
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 1)][blog_khandelwal_1] by Arpit Khandelwal, March 2019.
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
@@ -51,7 +52,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -68,6 +69,7 @@
 [blog_khandelwal_1]: https://medium.com/the-resonant-web/spring-boot-2-0-starter-kit-part-1-23ddff0c7da2
 [blog_khandelwal_2]: https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-practices-part-2-7137bdcba7d3
 [blog_kumar]: https://blogs.perficient.com/2016/07/16/spring-boot-actuator-application-monitoring-made-easy/
+[blog_suresh]: https://suresh-stalin.medium.com/why-embedded-server-is-so-important-a4952491ac78
 [blog_williams]: https://betterprogramming.pub/demystifying-spring-boot-245e71feffc0
 [book_cosmina]: https://link.springer.com/book/10.1007/978-1-4842-2808-1
 [book_heckler]: https://www.oreilly.com/library/view/spring-boot-up/9781492076971/
