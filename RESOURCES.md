@@ -13,6 +13,9 @@
 
 ## <span id="articles">Articles</span>
 
+- [Marco Behler](https://www.marcobehler.com/)'s blog posts : 
+  - [Spring Security & OAuth 2.0 - In-Depth](https://www.marcobehler.com/guides/spring-security-oauth2), March 2021.
+  - [Spring Security: Authentication and Authorization In-Depth](https://www.marcobehler.com/guides/spring-security), August 2020.
 - [Complete Guide to Exception Handling in Spring Boot][article_ranapurwala] by Murtuza Ranapurwala, December 2020.
 - [Modernize and optimize Spring Boot applications][article_sundaresan] by Vijav Sundaresan et al., January 2020.
 - [Top 10 Spring Boot Interview Questions and Answers][article_bardhan] by Manoj Kumar Bardhan, June 2019.
@@ -26,6 +29,7 @@
 - [What is the Difference between Spring Boot and Spring?][blog_alibaba] by Alibaba Clouder, August 2021.
 - [Demystifying Spring Boot][blog_williams] by Jordan Williams, December 2020.
 - [Why Spring Boot Embedded Server is so important?][blog_suresh] by Suresh, October 2020.
+- [How to Make Parallel Calls in Java Spring Boot Application and How to Test Them?][blog_janvier] by Marc Janvier, September 2019.
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 2)][blog_khandelwal_2] by Arpit Khandelwal, March 2019.
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 1)][blog_khandelwal_1] by Arpit Khandelwal, March 2019.
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
@@ -52,7 +56,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -66,6 +70,7 @@
 [article_woods2014]: https://www.infoq.com/articles/microframeworks1-spring-boot/
 [blog_alibaba]: https://www.alibabacloud.com/blog/what-is-the-difference-between-spring-boot-and-spring_598036
 [blog_grogan]: https://blogs.perficient.com/2022/01/20/introduction-to-spring-framework/
+[blog_janvier]: https://www.sipios.com/blog-tech/how-to-make-parallel-calls-in-java-springboot-application-and-how-to-test-them
 [blog_khandelwal_1]: https://medium.com/the-resonant-web/spring-boot-2-0-starter-kit-part-1-23ddff0c7da2
 [blog_khandelwal_2]: https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-practices-part-2-7137bdcba7d3
 [blog_kumar]: https://blogs.perficient.com/2016/07/16/spring-boot-actuator-application-monitoring-made-easy/
