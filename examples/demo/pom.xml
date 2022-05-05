@@ -22,7 +22,7 @@
         <exec.maven.version>3.0.0</exec.maven.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <spring.version>2.6.4</spring.version>
+        <spring.version>2.6.7</spring.version>
     </properties>
 
 	<dependencies>

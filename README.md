@@ -16,7 +16,7 @@
 This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.35][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.36][git_downloads] ([*release notes*][git_relnotes])
 - [Gradle 7.4][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
@@ -31,10 +31,10 @@ For instance our development environment looks as follows (*April 2022*) <sup id
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.8.5\         <i>( 10 MB)</i>
-C:\opt\Git-2.35.3\                 <i>(279 MB)</i>
+C:\opt\Git-2.36.0\                 <i>(279 MB)</i>
 C:\opt\gradle-7.4.2\               <i>(122 MB)</i>
-C:\opt\jdk-temurin-11.0.14.1_1\    <i>(300 MB)</i>
-C:\opt\jdk-temurin-17.0.2_8\       <i>(299 MB)</i>
+C:\opt\jdk-temurin-11.0.15_10\     <i>(300 MB)</i>
+C:\opt\jdk-temurin-17.0.3_7\       <i>(299 MB)</i>
 </pre>
 
 
@@ -71,15 +71,15 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.8.5-bin.zip</a>                          <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-7.4.2-bin.zip</a>                                <i>(110 MB)</i>
-<a href="http://jdk.java.net/17/">openjdk-17_windows-x64_bin.zip</a>                      <i>(176 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.14.1_1.zip</a>  <i>( 99 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.35.3-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.15_10.zip</a>   <i>( 99 MB)</i>
+<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.3_7.zip</a>     <i>(176 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.36.0-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -94,7 +94,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.35.3.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.0.txt
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.34.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
