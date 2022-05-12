@@ -36,8 +36,8 @@
 
 ## <span id="books">Books</span>
 
-- [Spring REST][book_varanasi] by Balaji Varanasi and Maxim Bartkov, 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
-- [Spring in Action][book_walls] (6<sup>th</sup> Edition) by Craig Walls, January 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9757-1, 520 pages)</span>
+- [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
+- [Spring in Action][book_walls] (6<sup>th</sup> edition) by Craig Walls, January 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9757-1, 520 pages)</span>
 - [Spring Boot Up &amp; Running][book_heckler] by Mark Heckler, 2021.<br/><span style="font-size:80%;">(O'Reilly, ISBN 978-1-4920-7698-8, 330 pages)</span>
 - [Spring Security in Action][book_spilca] by Laurentiu Splica, October 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9773-1, 560 pages)</span>
 - [Beginning Spring 5][book_ottinger] by Joseph B. Ottinger and Andrew Lombardi, 2019.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-4485-2, 365 pages)</span>

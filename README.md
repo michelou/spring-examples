@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other trending topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Deno][deno_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX][wix_examples] are other trending topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -18,6 +18,7 @@ This project depends on the following external software for the **Microsoft Wind
 - [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.36][git_downloads] ([*release notes*][git_relnotes])
 - [Gradle 7.4][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Spring Boot 2.6][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
 Optionally one may also install the following software:
@@ -27,11 +28,11 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*April 2022*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*May 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.8.5\         <i>( 10 MB)</i>
-C:\opt\Git-2.36.0\                 <i>(279 MB)</i>
+C:\opt\Git-2.36.1\                 <i>(286 MB)</i>
 C:\opt\gradle-7.4.2\               <i>(122 MB)</i>
 C:\opt\jdk-temurin-11.0.15_10\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.3_7\       <i>(299 MB)</i>
@@ -62,7 +63,46 @@ where
 
 ## <span id="footnotes">Footnotes</span>
 
-<span id="footnote_01">[1]</span> ***Downloads*** [↩](#anchor_01)
+<span id="footnote_01">[1]</span> ***Spring Boot vs. Spring Framework*** [↩](#anchor_01)
+
+<dl><dd>
+Spring Boot 2.6 depends on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
+</dd>
+<dd>
+<table>
+<tr>
+<th>Spring Boot</th>
+<th>Spring Framework</th></tr>
+<tr>
+<td><i>to be released</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.20">5.3.20</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.20">relnotes</a>)</td>
+</tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.7">2.6.7</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-framework-bom/5.3.19">5.3.19</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.19">relnotes</a>)</i></td>
+</tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.6">2.6.6</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-framework-bom/5.3.18">5.3.18</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.18">relnotes</a>)</i></td>
+</tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.5">2.6.5</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.17">5.3.17</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.17">relnotes</a>)</i></td>
+</tr>
+<tr>
+<td><b>...</b></td><td><b>...</b></td>
+</tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.0">2.6.0</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.13">5.3.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.13">relnotes</a>)</i></td>
+</tr>
+</table>
+</dd>
+<dd>
+<b>Note:</b> Spring Boot 1.0 was released in 2014 and Spring Framework 1.0 was released in 2003.
+</dd></dl>
+
+<span id="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_02)
 
 <dl><dd>
 In our case we downloaded the following installation files (<a href="#proj_deps">see section 1</a>):
@@ -73,7 +113,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://gradle.org/install/">gradle-7.4.2-bin.zip</a>                                <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.15_10.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.3_7.zip</a>     <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.36.0-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.36.1-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -94,8 +134,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.0.txt
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.34.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.36.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
@@ -122,7 +161,10 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
+[spark_examples]: https://github.com/michelou/spark-examples
 [spring]: https://spring.io/
+[spring_boot_downloads]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
+[spring_boot_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.6-Release-Notes
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-13-bugfixes.html
 [temurin_openjdk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-October/009368.html
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
