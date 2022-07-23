@@ -20,7 +20,9 @@ set _LIBS_CPATH=
 @rem https://mvnrepository.com/artifact/commons-logging/commons-logging
 call :add_jar "commons-logging" "commons-logging" "1.2"
 
-set  __SPRING_VERSION=5.3.15
+set  __SPRING_VERSION=5.3.22
+@rem Spring Boot 2.7.2 depends on Spring Framework 5.3.22
+set __SPRING_BOOT_VERSION=2.7.2
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -45,8 +47,6 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
-
-set __SPRING_BOOT_VERSION=2.6.3
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -113,7 +113,7 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.8.2"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "4.5.0"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "4.5.1"
 
 goto end
 

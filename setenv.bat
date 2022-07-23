@@ -28,10 +28,10 @@ set _JDK_PATH=
 set _MAVEN_PATH=
 set _VSCODE_PATH=
 
-call :java8
+call :jdk 11
 if not %_EXITCODE%==0 goto end
 
-call :jdk11
+call :jdk 17
 if not %_EXITCODE%==0 goto end
 
 call :gradle
@@ -117,6 +117,7 @@ goto :eof
 set _HELP=0
 set _BASH=0
 set _VERBOSE=0
+set _JAVA_VERSION=11
 
 :args_loop
 set "__ARG=%~1"
@@ -168,89 +169,58 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
-@rem output parameter: _JAVA_HOME
-:java8
-set __JDK_DISTRO=jdk-temurin-1.8
-set _JAVA_HOME=
+@rem output parameter: _JAVA<version>_HOME (version=11, 17)
+:jdk
+set __JDK_VERSION=%~1
+set __JDK_DISTRO=jdk-temurin-%__JDK_VERSION%
+set __JAVA_HOME=
 
 set __JAVAC_CMD=
 for /f %%f in ('where javac.exe 2^>NUL') do set "__JAVAC_CMD=%%f"
 if defined __JAVAC_CMD (
-    call :is_java11 "%__JAVAC_CMD%"
-    if not defined _IS_JAVA11 (
+    call :is_java_ok %__JDK_VERSION% "%__JAVAC_CMD%"
+    if defined _IS_JAVA_OK (
         for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
-        for %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpi"
+        for %%f in ("%__BIN_DIR%") do set "_JAVA%__JDK_VERSION%_HOME=%%~dpi"
     )
 )
-if defined JAVA_HOME (
-    set "_JAVA_HOME=%JAVA_HOME%"
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
-) else (
-    set _PATH=C:\opt
-    for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
-    if not defined _JAVA_HOME (
-        set "_PATH=%ProgramFiles%\Java"
-        for /f %%f in ('dir /ad /b "!_PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
-    )
-    if defined _JAVA_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory !_JAVA_HOME! 1>&2
-    )
-)
-if not exist "%_JAVA_HOME%\bin\javac.exe" (
-    echo %_ERROR_LABEL% javac executable not found ^(%_JAVA_HOME%^) 1>&2
-    set _EXITCODE=1
-    goto :eof
-)
-goto :eof
-
-@rem output parameter: _JAVA11_HOME
-:jdk11
-set __JDK_DISTRO=jdk-temurin-11
-set _JAVA11_HOME=
-
-set __JAVAC_CMD=
-for /f %%f in ('where javac.exe 2^>NUL') do set "__JAVAC_CMD=%%f"
-if defined __JAVAC_CMD (
-    call :is_java11 "%__JAVAC_CMD%"
-    if defined _IS_JAVA11 (
-        for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
-        for %%f in ("%__BIN_DIR%") do set "_JAVA11_HOME=%%~dpi"
-    )
-)
-if not defined _JAVA11_HOME if defined JAVA_HOME (
-    call :is_java11 "%JAVA_HOME%\bin\javac.exe"
-    if defined _IS_JAVA11 (
-        set "_JAVA11_HOME=%JAVA_HOME%"
+if not defined __JAVA_HOME if defined JAVA_HOME (
+    call :is_java_ok %__JDK_VERSION% "%JAVA_HOME%\bin\javac.exe"
+    if defined _IS_JAVA_OK (
+        set "__JAVA_HOME=%JAVA_HOME%"
         if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
     )
 )
-if not defined _JAVA11_HOME (
+if not defined __JAVA_HOME (
     set __PATH=C:\opt
-    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA11_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "__JAVA_HOME=!__PATH!\%%f"
 )
-if not defined _JAVA11_HOME (
+if not defined __JAVA_HOME (
     set "__PATH=%ProgramFiles%\Java"
-    for /f %%f in ('dir /ad /b "!__PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "_JAVA11_HOME=!__PATH!\%%f"
+    for /f %%f in ('dir /ad /b "!__PATH!\%__JDK_DISTRO%*" 2^>NUL') do set "__JAVA_HOME=!__PATH!\%%f"
 )
-if not exist "%_JAVA11_HOME%\bin\javac.exe" (
-    echo %_ERROR_LABEL% javac executable not found ^(%_JAVA11_HOME%^) 1>&2
+if not exist "%__JAVA_HOME%\bin\javac.exe" (
+    echo %_ERROR_LABEL% javac executable not found ^(%__JAVA_HOME%^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
+set "_JAVA%__JDK_VERSION%_HOME=%__JAVA_HOME%"
+if %_JAVA_VERSION%==%__JDK_VERSION% set "_JAVA_HOME=%__JAVA_HOME%"
 goto :eof
 
-@rem input parameter(s): %1 = javac file path
-@rem output parameter: _IS_JAVA11
-:is_java11
-set _IS_JAVA11=
+@rem input parameters: %1=expected version, %2=javac file path
+@rem output parameter: _IS_JAVA_OK
+:is_java_ok
+set __EXPECTED_VERSION=%~1
+set _IS_JAVA_OK=
 
-set __JAVAC_CMD=%~1
+set __JAVAC_CMD=%~2
 if not exist "%__JAVAC_CMD%" goto :eof
 
 set __JAVA_VERSION=
 for /f "tokens=1,*" %%i in ('%__JAVAC_CMD% -version 2^>^&1') do set __JAVA_VERSION=%%j
-if not "!__JAVA_VERSION:~0,2!"=="11" goto :eof
-set _IS_JAVA11=1
+if not "!__JAVA_VERSION:~0,2!"=="%__EXPECTED_VERSION%" goto :eof
+set _IS_JAVA_OK=1
 goto :eof
 
 @rem output parameters: _GRADLE_HOME, _GRADLE_PATH
@@ -485,6 +455,7 @@ if %__VERBOSE%==1 (
     if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
     if defined JAVA11_HOME echo    "JAVA11_HOME=%JAVA11_HOME%" 1>&2
+    if defined JAVA17_HOME echo    "JAVA17_HOME=%JAVA17_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     echo Path associations: 1>&2
@@ -502,6 +473,7 @@ endlocal & (
         if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
         if not defined JAVA11_HOME set "JAVA11_HOME=%_JAVA11_HOME%"
+        if not defined JAVA17_HOME set "JAVA17_HOME=%_JAVA17_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         set "PATH=%_JDK_PATH%%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"

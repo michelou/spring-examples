@@ -25,6 +25,8 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [Spring Blog](https://spring.io/blog) :
+  - [Preparing for Spring Boot 3.0](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0) by Phil Webb, May 2022.
 - [Introduction to Spring Framework for Java][blog_grogan] by Ross Grogan-Kaylor, January 2022.
 - [What is the Difference between Spring Boot and Spring?][blog_alibaba] by Alibaba Clouder, August 2021.
 - [Demystifying Spring Boot][blog_williams] by Jordan Williams, December 2020.
@@ -34,7 +36,7 @@
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 1)][blog_khandelwal_1] by Arpit Khandelwal, March 2019.
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
 
-## <span id="books">Books</span>
+## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
 - [Spring in Action][book_walls] (6<sup>th</sup> edition) by Craig Walls, January 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9757-1, 520 pages)</span>
@@ -56,7 +58,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

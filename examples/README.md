@@ -35,7 +35,7 @@ Hello John!
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v2.6.7)
+>  :: Spring Boot ::                (v2.7.2)
 > [...]
 > </pre>
 
@@ -46,7 +46,7 @@ Search for user process with name "demo-service"
 Stop server process "demo-service"
 </pre>
 
-## <span id="gs-rest-service">`gs-rest-service`<span>
+## <span id="gs-rest-service">`gs-rest-service`<span> [**&#x25B4;**](#top)
 
 Command [**`build.bat run`**](./gs-test-service/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
@@ -80,7 +80,7 @@ Execute request to server "gs-rest-service"
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v2.6.7)
+>  :: Spring Boot ::                (v2.7.2)
 > [...]
 > </pre>
 
@@ -109,7 +109,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
