@@ -90,7 +90,7 @@ call :add_jar "org.springframework.boot" "spring-boot-test-autoconfigure" "%__SP
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
 
-set __JUPITER_VERSION=5.8.2
+set __JUPITER_VERSION=5.9.0
 
 @rem https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
 call :add_jar "org.junit.jupiter" "junit-jupiter" "%__JUPITER_VERSION%"
@@ -105,7 +105,7 @@ call :add_jar "org.junit.jupiter" "junit-jupiter-engine" "%__JUPITER_VERSION%"
 call :add_jar "org.junit.jupiter" "junit-jupiter-params" "%__JUPITER_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.junit.platform/junit-platform-console-standalone
-call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.8.2"
+call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.0"
 
 @rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
 @rem contains "org.hamcrest.SelfDescribing"
@@ -113,7 +113,7 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.8.2"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "4.5.1"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "5.1.1"
 
 goto end
 

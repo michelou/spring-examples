@@ -13,6 +13,8 @@
 
 ## <span id="articles">Articles</span>
 
+- [What is Spring Framework? An Unorthodox Guide](https://www.marcobehler.com/guides/spring-framework) by Marco Behler, June 2022.
+- [Key Differences Between Spring vs Spring Boot vs Spring MVC](https://www.simplilearn.com/tutorials/spring-boot-tutorial/spring-vs-spring-boot) by [Simplilean](https://www.simplilearn.com), February 2022.
 - [Marco Behler](https://www.marcobehler.com/)'s blog posts : 
   - [Spring Security & OAuth 2.0 - In-Depth](https://www.marcobehler.com/guides/spring-security-oauth2), March 2021.
   - [Spring Security: Authentication and Authorization In-Depth](https://www.marcobehler.com/guides/spring-security), August 2020.
@@ -27,6 +29,7 @@
 
 - [Spring Blog](https://spring.io/blog) :
   - [Preparing for Spring Boot 3.0](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0) by Phil Webb, May 2022.
+- [Critical Vulnerability in Spring Core: Spring4Shell](https://sysdig.com/blog/cve-2022-22965-spring-core-spring4shell/) by Stefano Chierici, March 2022.
 - [Introduction to Spring Framework for Java][blog_grogan] by Ross Grogan-Kaylor, January 2022.
 - [What is the Difference between Spring Boot and Spring?][blog_alibaba] by Alibaba Clouder, August 2021.
 - [Demystifying Spring Boot][blog_williams] by Jordan Williams, December 2020.
@@ -58,7 +61,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

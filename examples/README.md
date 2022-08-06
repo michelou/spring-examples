@@ -48,7 +48,9 @@ Stop server process "demo-service"
 
 ## <span id="gs-rest-service">`gs-rest-service`<span> [**&#x25B4;**](#top)
 
-Command [**`build.bat run`**](./gs-test-service/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
+### Batch command
+
+Command [**`build run`**](./gs-test-service/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./gs-rest-service/build.bat">build</a> -verbose run</b>
@@ -65,6 +67,15 @@ Execute request to server "gs-rest-service"
     "content": "Hello, John!"
 }
 </pre>
+
+Command [**`build stop`**](./gs-rest-service/build.bat) terminates the server process :
+<pre style="font-size:80%;">
+<b>&gt; <a href="./demo/build.bat">build</a> -verbose stop</b>
+Search for user process with name "gs-rest-service"
+Stop server process "gs-rest-service"
+</pre>
+
+### Maven
 
 > **:mag_right:** We can also launch the Spring Boot server before executing the above HTTP requests :
 > <pre style="font-size:80%;">
@@ -84,12 +95,6 @@ Execute request to server "gs-rest-service"
 > [...]
 > </pre>
 
-Command [**`build stop`**](./gs-rest-service/build.bat) terminates the server process :
-<pre style="font-size:80%;">
-<b>&gt; <a href="./demo/build.bat">build</a> -verbose stop</b>
-Search for user process with name "gs-rest-service"
-Stop server process "gs-rest-service"
-</pre>
 
 <!--
 ## <span id="footnotes">Footnotes</span>
@@ -109,7 +114,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
