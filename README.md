@@ -32,8 +32,8 @@ For instance our development environment looks as follows (*August 2022*) <sup i
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.8.6\         <i>( 10 MB)</i>
-C:\opt\Git-2.37.1\                 <i>(289 MB)</i>
-C:\opt\gradle-7.5\                 <i>(122 MB)</i>
+C:\opt\Git-2.37.2\                 <i>(289 MB)</i>
+C:\opt\gradle-7.5.1\               <i>(122 MB)</i>
 C:\opt\jdk-temurin-11.0.16_8\      <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.4_8\       <i>(299 MB)</i>
 </pre>
@@ -72,19 +72,19 @@ Command [**`setenv`**](setenv.bat) is executed once to setup our development env
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 11.0.16, java 11.0.16,
-   gradle 7.5, mvn 3.8.6,
-   git 2.37.1.windows.1, diff 3.8, bash 4.4.23(1)-release
+   gradle 7.5.1, mvn 3.8.6,
+   git 2.37.2.windows.1, diff 3.8, bash 4.4.23(1)-release
 Tool paths:
    C:\opt\jdk-temurin-11.0.16_8\bin\javac.exe
    C:\opt\jdk-temurin-11.0.16_8\bin\java.exe
-   C:\opt\gradle-7.5\bin\gradle.bat
+   C:\opt\gradle-7.5.1\bin\gradle.bat
    C:\opt\apache-maven-3.8.6\bin\mvn.cmd
-   C:\opt\Git-2.37.1\bin\git.exe
-   C:\opt\Git-2.37.1\usr\bin\diff.exe
-   C:\opt\Git-2.37.1\bin\bash.exe
+   C:\opt\Git-2.37.2\bin\git.exe
+   C:\opt\Git-2.37.2\usr\bin\diff.exe
+   C:\opt\Git-2.37.2\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.37.1"
-   "GRADLE_HOME=C:\opt\gradle-7.5"
+   "GIT_HOME=C:\opt\Git-2.37.2"
+   "GRADLE_HOME=C:\opt\gradle-7.5.1"
    "JAVA_HOME=C:\opt\jdk-temurin-11.0.16_8"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.16_8"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.4_8"
@@ -92,7 +92,7 @@ Environment variables:
    "PYTHON_HOME=C:\opt\Python-3.10.5"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
-C:\opt\gradle-7.5\bin\gradle.bat
+C:\opt\gradle-7.5.1\bin\gradle.bat
 </pre>
 
 > **:mag_right:** Subcommand `help` prints the following help message :
@@ -157,11 +157,11 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.6-bin.zip</a>                          <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-7.5-bin.zip</a>                                <i>(110 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.6-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://gradle.org/install/">gradle-7.5.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.16_8.zip</a>   <i>( 99 MB)</i>
-<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.3_7.zip</a>     <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.37.1-64-bit.7z.exe</a>                    <i>( 41 MB)</i>
+<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.4_8.zip</a>    <i>(176 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.37.2-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -182,7 +182,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [deno_examples]: https://github.com/michelou/deno-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.2.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
