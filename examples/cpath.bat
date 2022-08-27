@@ -21,8 +21,8 @@ set _LIBS_CPATH=
 call :add_jar "commons-logging" "commons-logging" "1.2"
 
 set  __SPRING_VERSION=5.3.22
-@rem Spring Boot 2.7.2 depends on Spring Framework 5.3.22
-set __SPRING_BOOT_VERSION=2.7.2
+@rem Spring Boot 2.7.3 depends on Spring Framework 5.3.22
+set __SPRING_BOOT_VERSION=2.7.3
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
