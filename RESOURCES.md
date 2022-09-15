@@ -29,6 +29,9 @@
 
 - [Spring Blog](https://spring.io/blog) :
   - [Preparing for Spring Boot 3.0](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0) by Phil Webb, May 2022.
+- [Adservio Blog](https://www.adservio.fr) :
+  - [Advantages of Spring Boot](https://www.adservio.fr/post/advantages-of-spring-boot), April 2022.
+  - [Spring Performance Best Practices](https://www.adservio.fr/post/spring-performance-best-practices), February 2022.
 - [Critical Vulnerability in Spring Core: Spring4Shell](https://sysdig.com/blog/cve-2022-22965-spring-core-spring4shell/) by Stefano Chierici, March 2022.
 - [Introduction to Spring Framework for Java][blog_grogan] by Ross Grogan-Kaylor, January 2022.
 - [What is the Difference between Spring Boot and Spring?][blog_alibaba] by Alibaba Clouder, August 2021.
@@ -39,10 +42,11 @@
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 1)][blog_khandelwal_1] by Arpit Khandelwal, March 2019.
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
 
-## <span id="books">Books</span> [**&#x25B4;**](#top)
+## <span id="books">Books</span>[**&#x25B4;**](#top)
 
 - [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
 - [Spring in Action][book_walls] (6<sup>th</sup> edition) by Craig Walls, January 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9757-1, 520 pages)</span>
+- [Spring Start Here][book_spilca2] by Laurentiu Spilca, September 2021.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9869-1, 416 pages)</span>
 - [Spring Boot Up &amp; Running][book_heckler] by Mark Heckler, 2021.<br/><span style="font-size:80%;">(O'Reilly, ISBN 978-1-4920-7698-8, 330 pages)</span>
 - [Spring Security in Action][book_spilca] by Laurentiu Splica, October 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9773-1, 560 pages)</span>
 - [Beginning Spring 5][book_ottinger] by Joseph B. Ottinger and Andrew Lombardi, 2019.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-4485-2, 365 pages)</span>
@@ -51,6 +55,7 @@
 
 ## <span id="guides">Guides</span>
 
+- [What is Spring Framework? An Unorthodox Guide](https://www.marcobehler.com/guides/spring-framework), by Marco Behler, June 2022.
 - [Quarkus Guides](https://quarkus.io/guides/):
   - [Quarkus extension for Spring Cache API][guide_quarkus_cache], version 2.7.
   - [Quarkus extension for Spring Security API][guide_quarkus_security], version 2.7.
@@ -61,7 +66,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -87,6 +92,7 @@
 [book_ottinger]: https://link.springer.com/book/10.1007/978-1-4842-4486-9
 [book_varanasi]: https://link.springer.com/book/10.1007/978-1-4842-7477-4
 [book_spilca]: https://www.manning.com/books/spring-security-in-action
+[book_spilca2]: https://www.manning.com/books/spring-start-here
 [book_walls]: https://www.manning.com/books/spring-in-action-sixth-edition
 [guide_quarkus_cache]: https://quarkus.io/guides/spring-cache
 [guide_quarkus_security]: https://quarkus.io/guides/spring-security
