@@ -30,9 +30,12 @@ goto end
 @rem #########################################################################
 @rem ## Subroutines
 
+@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+@rem                    _CURL_CMD, _JAVA_CMD, _JAVAC_CMD, _MVN_CMD
 :env
 set _BASENAME=%~n0
 set "_ROOT_DIR=%~dp0"
+set _TIMER=0
 
 call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
@@ -45,17 +48,17 @@ set "_CLASSES_DIR=%_TARGET_DIR%\classes"
 set "_TEST_CLASSES_DIR=%_TARGET_DIR%\test-classes"
 
 if not exist "%JAVA_HOME%\bin\javac.exe" (
-     echo %_ERROR_LABEL% Java SDK installation not found 1>&2
-     set _EXITCODE=1
-     goto :eof
+    echo %_ERROR_LABEL% Java SDK installation not found 1>&2
+    set _EXITCODE=1
+    goto :eof
 )
 set "_JAVA_CMD=%JAVA_HOME%\bin\java.exe"
 set "_JAVAC_CMD=%JAVA_HOME%\bin\javac.exe"
 
 if not exist "%MAVEN_HOME%\bin\mvn.cmd" (
-     echo %_ERROR_LABEL% Maven installation not found 1>&2
-     set _EXITCODE=1
-     goto :eof
+    echo %_ERROR_LABEL% Maven installation not found 1>&2
+    set _EXITCODE=1
+    goto :eof
 )
 set "_MVN_CMD=%MAVEN_HOME%\bin\mvn.cmd"
 
@@ -166,6 +169,7 @@ if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options    : _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _COMMANDS=%_COMMANDS% 1>&2
     echo %_DEBUG_LABEL% Variables  : "GIT_HOME=%GIT_HOME%" 1>&2
+    echo %_DEBUG_LABEL% Variables  : "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
     if defined PYTHON_HOME echo %_DEBUG_LABEL% Variables  : "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : _SERVER_PROC_NAME=%_SERVER_PROC_NAME% 1>&2
@@ -263,8 +267,10 @@ goto :eof
 :stop
 @rem check if the server is up and running
 call :pid "%_SERVER_PROC_NAME%"
-if not defined _PID goto :eof
-
+if not defined _PID (
+    if %_VERBOSE%==1 echo No server process "%_SERVER_PROC_NAME%" found 1>&2
+    goto :eof
+)
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% taskkill /pi "%_PID%" 1>&2
 ) else if %_VERBOSE%==1 ( echo Stop server process "%_SERVER_PROC_NAME%" 1>&2
 )
@@ -277,7 +283,18 @@ goto :eof
 :run
 set __REQ=hello
 set __URL=http://localhost:8080/%__REQ%
-
+set __N_ATTEMPTS=0
+:run_ping
+if %__N_ATTEMPTS% LEQ 3 (
+    call "%_CURL_CMD%" --silent -IL "%__URL%" 1>NUL
+    if not !ERRORLEVEL!==0 (
+        set /a __N_ATTEMPTS+=1
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Connection attempt !__N_ATTEMPTS! 1>&2
+        @rem wait 10 seconds before next attempt
+        timeout /t 10 /nobreak 1>NUL
+        goto run_ping
+    )
+)
 if %_DEBUG%==1 ( set __CURL_OPTS=--get --verbose
 ) else ( set __CURL_OPTS=--get --silent
 )
@@ -366,7 +383,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCE
 )
 call "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Compilation of %__N_FILES% failed 1>&2
+    echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )

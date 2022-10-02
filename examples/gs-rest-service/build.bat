@@ -30,9 +30,12 @@ goto end
 @rem #########################################################################
 @rem ## Subroutines
 
+@rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
+@rem                    _CURL_CMD, _JAVA_CMD, _JAVAC_CMD, _MVN_CMD
 :env
 set _BASENAME=%~n0
 set "_ROOT_DIR=%~dp0"
+set _TIMER=0
 
 call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
@@ -44,8 +47,6 @@ set "_TARGET_DIR=%_ROOT_DIR%target"
 set "_CLASSES_DIR=%_TARGET_DIR%\classes"
 set "_TEST_CLASSES_DIR=%_TARGET_DIR%\test-classes"
 
-for %%i in ("%~dp0\.") do set _PROJECT_NAME=%%~ni
-
 if not exist "%JAVA_HOME%\bin\javac.exe" (
     echo %_ERROR_LABEL% Java SDK installation not found 1>&2
     set _EXITCODE=1
@@ -53,7 +54,6 @@ if not exist "%JAVA_HOME%\bin\javac.exe" (
 )
 set "_JAVA_CMD=%JAVA_HOME%\bin\java.exe"
 set "_JAVAC_CMD=%JAVA_HOME%\bin\javac.exe"
-set "_JAVADOC_CMD=%JAVA_HOME%\bin\javadoc.exe"
 
 if not exist "%MAVEN_HOME%\bin\mvn.cmd" (
     echo %_ERROR_LABEL% Maven installation not found 1>&2
@@ -122,7 +122,7 @@ set _STRONG_BG_BLUE=[104m
 goto :eof
 
 @rem input parameter: %*
-@rem output parameters: _CLEAN, _COMPILE, _RUN, _DEBUG, _TOOLSET, _VERBOSE
+@rem output parameters: _COMMANDS, _DEBUG, _TIMER, _VERBOSE
 :args
 set _COMMANDS=
 set _HELP=0
@@ -167,6 +167,7 @@ goto :args_loop
 set _STDOUT_REDIRECT=1^>NUL
 if %_DEBUG%==1 set _STDOUT_REDIRECT=1^>CON
 
+for %%i in ("%~dp0\.") do set _PROJECT_NAME=%%~ni
 set _SERVER_PROC_NAME=%_PROJECT_NAME%
 
 if %_DEBUG%==1 (
@@ -302,7 +303,6 @@ call :pid "%_SERVER_PROC_NAME%"
 if defined _PID goto :eof
 
 set __MVN_OPTS=
-
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% start "%_SERVER_PROC_NAME%" "%_MVN_CMD%" %__MVN_OPTS% spring-boot:run 1>&2
 ) else if %_VERBOSE%==1 ( echo Start server process "%_SERVER_PROC_NAME%" 1>&2
 )
@@ -332,38 +332,51 @@ if not %ERRORLEVEL%==0 (
 goto :eof
 
 :run
+set __REQ=greeting
+set __URL=http://localhost:8080/%__REQ%
+set __N_ATTEMPTS=0
+:run_ping
+if %__N_ATTEMPTS% LEQ 3 (
+    call "%_CURL_CMD%" --silent -IL "%__URL%" 1>NUL
+    if not !ERRORLEVEL!==0 (
+        set /a __N_ATTEMPTS+=1
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Connection attempt !__N_ATTEMPTS! 1>&2
+        @rem wait 10 seconds before next attempt
+        timeout /t 10 /nobreak 1>NUL
+        goto run_ping
+    )
+)
 if defined _PYTHON_CMD ( set __FORMAT_JSON=^| "%_PYTHON_CMD%" -m json.tool
 ) else ( set __FORMAT_JSON=
 )
 if %_DEBUG%==1 ( set __CURL_OPTS=--get --verbose
 ) else ( set __CURL_OPTS=--get --silent
 )
-set __URL=http://localhost:8080/greeting
-
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request to server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__REQ%" to server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" %__FORMAT_JSON%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request to server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__REQ%" to server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
 echo.
-set __URL2="http://localhost:8080/greeting?name=John"
+set "__REQ2=greeting?name=John"
+set "__URL2=http://localhost:8080/%__REQ2%"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request to server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__REQ2%" to server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" %__FORMAT_JSON%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request to server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__REQ2%" to server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
 goto :eof
 
-:run-browser
+:run_browser
 set __URL=http://localhost:8080/greeting
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% start "demo-client" "%__URL%" 1>&2
@@ -409,7 +422,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCE
 )
 call "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Compilation of %__N_FILES% failed 1>&2
+    echo %_ERROR_LABEL% Failed to compile %__N_FILES% to directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -433,7 +446,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVA_CMD%" %__TEST_JAVA_OPTS% %__LAUNCHE
 )
 call "%_JAVA_CMD%" %__TEST_JAVA_OPTS% %__LAUNCHER_MAIN% %__LAUNCHER_ARGS%
 if not !ERRORLEVEL!==0 (
-    echo %_ERROR_LABEL% Failed to run tests in directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+    echo %_ERROR_LABEL% Failed to run tests in directory "!_TEST_CLASSES_DIR:%_ROOT_DIR%\=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -454,7 +467,7 @@ goto :eof
 if %_TIMER%==1 (
     for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set __TIMER_END=%%i
     call :duration "%_TIMER_START%" "!__TIMER_END!"
-    echo Total elapsed time: !_DURATION! 1>&2
+    echo Total execution time: !_DURATION! 1>&2
 )
 if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2
 exit /b %_EXITCODE%
