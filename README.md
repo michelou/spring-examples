@@ -28,11 +28,11 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*October 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*November 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.8.6\         <i>( 10 MB)</i>
-C:\opt\Git-2.37.3\                 <i>(289 MB)</i>
+C:\opt\Git-2.38.1\                 <i>(317 MB)</i>
 C:\opt\gradle-7.5.1\               <i>(122 MB)</i>
 C:\opt\jdk-temurin-11.0.16_8\      <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.4_8\       <i>(299 MB)</i>
@@ -73,17 +73,17 @@ Command [**`setenv`**](setenv.bat) is executed once to setup our development env
 Tool versions:
    javac 11.0.16, java 11.0.16,
    gradle 7.5.1, mvn 3.8.6,
-   git 2.37.3.windows.1, diff 3.8, bash 4.4.23(1)-release
+   git 2.38.1.windows.1, diff 3.8, bash 4.4.23(1)-release
 Tool paths:
    C:\opt\jdk-temurin-11.0.16_8\bin\javac.exe
    C:\opt\jdk-temurin-11.0.16_8\bin\java.exe
    C:\opt\gradle-7.5.1\bin\gradle.bat
    C:\opt\apache-maven-3.8.6\bin\mvn.cmd
-   C:\opt\Git-2.37.3\bin\git.exe
-   C:\opt\Git-2.37.3\usr\bin\diff.exe
-   C:\opt\Git-2.37.3\bin\bash.exe
+   C:\opt\Git-2.38.1\bin\git.exe
+   C:\opt\Git-2.38.1\usr\bin\diff.exe
+   C:\opt\Git-2.38.1\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.37.3"
+   "GIT_HOME=C:\opt\Git-2.38.1"
    "GRADLE_HOME=C:\opt\gradle-7.5.1"
    "JAVA_HOME=C:\opt\jdk-temurin-11.0.16_8"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.16_8"
@@ -122,6 +122,9 @@ Spring Boot 2.6 and 2.7 depend on the Spring Framework 5.3 which has long-term s
 <th>Spring Boot</th>
 <th>Spring Framework</th></tr>
 <tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.5">2.7.5</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
+</tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.4">2.7.4</a></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
 </tr>
@@ -165,13 +168,13 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://gradle.org/install/">gradle-7.5.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.16_8.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.4_8.zip</a>    <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.37.3-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.38.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -187,7 +190,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.3.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.38.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples

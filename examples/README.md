@@ -35,7 +35,7 @@ Hello John!
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v2.7.4)
+>  :: Spring Boot ::                (v2.7.5)
 > [...]
 > </pre>
 
@@ -91,7 +91,7 @@ Stop server process "gs-rest-service"
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v2.7.4)
+>  :: Spring Boot ::                (v2.7.5)
 > [...]
 > </pre>
 
@@ -114,7 +114,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
