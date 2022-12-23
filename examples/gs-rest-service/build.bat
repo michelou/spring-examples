@@ -332,8 +332,17 @@ if not %ERRORLEVEL%==0 (
 goto :eof
 
 :run
-set __REQ=greeting
-set __URL=http://localhost:8080/%__REQ%
+set __SERVER_HOST=localhost
+set __SERVER_PORT=8080
+if exist "%_SOURCE_DIR%\main\resources\application.properties" (
+    for /f "delims=" %%i in (%_SOURCE_DIR%\main\resources\application.properties) do (
+        set "__LINE=%%i"
+        if "!__LINE:~0,12!"=="server.host=" ( set "__SERVER_HOST=!__LINE:~12!"
+        ) else if "!__LINE:~0,12!"=="server.port=" ( set "__SERVER_PORT=!__LINE:~12!"
+        )
+    )
+)
+set __URL=http://localhost:%__SERVER_PORT%/greeting
 set __N_ATTEMPTS=0
 :run_ping
 if %__N_ATTEMPTS% LEQ 3 (
@@ -353,24 +362,23 @@ if %_DEBUG%==1 ( set __CURL_OPTS=--get --verbose
 ) else ( set __CURL_OPTS=--get --silent
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__REQ%" to server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__URL%" to server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" %__FORMAT_JSON%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__REQ%" to server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__URL%" to server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
 echo.
-set "__REQ2=greeting?name=John"
-set "__URL2=http://localhost:8080/%__REQ2%"
+set "__URL2=http://localhost:%__SERVER_PORT%/greeting?name=John"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__REQ2%" to server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__URL2%" to server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" %__FORMAT_JSON%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__REQ2%" to server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__URL2%" to server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )

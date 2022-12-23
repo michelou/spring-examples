@@ -10,12 +10,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
      
-        <spring.version>2.7.5</spring.version>
+        <spring-boot.version>3.0.0</spring-boot.version>
         
         <maven.compiler.version>3.10.1</maven.compiler.version>
         <exec.maven.version>3.1.0</exec.maven.version>
@@ -26,8 +26,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-parent</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-boot.version}</version>
             <type>pom</type>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.6</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

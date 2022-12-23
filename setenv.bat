@@ -117,7 +117,8 @@ goto :eof
 set _HELP=0
 set _BASH=0
 set _VERBOSE=0
-set _JAVA_VERSION=11
+@rem Spring Boot 3.0 requires Java 17 while Spring Boot 2.7 requires Java 11
+set _JAVA_VERSION=17
 
 :args_loop
 set "__ARG=%~1"

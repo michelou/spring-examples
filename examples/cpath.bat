@@ -20,9 +20,10 @@ set _LIBS_CPATH=
 @rem https://mvnrepository.com/artifact/commons-logging/commons-logging
 call :add_jar "commons-logging" "commons-logging" "1.2"
 
-set  __SPRING_VERSION=5.3.23
-@rem Spring Boot 2.7.5 depends on Spring Framework 5.3.23
-set __SPRING_BOOT_VERSION=2.7.5
+set  __SPRING_VERSION=6.0.2
+@rem Spring Boot 2.7.6 depends on Spring Framework 5.3.24
+@rem Spring Boot 3.0.0 depends on Spring Framework 6.0.2
+set __SPRING_BOOT_VERSION=3.0.0
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -113,7 +114,7 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.1"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "5.2.0"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.0"
 
 goto end
 
@@ -147,10 +148,17 @@ if not exist "%__JAR_FILE%" (
             set _EXITCODE=1
             goto :eof
         )
-        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_MVN_CMD%" install:install-file -Dfile="!__JAR_FILE!" -DgroupId="%__GROUP_ID%" -DartifactId=%__ARTIFACT_ID% -Dversion=%__VERSION% -Dpackaging=jar 1>&2
-        ) else if %_VERBOSE%==1 ( echo Install Maven archive into directory "!__LOCAL_REPO:%USERPROFILE%=%%USERPROFILE%%!\%__SCALA_XML_PATH%" 1>&2
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_MVN_CMD%" %_MVN_OPTS% install:install-file -Dfile="!__JAR_FILE!" -DgroupId="%__GROUP_ID%" -DartifactId=%__ARTIFACT_ID% -Dversion=%__VERSION% -Dpackaging=jar 1>&2
+        ) else if %_VERBOSE%==1 ( echo Install Maven artifact into directory "!__LOCAL_REPO:%USERPROFILE%=%%USERPROFILE%%!\%__SCALA_XML_PATH%" 1>&2
         )
+        @rem see https://stackoverflow.com/questions/16727941/how-do-i-execute-cmd-commands-through-a-batch-file
         %_MVN_CMD% %_MVN_OPTS% install:install-file -Dfile="!__JAR_FILE!" -DgroupId="%__GROUP_ID%" -DartifactId=%__ARTIFACT_ID% -Dversion=%__VERSION% -Dpackaging=jar
+        if not !ERRORLEVEL!==0 (
+            echo %_ERROR_LABEL% Failed to install Maven artifact into directory "!__LOCAL_REPO:%USERPROFILE%=%%USERPROFILE%%!" ^(error:!ERRORLEVEL!^) 1>&2
+        )
+        for /f "usebackq delims=" %%f in (`where /r "%__LOCAL_REPO%\%__JAR_PATH%" %__JAR_NAME% 2^>NUL`) do (
+            set "__JAR_FILE=%%f"
+        )
     )
 )
 set "_LIBS_CPATH=%_LIBS_CPATH%%__JAR_FILE%;"
