@@ -20,10 +20,11 @@ set _LIBS_CPATH=
 @rem https://mvnrepository.com/artifact/commons-logging/commons-logging
 call :add_jar "commons-logging" "commons-logging" "1.2"
 
-set  __SPRING_VERSION=6.0.2
-@rem Spring Boot 2.7.6 depends on Spring Framework 5.3.24
-@rem Spring Boot 3.0.0 depends on Spring Framework 6.0.2
-set __SPRING_BOOT_VERSION=3.0.0
+@rem Spring Boot 2.7.6+ depend  on Spring Framework 5.3.24
+@rem Spring Boot 3.0.0  depends on Spring Framework 6.0.2
+@rem Spring Boot 3.0.1  depends on Spring Framework 6.0.3
+set __SPRING_VERSION=6.0.3
+set __SPRING_BOOT_VERSION=3.0.1
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"

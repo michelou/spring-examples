@@ -123,39 +123,52 @@ Spring Boot 3.0 depends on the Spring Framework 6.0 and requires <b>JDK 17</b> a
 <th>Spring Framework</th>
 <th>JDK</th></tr>
 <tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.0">3.0.0</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.1">3.0.1</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.1">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.3">6.0.3</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.3">relnotes</a>)</td>
+<td>17</td>
+</tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.0">3.0.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.0">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.2">6.0.2</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.2">relnotes</a>)</td>
 <td>17</td>
 </tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.6">2.7.6</a></td>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.7">2.7.7</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.7">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.24">5.3.24</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.24">relnotes</a>)</td>
 <td>8, 11, 17</td>
 </tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.5">2.7.5</a></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.6">2.7.6</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.6">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.24">5.3.24</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.24">relnotes</a>)</td>
 <td>8, 11, 17</td>
 </tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.4">2.7.4</a></td>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.5">2.7.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.5">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
 <td>8, 11, 17</td>
 </tr>
 <tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.0">2.7.0</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.4">2.7.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.4">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
+<td>8, 11, 17</td>
+</tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.0">2.7.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.0">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.20">5.3.20</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.20">relnotes</a>)</td>
 <td>8, 11, 17</td>
 </tr>
 <tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.7">2.6.7</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.7">2.6.7</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.7">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-framework-bom/5.3.19">5.3.19</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.19">relnotes</a>)</i></td>
 <td>8, 11, 17</td>
 </tr>
 <tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.6">2.6.6</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.6">2.6.6</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.6">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-framework-bom/5.3.18">5.3.18</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.18">relnotes</a>)</i></td>
 <td>8, 11, 17</td>
 </tr>
 <tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.5">2.6.5</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.5">2.6.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.5">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.17">5.3.17</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.17">relnotes</a>)</i></td>
 <td>8, 11, 17</td>
 </tr>
@@ -163,7 +176,7 @@ Spring Boot 3.0 depends on the Spring Framework 6.0 and requires <b>JDK 17</b> a
 <td><b>...</b></td><td><b>...</b></td><td><b>...</b></td>
 </tr>
 <tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.0">2.6.0</a></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.0">2.6.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.0">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.13">5.3.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.13">relnotes</a>)</i></td>
 <td>8, 11, 17</td>
 </tr>
