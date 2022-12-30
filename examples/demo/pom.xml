@@ -2,6 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+    <description>Demo project for Spring Boot</description>
+    <packaging>jar</packaging>
         
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -10,24 +17,9 @@
         <relativePath/> <!-- lookup parent from repository -->                                      
     </parent>
 
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
-
     <properties>
-
-        <!-- Maven plugin versions -->
+        <!-- see parent pom.xml -->
         <exec.maven.version>3.1.0</exec.maven.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <!-- Spring Boot 2.7.4 depends on Spring Framework 5.3.23 -->
-        <!-- Spring Boot 2.7.6 depends on Spring Framework 5.3.24 -->
-        <!-- Spring Boot 3.0.0 depends on Spring Framework 6.0.2 -->
-        <!-- Spring Boot 3.0.1 depends on Spring Framework 6.0.3 -->
-        <spring.version>6.0.3</spring.version>
-        <spring-boot.version>3.0.1</spring-boot.version>
     </properties>
 
     <dependencies>
@@ -35,13 +27,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring-boot.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -58,7 +48,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
             </plugin>
             <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
             <plugin>

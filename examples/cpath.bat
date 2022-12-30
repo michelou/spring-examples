@@ -24,7 +24,6 @@ call :add_jar "commons-logging" "commons-logging" "1.2"
 @rem Spring Boot 3.0.0  depends on Spring Framework 6.0.2
 @rem Spring Boot 3.0.1  depends on Spring Framework 6.0.3
 set __SPRING_VERSION=6.0.3
-set __SPRING_BOOT_VERSION=3.0.1
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -49,6 +48,8 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
+
+set __SPRING_BOOT_VERSION=3.0.1
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -89,8 +90,19 @@ call :add_jar "org.springframework.boot" "spring-boot-test" "%__SPRING_BOOT_VERS
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-test-autoconfigure
 call :add_jar "org.springframework.boot" "spring-boot-test-autoconfigure" "%__SPRING_BOOT_VERSION%"
 
+@rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+call :add_jar "org.springframework.boot" "spring-boot-starter-data-jpa" "%__SPRING_BOOT_VERSION%"
+
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
+
+set __SPRING_DATA_VERSION=3.0.0
+
+@rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
+call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+call :add_jar "org.springframework.data" "spring-data-jpa" "%__SPRING_DATA_VERSION%"
 
 set __JUPITER_VERSION=5.9.1
 
@@ -116,6 +128,15 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.1"
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
 call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.0"
+
+@rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+call :add_jar "org.slf4j" "slf4j-api" "2.0.6"
+
+@rem https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+call :add_jar "org.slf4j" "slf4j-simple" "2.0.6"
+
+@rem https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api
+call :add_jar "jakarta.persistence" "jakarta.persistence-api" "3.1.0"
 
 goto end
 

@@ -29,6 +29,13 @@
 
 - [Spring Blog](https://spring.io/blog) :
   - [Preparing for Spring Boot 3.0](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0) by Phil Webb, May 2022.
+- [Spring Framework Guru Blog](https://springframework.guru/blog/) :
+  - [JWT Token Authentication in Spring Boot Microservices](https://springframework.guru/jwt-authentication-in-spring-microservices-jwt-token/) by SFG, September 2022. 
+  - [Hikari Configuration for MySQL in Spring Boot 2](https://springframework.guru/hikari-configuration-for-mysql-in-spring-boot-2/) by [SFG](https://springframework.guru/author/sfg-contributor/), July 2022.
+  - [Bootstrapping Data in Spring Boot](https://springframework.guru/bootstrapping-data-in-spring-boot/) by SFG, September 2021.
+  - [Scheduling in Spring Boot](https://springframework.guru/bootstrapping-data-in-spring-boot/) by SFG, September 2021.
+  - [Spring Boot CLI](https://springframework.guru/spring-boot-cli/) by SFG, July 2021.
+  - [Internationalization with Spring Boot](https://springframework.guru/internationalization-with-spring-boot/) by SFG, July 2021.
 - [Adservio Blog](https://www.adservio.fr) :
   - [Advantages of Spring Boot](https://www.adservio.fr/post/advantages-of-spring-boot), April 2022.
   - [Spring Performance Best Practices](https://www.adservio.fr/post/spring-performance-best-practices), February 2022.
@@ -41,6 +48,7 @@
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 2)][blog_khandelwal_2] by Arpit Khandelwal, March 2019.
 - [Spring Boot 2.0 — Project Structure and Best Practices (Part 1)][blog_khandelwal_1] by Arpit Khandelwal, March 2019.
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
+- [Spring Data JPA Tutorial: Sorting](https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-six-sorting/) by Petri Kainulainen, April 2012.
 
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
