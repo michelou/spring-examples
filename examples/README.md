@@ -18,7 +18,7 @@ Search for user process with name "demo-service"
 Execute request "hello" to Spring Boot server "demo-service"
 Hello World!
 Execute request "hello?name=John" to Spring Boot server "demo-service"
-Hello John!
+Hello John!buil
 </pre>
 
 > **:mag_right:** We can also launch the Spring Boot server before executing the above HTTP requests :
@@ -114,7 +114,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

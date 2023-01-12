@@ -50,8 +50,10 @@
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
 - [Spring Data JPA Tutorial: Sorting](https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-six-sorting/) by Petri Kainulainen, April 2012.
 
-## <span id="books">Books</span> [**&#x25B4;**](#top)
+## <span id="books">Books</span>
 
+- [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
+- [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
 - [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
 - [Spring in Action][book_walls] (6<sup>th</sup> edition) by Craig Walls, January 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9757-1, 520 pages)</span>
 - [Spring Start Here][book_spilca2] by Laurentiu Spilca, September 2021.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9869-1, 416 pages)</span>
@@ -74,7 +76,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -99,8 +101,10 @@
 [book_leonard]: https://link.springer.com/book/10.1007/978-1-4842-5626-8
 [book_ottinger]: https://link.springer.com/book/10.1007/978-1-4842-4486-9
 [book_varanasi]: https://link.springer.com/book/10.1007/978-1-4842-7477-4
+[book_sacco]: https://link.springer.com/book/10.1007/978-1-4842-8764-4
 [book_spilca]: https://www.manning.com/books/spring-security-in-action
 [book_spilca2]: https://www.manning.com/books/spring-start-here
+[book_turnquist]: https://www.packtpub.com/product/learning-spring-boot-30-third-edition/9781803233307
 [book_walls]: https://www.manning.com/books/spring-in-action-sixth-edition
 [guide_quarkus_cache]: https://quarkus.io/guides/spring-cache
 [guide_quarkus_security]: https://quarkus.io/guides/spring-security
