@@ -50,7 +50,7 @@
 - [Spring Boot Actuator – Application Monitoring Made Easy][blog_kumar] by Susheel Kumar, July 2016.
 - [Spring Data JPA Tutorial: Sorting](https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-six-sorting/) by Petri Kainulainen, April 2012.
 
-## <span id="books">Books</span>
+## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
 - [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>

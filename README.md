@@ -28,10 +28,10 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*December 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*January 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.8.6\         <i>( 10 MB)</i>
+C:\opt\apache-maven-3.8.7\         <i>( 10 MB)</i>
 C:\opt\Git-2.39.0\                 <i>(314 MB)</i>
 C:\opt\gradle-7.6\                 <i>(122 MB)</i>
 C:\opt\jdk-temurin-11.0.17_8\      <i>(300 MB)</i>
@@ -72,13 +72,13 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.5, java 17.0.5,
-   gradle 7.6, mvn 3.8.6,
+   gradle 7.6, mvn 3.8.7,
    git 2.39.0.windows.1, diff 3.8, bash 4.4.23(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.5_8\bin\javac.exe
    C:\opt\jdk-temurin-17.0.5_8\bin\java.exe
    C:\opt\gradle-7.6\bin\gradle.bat
-   C:\opt\apache-maven-3.8.6\bin\mvn.cmd
+   C:\opt\apache-maven-3.8.7\bin\mvn.cmd
    C:\opt\Git-2.39.0\bin\git.exe
    C:\opt\Git-2.39.0\usr\bin\diff.exe
    C:\opt\Git-2.39.0\bin\bash.exe
@@ -88,7 +88,7 @@ Environment variables:
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.5_8"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.17_8"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.5_8"
-   "MAVEN_HOME=C:\opt\apache-maven-3.8.6"
+   "MAVEN_HOME=C:\opt\apache-maven-3.8.7"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
@@ -114,7 +114,7 @@ C:\opt\gradle-7.6\bin\gradle.bat
 <span id="footnote_01">[1]</span> ***Spring Boot vs. Spring Framework*** [↩](#anchor_01)
 
 <dl><dd>
-Spring Boot 3.0 depends on the Spring Framework 6.0 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
+Spring Boot 3.0 depends on Spring Framework 6.0 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
 </dd>
 <dd>
 <table>
@@ -193,7 +193,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.6-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.7-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-7.6-bin.zip</a>                                 <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.17_8.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.5_8.zip</a>    <i>(176 MB)</i>
@@ -203,7 +203,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -213,7 +213,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.8.6/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.8.7/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [flix_examples]: https://github.com/michelou/flix-examples
@@ -242,7 +242,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.8.6/release-notes.html
+[maven_relnotes]: https://maven.apache.org/docs/3.8.7/release-notes.html
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
