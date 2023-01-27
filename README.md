@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other trending topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other trending topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -32,7 +32,7 @@ For instance our development environment looks as follows (*January 2023*) <sup 
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.8.7\         <i>( 10 MB)</i>
-C:\opt\Git-2.39.0\                 <i>(314 MB)</i>
+C:\opt\Git-2.39.1\                 <i>(314 MB)</i>
 C:\opt\gradle-7.6\                 <i>(122 MB)</i>
 C:\opt\jdk-temurin-11.0.17_8\      <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.5_8\       <i>(299 MB)</i>
@@ -73,17 +73,17 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 Tool versions:
    javac 17.0.5, java 17.0.5,
    gradle 7.6, mvn 3.8.7,
-   git 2.39.0.windows.1, diff 3.8, bash 4.4.23(1)-release
+   git 2.39.1.windows.1, diff 3.8, bash 4.4.23(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.5_8\bin\javac.exe
    C:\opt\jdk-temurin-17.0.5_8\bin\java.exe
    C:\opt\gradle-7.6\bin\gradle.bat
    C:\opt\apache-maven-3.8.7\bin\mvn.cmd
-   C:\opt\Git-2.39.0\bin\git.exe
-   C:\opt\Git-2.39.0\usr\bin\diff.exe
-   C:\opt\Git-2.39.0\bin\bash.exe
+   C:\opt\Git-2.39.1\bin\git.exe
+   C:\opt\Git-2.39.1\usr\bin\diff.exe
+   C:\opt\Git-2.39.1\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.39.0"
+   "GIT_HOME=C:\opt\Git-2.39.1"
    "GRADLE_HOME=C:\opt\gradle-7.6"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.5_8"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.17_8"
@@ -197,7 +197,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://gradle.org/install/">gradle-7.6-bin.zip</a>                                 <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.17_8.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.5_8.zip</a>    <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.39.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -215,11 +215,12 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [apache_maven_history]: https://maven.apache.org/docs/history.html
 [apache_maven_relnotes]: https://maven.apache.org/docs/3.8.7/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
+[dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
@@ -229,6 +230,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [gradle_latest]: https://gradle.org/releases/
 [gradle_relnotes]: https://docs.gradle.org/7.6/release-notes.html
 [haskell_examples]: https://github.com/michelou/haskell-examples
+[kafka_examples]: https://github.com/michelou/kafka-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
 [linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
