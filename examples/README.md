@@ -1,6 +1,6 @@
 # <span id="top">Spring examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://spring.io/"><img style="border:0;" src="../docs/images/spring-icon.svg" width="100" alt="Spring project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://spring.io/" alt="Spring">Spring</a> code examples coming from various websites - mostly from the <a href="https://spring.io/" rel="external">Spring</a> project.
@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-## <span id="demo">`demo`</span>
+## <span id="demo">`demo` Example</span>
 
 Command [**`build.bat run`**](./demo/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
@@ -35,7 +35,7 @@ Hello John!buil
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v3.0.1)
+>  :: Spring Boot ::                (v3.0.2)
 > [...]
 > </pre>
 
@@ -46,7 +46,7 @@ Search for user process with name "demo-service"
 Stop server process "demo-service"
 </pre>
 
-## <span id="gs-rest-service">`gs-rest-service`<span> [**&#x25B4;**](#top)
+## <span id="gs-rest-service">`gs-rest-service` Example<span> [**&#x25B4;**](#top)
 
 ### Batch command
 
@@ -91,7 +91,7 @@ Stop server process "gs-rest-service"
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v3.0.1)
+>  :: Spring Boot ::                (v3.0.2)
 > [...]
 > </pre>
 
@@ -114,7 +114,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
