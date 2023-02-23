@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://spring.io/" rel="external"><img src="./docs/images/spring-icon.svg" width="100" alt="Spring project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spring.io/" rel="external">Spring</a> code examples coming from various websites and books.<br/>
-  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>/<a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a> for experimenting with <a href="https://spring.io/" rel="external">Spring</a> on a Windows machine.
+  It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://spring.io/" rel="external">Spring</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -17,7 +17,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8 or newer][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.39][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 7.6][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.0][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Spring Boot 3.0][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
@@ -32,9 +32,9 @@ For instance our development environment looks as follows (*February 2023*) <sup
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.0\         <i>( 10 MB)</i>
-C:\opt\Git-2.39.1\                 <i>(314 MB)</i>
-C:\opt\gradle-7.6\                 <i>(122 MB)</i>
-C:\opt\jdk-temurin-11.0.10_10\     <i>(300 MB)</i>
+C:\opt\Git-2.39.2\                 <i>(314 MB)</i>
+C:\opt\gradle-8.0.1\               <i>(122 MB)</i>
+C:\opt\jdk-temurin-11.0.18_10\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.6_10\      <i>(299 MB)</i>
 </pre>
 
@@ -72,19 +72,19 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.6, java 17.0.6,
-   gradle 7.6, mvn 3.9.0,
-   git 2.39.1.windows.1, diff 3.8, bash 4.4.23(1)-release
+   gradle 8.0.1, mvn 3.9.0,
+   git 2.39.2.windows.1, diff 3.8, bash 4.4.23(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.6_10\bin\javac.exe
    C:\opt\jdk-temurin-17.0.6_10\bin\java.exe
-   C:\opt\gradle-7.6\bin\gradle.bat
+   C:\opt\gradle-8.0.1\bin\gradle.bat
    C:\opt\apache-maven-3.9.0\bin\mvn.cmd
-   C:\opt\Git-2.39.1\bin\git.exe
-   C:\opt\Git-2.39.1\usr\bin\diff.exe
-   C:\opt\Git-2.39.1\bin\bash.exe
+   C:\opt\Git-2.39.2\bin\git.exe
+   C:\opt\Git-2.39.2\usr\bin\diff.exe
+   C:\opt\Git-2.39.2\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.39.1"
-   "GRADLE_HOME=C:\opt\gradle-7.6"
+   "GIT_HOME=C:\opt\Git-2.39.2"
+   "GRADLE_HOME=C:\opt\gradle-8.0.1"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.6_10"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.18_10"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.6_10"
@@ -92,7 +92,7 @@ Environment variables:
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
-C:\opt\gradle-7.6\bin\gradle.bat
+C:\opt\gradle-8.0.1\bin\gradle.bat
 </pre>
 
 > **:mag_right:** Subcommand `help` prints the following help message :
@@ -199,10 +199,10 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.0-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-7.6-bin.zip</a>                                 <i>(110 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.0.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -225,7 +225,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.2.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
@@ -233,7 +233,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
 [gradle_latest]: https://gradle.org/releases/
-[gradle_relnotes]: https://docs.gradle.org/7.6/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.0/release-notes.html
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kafka_examples]: https://github.com/michelou/kafka-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
