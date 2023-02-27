@@ -22,11 +22,16 @@
 - [Modernize and optimize Spring Boot applications][article_sundaresan] by Vijav Sundaresan et al., January 2020.
 - [Top 10 Spring Boot Interview Questions and Answers][article_bardhan] by Manoj Kumar Bardhan, June 2019.
 - [How Spring MVC Really Works][article_paraschiv] by Eugen Paraschiv, November 2017.
+- [Customizing Spring Security with Multiple Authentications][article_antony] by B. Antony and K. Chandrasekar, September 2016.
 - [Building Microservices with Spring Boot][article_woods2015] by Dan Woods, February 2015.
 - [Exploring Micro-Frameworks: Spring Boot][article_woods2014] by Dan Woods, March 2014.
 
 ## <span id="blogs">Blogs</span>
 
+- [JavaTechOnline](https://javatechonline.com/?s=Spring)
+  - [Spring Security LDAP Authentication Example](https://javatechonline.com/spring-security-ldap-authentication-example/), November 2022.
+  - [Spring Security Annotations With Examples](https://javatechonline.com/spring-security-annotations/), August 2022.
+  - [Spring Boot Batch Example CSV to MySQL Using JPA](https://javatechonline.com/spring-boot-batch-example-csv-to-mysql-using-jpa/), June 2022.
 - [Spring Blog](https://spring.io/blog) :
   - [Preparing for Spring Boot 3.0](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0) by Phil Webb, May 2022.
 - [Spring Framework Guru Blog](https://springframework.guru/blog/) :
@@ -41,6 +46,8 @@
   - [Spring Performance Best Practices](https://www.adservio.fr/post/spring-performance-best-practices), February 2022.
 - [Critical Vulnerability in Spring Core: Spring4Shell](https://sysdig.com/blog/cve-2022-22965-spring-core-spring4shell/) by Stefano Chierici, March 2022.
 - [Introduction to Spring Framework for Java][blog_grogan] by Ross Grogan-Kaylor, January 2022.
+- [Part II: How Elasticsearch Works Internally](https://buildatscale.tech/elasticsearch-internals/) by Rahul Mishra, Novembre 2021.
+- [Part I: How Elasticsearch Works Internally](https://buildatscale.tech/how-elasticsearch-works-internally/) by Rhul Mishra, November 2021.
 - [What is the Difference between Spring Boot and Spring?][blog_alibaba] by Alibaba Clouder, August 2021.
 - [Demystifying Spring Boot][blog_williams] by Jordan Williams, December 2020.
 - [Why Spring Boot Embedded Server is so important?][blog_suresh] by Suresh, October 2020.
@@ -82,6 +89,7 @@
 <!-- link refs -->
 
 [Apress/spring-rest-2e]: https://github.com/Apress/spring-rest-2e
+[article_antony]: https://tech.ebayinc.com/engineering/customizing-spring-security-with-multiple-authentications/
 [article_bardhan]: https://dzone.com/articles/top-10-spring-boot-interview-questions?utm_source=dzone&utm_medium=article&utm_campaign=spring-boot-content-cluster
 [article_paraschiv]: https://dzone.com/articles/how-spring-mvc-really-works
 [article_ranapurwala]: https://reflectoring.io/spring-boot-exception-handling/

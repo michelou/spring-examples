@@ -123,6 +123,11 @@ Spring Boot 3.0 depends on Spring Framework 6.0 and requires <b>JDK 17</b> as a 
 <th>Spring Framework</th>
 <th>JDK</th></tr>
 <tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.3">3.0.3</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.3">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.5">6.0.5</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.5">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
+<tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.2">3.0.2</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.2">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.4">6.0.4</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.4">relnotes</a>)</td>
 <td>17</td>
