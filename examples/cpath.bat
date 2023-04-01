@@ -28,7 +28,10 @@ call :add_jar "commons-logging" "commons-logging" "1.2"
 @rem Spring Boot 3.0.0  depends on Spring Framework 6.0.2
 @rem Spring Boot 3.0.1  depends on Spring Framework 6.0.3
 @rem Spring Boot 3.0.2  depends on Spring Framework 6.0.4
-set __SPRING_VERSION=6.0.4
+@rem Spring Boot 3.0.3  depends on Spring Framework 6.0.5
+@rem Spring Boot 3.0.4  depends on Spring Framework 6.0.6
+@rem Spring Boot 3.0.5  depends on Spring Framework 6.0.7
+set __SPRING_VERSION=6.0.7
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -54,7 +57,7 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
 
-set __SPRING_BOOT_VERSION=3.0.2
+set __SPRING_BOOT_VERSION=3.0.5
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -101,7 +104,7 @@ call :add_jar "org.springframework.boot" "spring-boot-starter-data-jpa" "%__SPRI
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
 
-set __SPRING_DATA_VERSION=3.0.2
+set __SPRING_DATA_VERSION=3.0.4
 
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
 call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_VERSION%"
@@ -124,7 +127,7 @@ call :add_jar "org.junit.jupiter" "junit-jupiter-engine" "%__JUPITER_VERSION%"
 call :add_jar "org.junit.jupiter" "junit-jupiter-params" "%__JUPITER_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.junit.platform/junit-platform-console-standalone
-call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.1"
+call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.2"
 
 @rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
 @rem contains "org.hamcrest.SelfDescribing"
@@ -134,11 +137,13 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.1"
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
 call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.0"
 
+set _SLF4J_VERSION=2.0.7
+
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-call :add_jar "org.slf4j" "slf4j-api" "2.0.6"
+call :add_jar "org.slf4j" "slf4j-api" "%_SLF4J_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-call :add_jar "org.slf4j" "slf4j-simple" "2.0.6"
+call :add_jar "org.slf4j" "slf4j-simple" "%_SLF4J_VERSION%"
 
 @rem https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api
 call :add_jar "jakarta.persistence" "jakarta.persistence-api" "3.1.0"
@@ -167,11 +172,11 @@ if not exist "%__JAR_FILE%" (
     set "__JAR_FILE=%_TEMP_DIR%\%__JAR_NAME%"
     if not exist "!__JAR_FILE!" (
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% powershell -c "Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2
-        ) else if %_VERBOSE%==1 ( echo Download file %__JAR_NAME% to directory "!_TEMP_DIR:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
+        ) else if %_VERBOSE%==1 ( echo Download file "%__JAR_NAME%" to directory "!_TEMP_DIR:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
         )
         powershell -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'"
         if not !ERRORLEVEL!==0 (
-            echo %_ERROR_LABEL% Failed to download file %__JAR_NAME% 1>&2
+            echo %_ERROR_LABEL% Failed to download file "%__JAR_NAME%" 1>&2
             set _EXITCODE=1
             goto :eof
         )

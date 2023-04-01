@@ -28,6 +28,9 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [Bellsoft Blog](https://bell-sw.com/blog/) :
+  - [Master Spring Boot 3 with GraalVM Native...](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dmitry Chuyko, February 2023.
+  - [Spring Boot with GraalVM Native Image](https://bell-sw.com/blog/spring-boot-with-graalvm-native-image-performance-compatibility-migration/) by Dmitry Chuyko, January 2023.
 - [JavaTechOnline](https://javatechonline.com/?s=Spring)
   - [Spring Security LDAP Authentication Example](https://javatechonline.com/spring-security-ldap-authentication-example/), November 2022.
   - [Spring Security Annotations With Examples](https://javatechonline.com/spring-security-annotations/), August 2022.
@@ -77,13 +80,26 @@
   - [Quarkus extension for Spring Cache API][guide_quarkus_cache], version 2.7.
   - [Quarkus extension for Spring Security API][guide_quarkus_security], version 2.7.
 
+## <span id="news">News</span>
+
+- [VMware Tanzu Blog](https://tanzu.vmware.com/blog) :
+  - [This Month in Spring - March 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2023) by Josh Long, March 2023.
+  - [This Month in Spring - February 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2023) by Josh Long, February 2023.
+  - [This Month in Spring - January 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-january-2023) by Josh Long, January 2023.
+  - [This Month in Spring - December 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-december-2022) by Josh Long, December 2022.
+  - [This Month in Spring - November 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2022) by Josh Long, November 2022.
+
 ## <span id="projects">Projects</span>
 
 - [mkyong/spring-boot][project_mkyong] (GitHub) - a list of [Spring Boot] tutorials.
 
+## <span id="tutorials">Tutorials</span>
+
+- [Spring Framework / Spring Boot](https://gayerie.dev/docs/spring/) by David Gayerie.
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

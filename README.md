@@ -16,7 +16,7 @@
 This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8 or newer][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.39][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
 - [Gradle 8.0][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Spring Boot 3.0][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
@@ -28,11 +28,11 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*March 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*April 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.0\         <i>( 10 MB)</i>
-C:\opt\Git-2.39.2\                 <i>(314 MB)</i>
+C:\opt\apache-maven-3.9.1\         <i>( 10 MB)</i>
+C:\opt\Git-2.40.0\                 <i>(314 MB)</i>
 C:\opt\gradle-8.0.2\               <i>(131 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.6_10\      <i>(299 MB)</i>
@@ -72,23 +72,23 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.6, java 17.0.6,
-   gradle 8.0.2, mvn 3.9.0,
-   git 2.39.2.windows.1, diff 3.8, bash 4.4.23(1)-release
+   gradle 8.0.2, mvn 3.9.1,
+   git 2.40.0.windows.1, diff 3.9, bash 4.4.23(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.6_10\bin\javac.exe
    C:\opt\jdk-temurin-17.0.6_10\bin\java.exe
    C:\opt\gradle-8.0.2\bin\gradle.bat
-   C:\opt\apache-maven-3.9.0\bin\mvn.cmd
-   C:\opt\Git-2.39.2\bin\git.exe
-   C:\opt\Git-2.39.2\usr\bin\diff.exe
-   C:\opt\Git-2.39.2\bin\bash.exe
+   C:\opt\apache-maven-3.9.1\bin\mvn.cmd
+   C:\opt\Git-2.40.0\bin\git.exe
+   C:\opt\Git-2.40.0\usr\bin\diff.exe
+   C:\opt\Git-2.40.0\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.39.2"
+   "GIT_HOME=C:\opt\Git-2.40.0"
    "GRADLE_HOME=C:\opt\gradle-8.0.2"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.6_10"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.18_10"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.6_10"
-   "MAVEN_HOME=C:\opt\apache-maven-3.9.0"
+   "MAVEN_HOME=C:\opt\apache-maven-3.9.1"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
@@ -122,6 +122,11 @@ Spring Boot 3.0 depends on Spring Framework 6.0 and requires <b>JDK 17</b> as a 
 <th>Spring Boot</th>
 <th>Spring Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.5">3.0.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.5">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.7">6.0.7</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.7">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.4">3.0.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.4">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.6">6.0.6</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.6">relnotes</a>)</td>
@@ -208,11 +213,11 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.0-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.0.2-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.40.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -228,14 +233,14 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.0/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.2.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
@@ -259,7 +264,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.0/release-notes.html
+[maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
