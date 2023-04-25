@@ -2,8 +2,8 @@
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;max-width:80px;">
-    <a href="https://spring.io/" rel="external"><img style="border:0;width:80px;" src="docs/images/spring-icon.svg" /></a>
+  <td style="border:0;padding:0 10px 0 0;max-width:90px;">
+    <a href="https://spring.io/" rel="external"><img style="border:0;width:90px;" src="docs/images/spring-icon.svg" alt="Spring project"/></a>
   </td>
   <td style="border:0;padding:0;vertical-align:text-top;">
     This document gathers <a href="https://spring.io/" rel="external">Spring</a> related resources that caught our attention.
@@ -28,9 +28,11 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [Enable HTTPS in Spring Boot with Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates), February 2023.
 - [Bellsoft Blog](https://bell-sw.com/blog/) :
   - [Master Spring Boot 3 with GraalVM Native...](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dmitry Chuyko, February 2023.
   - [Spring Boot with GraalVM Native Image](https://bell-sw.com/blog/spring-boot-with-graalvm-native-image-performance-compatibility-migration/) by Dmitry Chuyko, January 2023.
+- [Spring Boot — Power of Value Objects](https://dev.to/kirekov/spring-boot-power-of-value-objects-1oah) by Semyon Kirekov, December 2022.
 - [JavaTechOnline](https://javatechonline.com/?s=Spring)
   - [Spring Security LDAP Authentication Example](https://javatechonline.com/spring-security-ldap-authentication-example/), November 2022.
   - [Spring Security Annotations With Examples](https://javatechonline.com/spring-security-annotations/), August 2022.
@@ -63,9 +65,10 @@
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
+- [Spring Boot in Practice][book_musib] by Somnath Musib, June 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9881-3, 584 pages).</span>
 - [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
-- [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
 - [Spring in Action][book_walls] (6<sup>th</sup> edition) by Craig Walls, January 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9757-1, 520 pages)</span>
+- [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, Novembre 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
 - [Spring Start Here][book_spilca2] by Laurentiu Spilca, September 2021.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9869-1, 416 pages)</span>
 - [Spring Boot Up &amp; Running][book_heckler] by Mark Heckler, 2021.<br/><span style="font-size:80%;">(O'Reilly, ISBN 978-1-4920-7698-8, 330 pages)</span>
 - [Spring Security in Action][book_spilca] by Laurentiu Splica, October 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9773-1, 560 pages)</span>
@@ -80,14 +83,16 @@
   - [Quarkus extension for Spring Cache API][guide_quarkus_cache], version 2.7.
   - [Quarkus extension for Spring Security API][guide_quarkus_security], version 2.7.
 
-## <span id="news">News</span>
+## <span id="news">News</span> [**&#x25B4;**](#top)
 
-- [VMware Tanzu Blog](https://tanzu.vmware.com/blog) :
-  - [This Month in Spring - March 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2023) by Josh Long, March 2023.
-  - [This Month in Spring - February 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2023) by Josh Long, February 2023.
-  - [This Month in Spring - January 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-january-2023) by Josh Long, January 2023.
-  - [This Month in Spring - December 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-december-2022) by Josh Long, December 2022.
-  - [This Month in Spring - November 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2022) by Josh Long, November 2022.
+- Twittter &ndash; [SpringCentral](https://twitter.com/springcentral).
+- [VMware Tanzu Blog](https://tanzu.vmware.com/blog) by Josh Long :
+  - [This Month in Spring - April 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2023).
+  - [This Month in Spring - March 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2023).
+  - [This Month in Spring - February 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2023).
+  - [This Month in Spring - January 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-january-2023).
+  - [This Month in Spring - December 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-december-2022).
+  - [This Month in Spring - November 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2022).
 
 ## <span id="projects">Projects</span>
 
@@ -95,6 +100,7 @@
 
 ## <span id="tutorials">Tutorials</span>
 
+- [Data Flair](https://data-flair.training/) &ndash; [Spring Tutorials](https://data-flair.training/blogs/spring-tutorials-home/)
 - [Spring Framework / Spring Boot](https://gayerie.dev/docs/spring/) by David Gayerie.
 
 ***
@@ -123,12 +129,13 @@
 [book_cosmina]: https://link.springer.com/book/10.1007/978-1-4842-2808-1
 [book_heckler]: https://www.oreilly.com/library/view/spring-boot-up/9781492076971/
 [book_leonard]: https://link.springer.com/book/10.1007/978-1-4842-5626-8
+[book_musib]: https://www.manning.com/books/spring-boot-in-practice
 [book_ottinger]: https://link.springer.com/book/10.1007/978-1-4842-4486-9
-[book_varanasi]: https://link.springer.com/book/10.1007/978-1-4842-7477-4
 [book_sacco]: https://link.springer.com/book/10.1007/978-1-4842-8764-4
 [book_spilca]: https://www.manning.com/books/spring-security-in-action
 [book_spilca2]: https://www.manning.com/books/spring-start-here
 [book_turnquist]: https://www.packtpub.com/product/learning-spring-boot-30-third-edition/9781803233307
+[book_varanasi]: https://link.springer.com/book/10.1007/978-1-4842-7477-4
 [book_walls]: https://www.manning.com/books/spring-in-action-sixth-edition
 [guide_quarkus_cache]: https://quarkus.io/guides/spring-cache
 [guide_quarkus_security]: https://quarkus.io/guides/spring-security

@@ -193,7 +193,7 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-timer%__END%      display total elapsed time
+echo     %__BEG_O%-timer%__END%      display total execution time
 echo     %__BEG_O%-verbose%__END%    display progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
@@ -213,11 +213,12 @@ goto :eof
 :rmdir
 set "__DIR=%~1"
 if not exist "!__DIR!\" goto :eof
-if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "!__DIR!" 1>&2
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
 ) else if %_VERBOSE%==1 ( echo Delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
 )
-rmdir /s /q "!__DIR!"
+rmdir /s /q "%__DIR%"
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -231,6 +232,8 @@ set __FILTERS=/FI "SESSIONNAME eq Console" /FI "WINDOWTITLE eq %__PROC_NAME%*"
 
 set _IMAGE_NAME=
 set _PID=
+goto :eof
+
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% tasklist /NH %__FILTERS% 1>&2
 ) else if %_VERBOSE%==1 ( echo Search for user process with name "%__PROC_NAME%" 1>&2
 )
@@ -238,6 +241,7 @@ for /f "usebackq tokens=1,2,*" %%i in (`tasklist /NH %__FILTERS%`) do (
     set "_IMAGE_NAME=%%i"
     set "_PID=%%j"
 )
+echo 777777777777777777 _IMAGE_NAME=%_IMAGE_NAME%
 if "%_IMAGE_NAME:~0,11%"=="Information" (
     set _IMAGE_NAME=
     set _PID=
@@ -277,6 +281,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% taskkill /pi "%_PID%" 1>&2
 taskkill /pid "%_PID%" %_STDOUT_REDIRECT%
 if not %ERRORLEVEL%==0 (
     echo %_WARNING_LABEL% Failed to stop server process "%_SERVER_PROC_NAME%" 1>&2
+    @rem set _EXITCODE=1
 )
 goto :eof
 
@@ -338,6 +343,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% start "demo-client" "%__URL%" 1>&2
 )
 start "demo-client" "%__URL%"
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to open URL in default browser 1>&2
     set _EXITCODE=1
     goto :eof
 )

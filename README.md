@@ -2,7 +2,7 @@
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://spring.io/" rel="external"><img src="./docs/images/spring-icon.svg" width="100" alt="Spring project"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:90px;"><a href="https://spring.io/" rel="external"><img style="border:0;width:90px;" src="./docs/images/spring-icon.svg" alt="Spring project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spring.io/" rel="external">Spring</a> code examples coming from various websites and books.<br/>
   It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://spring.io/" rel="external">Spring</a> on a Windows machine.
   </td>
@@ -15,11 +15,13 @@
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
-- [Apache Maven 3.9][apache_maven] ([requires Java 8 or newer][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
+- [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 8.0][gradle_install] ([requires Java 8 or newer][gradle_compatibility]) ([*release notes*][gradle_relnotes])
-- [Spring Boot 3.0][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
+- [Gradle 8.1][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
+
+> **&#9755;** ***Maven packages***<br/>
+> We present the Maven package dependencies in document [**`PACKAGES.md`**](./PACKAGES.md).
 
 Optionally one may also install the following software:
 
@@ -28,14 +30,14 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*April 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*April 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.1\         <i>( 10 MB)</i>
-C:\opt\Git-2.40.0\                 <i>(314 MB)</i>
-C:\opt\gradle-8.0.2\               <i>(131 MB)</i>
-C:\opt\jdk-temurin-11.0.18_10\     <i>(300 MB)</i>
-C:\opt\jdk-temurin-17.0.6_10\      <i>(299 MB)</i>
+C:\opt\apache-maven-3.9.1\        <i>( 10 MB)</i>
+C:\opt\Git-2.40.0\                <i>(314 MB)</i>
+C:\opt\gradle-8.1.1\              <i>(131 MB)</i>
+C:\opt\jdk-temurin-11.0.19_7\     <i>(300 MB)</i>
+C:\opt\jdk-temurin-17.0.7_7\      <i>(299 MB)</i>
 </pre>
 
 
@@ -48,6 +50,7 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 docs\
 examples\{<a href="examples/README.md">README.md</a>, <a href="examples/demo/">demo</a>, <a href="examples/gs-rest-service/">gs-rest-service</a>, ..}
+<a href="PACKAGES.md">PACKAGES.md</a>
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -57,6 +60,7 @@ where
 
 - directory [**`docs\`**](docs/) contains [Spring] related documents.
 - directory [**`examples\`**](examples/) contains [Spring] code examples (see file [**`examples\README.md`**](examples/README.md)).
+- file [**`PACKAGES.md`**](PACKAGES.md) presents the [Maven packages][maven_repository] our projects depend on.
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
 - file [**`setenv.bat`**](setenv.bat) is the batch command for setting up our environment.
@@ -64,35 +68,35 @@ where
 
 ## <span id="commands">Batch/Bash commands</span>
 
-### **`setenv.bat`**
+### **`setenv.bat`** <sup id="anchor_02">[2](#footnote_02)</sup>
 
 Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`gradle.bat`**][gradle_cli] and [**`git.exe`**][git_cli] directly available from the command prompt.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   javac 17.0.6, java 17.0.6,
-   gradle 8.0.2, mvn 3.9.1,
-   git 2.40.0.windows.1, diff 3.9, bash 4.4.23(1)-release
+   javac 17.0.7, java 17.0.7,
+   gradle 8.1.1, mvn 3.9.1,
+   git 2.40.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 Tool paths:
-   C:\opt\jdk-temurin-17.0.6_10\bin\javac.exe
-   C:\opt\jdk-temurin-17.0.6_10\bin\java.exe
-   C:\opt\gradle-8.0.2\bin\gradle.bat
+   C:\opt\jdk-temurin-17.0.7_7\bin\javac.exe
+   C:\opt\jdk-temurin-17.0.7_7\bin\java.exe
+   C:\opt\gradle-8.1.1\bin\gradle.bat
    C:\opt\apache-maven-3.9.1\bin\mvn.cmd
    C:\opt\Git-2.40.0\bin\git.exe
    C:\opt\Git-2.40.0\usr\bin\diff.exe
    C:\opt\Git-2.40.0\bin\bash.exe
 Environment variables:
    "GIT_HOME=C:\opt\Git-2.40.0"
-   "GRADLE_HOME=C:\opt\gradle-8.0.2"
-   "JAVA_HOME=C:\opt\jdk-temurin-17.0.6_10"
-   "JAVA11_HOME=C:\opt\jdk-temurin-11.0.18_10"
-   "JAVA17_HOME=C:\opt\jdk-temurin-17.0.6_10"
+   "GRADLE_HOME=C:\opt\gradle-8.1.1"
+   "JAVA_HOME=C:\opt\jdk-temurin-17.0.7_7"
+   "JAVA11_HOME=C:\opt\jdk-temurin-11.0.19_7"
+   "JAVA17_HOME=C:\opt\jdk-temurin-17.0.7_7"
    "MAVEN_HOME=C:\opt\apache-maven-3.9.1"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
-C:\opt\gradle-8.0.2\bin\gradle.bat
+C:\opt\gradle-8.1.1\bin\gradle.bat
 </pre>
 
 > **:mag_right:** Subcommand `help` prints the following help message :
@@ -111,102 +115,7 @@ C:\opt\gradle-8.0.2\bin\gradle.bat
 
 ## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
-<span id="footnote_01">[1]</span> ***Spring Boot vs. Spring Framework*** [↩](#anchor_01)
-
-<dl><dd>
-Spring Boot 3.0 depends on Spring Framework 6.0 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
-</dd>
-<dd>
-<table>
-<tr>
-<th>Spring Boot</th>
-<th>Spring Framework</th>
-<th>JDK</th></tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.5">3.0.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.5">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.7">6.0.7</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.7">relnotes</a>)</td>
-<td>17+ (21)</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.4">3.0.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.4">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.6">6.0.6</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.6">relnotes</a>)</td>
-<td>17+ (21)</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.3">3.0.3</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.3">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.5">6.0.5</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.5">relnotes</a>)</td>
-<td>17+ (21)</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.2">3.0.2</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.2">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.4">6.0.4</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.4">relnotes</a>)</td>
-<td>17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.1">3.0.1</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.1">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.3">6.0.3</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.3">relnotes</a>)</td>
-<td>17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.0">3.0.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.0">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.2">6.0.2</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.2">relnotes</a>)</td>
-<td>17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.7">2.7.7</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.7">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.24">5.3.24</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.24">relnotes</a>)</td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.6">2.7.6</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.6">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.24">5.3.24</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.24">relnotes</a>)</td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.5">2.7.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.5">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.4">2.7.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.4">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.23">5.3.23</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23">relnotes</a>)</td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.0">2.7.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.0">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.20">5.3.20</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.20">relnotes</a>)</td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.7">2.6.7</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.7">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-framework-bom/5.3.19">5.3.19</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.19">relnotes</a>)</i></td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.6.6">2.6.6</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.6">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-framework-bom/5.3.18">5.3.18</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.18">relnotes</a>)</i></td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.5">2.6.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.5">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.17">5.3.17</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.17">relnotes</a>)</i></td>
-<td>8, 11, 17</td>
-</tr>
-<tr>
-<td><b>...</b></td><td><b>...</b></td><td><b>...</b></td>
-</tr>
-<tr>
-<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot/2.6.0">2.6.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.0">relnotes</a>)</i></td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.13">5.3.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.13">relnotes</a>)</i></td>
-<td>8, 11, 17</td>
-</tr>
-</table>
-</dd>
-<dd>
-<b>Note:</b> Spring Boot 1.0 was released in 2014 and Spring Framework 1.0 was released in 2003.
-</dd></dl>
-
-<span id="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_02)
+<span id="footnote_01">[1]</span> ***Downloads*** [↩](#anchor_01)
 
 <dl><dd>
 In our case we downloaded the following installation files (<a href="#proj_deps">see section 1</a>):
@@ -214,16 +123,37 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.0.2-bin.zip</a>                               <i>(110 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>( 99 MB)</i>
-<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(176 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.1.1-bin.zip</a>                               <i>(110 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>( 99 MB)</i>
+<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(176 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.40.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
+<span id="footnote_02">[2]</span> **`setenv.bat` *usage*** [↩](#anchor_02)
+
+<dl><dd>
+<a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
+</dd>
+<dd>It is similar to the setup scripts described on the page <a href="https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell" rel="external">"Visual Studio Developer Command Prompt and Developer PowerShell"</a> of the <a href="https://learn.microsoft.com/en-us/visualstudio/windows" rel="external">Visual Studio</a> online documentation.
+</dd>
+<dd>
+For instance we can quickly check that the two scripts <code><b>Launch-VsDevShell.ps1</b></code> and <code><b>VsDevCmd.bat</b></code> are indeed available in our Visual Studio 2019 installation :
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where" rel="external">where</a> /r "C:\Program Files (x86)\Microsoft Visual Studio" *vsdev*</b>
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Launch-VsDevShell.ps1
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsdevcmd\core\vsdevcmd_end.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsdevcmd\core\vsdevcmd_start.bat
+</pre>
+</dd>
+<dd>
+Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+</dd></dl>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -265,13 +195,12 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
 [maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
+[maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [spark_examples]: https://github.com/michelou/spark-examples
 [spring]: https://spring.io/
-[spring_boot_downloads]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
-[spring_boot_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
 [temurin_openjdk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-October/009368.html
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
