@@ -31,7 +31,8 @@ call :add_jar "commons-logging" "commons-logging" "1.2"
 @rem Spring Boot 3.0.3  depends on Spring Framework 6.0.5
 @rem Spring Boot 3.0.4  depends on Spring Framework 6.0.6
 @rem Spring Boot 3.0.5  depends on Spring Framework 6.0.7
-set __SPRING_VERSION=6.0.7
+@rem Spring Boot 3.0.6  depends on Spring Framework 6.0.8
+set __SPRING_VERSION=6.0.8
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -57,7 +58,7 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
 
-set __SPRING_BOOT_VERSION=3.0.5
+set __SPRING_BOOT_VERSION=3.0.6
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -104,7 +105,7 @@ call :add_jar "org.springframework.boot" "spring-boot-starter-data-jpa" "%__SPRI
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
 
-set __SPRING_DATA_VERSION=3.0.4
+set __SPRING_DATA_VERSION=3.0.5
 
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
 call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_VERSION%"
