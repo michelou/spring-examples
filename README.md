@@ -30,11 +30,11 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*April 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*June 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.1\        <i>( 10 MB)</i>
-C:\opt\Git-2.40.0\                <i>(314 MB)</i>
+C:\opt\apache-maven-3.9.2\        <i>( 10 MB)</i>
+C:\opt\Git-2.40.1\                <i>(314 MB)</i>
 C:\opt\gradle-8.1.1\              <i>(131 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.7_7\      <i>(299 MB)</i>
@@ -76,23 +76,23 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.7, java 17.0.7,
-   gradle 8.1.1, mvn 3.9.1,
-   git 2.40.0.windows.1, diff 3.9, bash 5.2.15(1)-release
+   gradle 8.1.1, mvn 3.9.2,
+   git 2.40.1.windows.1, diff 3.9, bash 5.2.15(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.7_7\bin\javac.exe
    C:\opt\jdk-temurin-17.0.7_7\bin\java.exe
    C:\opt\gradle-8.1.1\bin\gradle.bat
-   C:\opt\apache-maven-3.9.1\bin\mvn.cmd
-   C:\opt\Git-2.40.0\bin\git.exe
-   C:\opt\Git-2.40.0\usr\bin\diff.exe
-   C:\opt\Git-2.40.0\bin\bash.exe
+   C:\opt\apache-maven-3.9.2\bin\mvn.cmd
+   C:\opt\Git-2.40.1\bin\git.exe
+   C:\opt\Git-2.40.1\usr\bin\diff.exe
+   C:\opt\Git-2.40.1\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.40.0"
+   "GIT_HOME=C:\opt\Git-2.40.1"
    "GRADLE_HOME=C:\opt\gradle-8.1.1"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.7_7"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.19_7"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.7_7"
-   "MAVEN_HOME=C:\opt\apache-maven-3.9.1"
+   "MAVEN_HOME=C:\opt\apache-maven-3.9.2"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
@@ -122,11 +122,11 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.2-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.1.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.40.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.40.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -153,7 +153,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -163,14 +163,14 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.2/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.1.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
@@ -194,7 +194,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
+[maven_relnotes]: https://maven.apache.org/docs/3.9.2/release-notes.html
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [rust_examples]: https://github.com/michelou/rust-examples
