@@ -25,7 +25,7 @@ Depending on the build tool the above packages are stored locally in two differe
 <span id="footnote_01">[1]</span> ***Spring Boot vs. Spring Framework*** [↩](#anchor_01)
 
 <dl><dd>
-Spring Boot 3.0 depends on Spring Framework 6.0 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
+Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
 </dd>
 <dd>
 <table>

@@ -16,7 +16,7 @@
 This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.41][git_downloads] ([*release notes*][git_relnotes])
 - [Gradle 8.1][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
@@ -34,7 +34,7 @@ For instance our development environment looks as follows (*June 2023*) <sup id=
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.2\        <i>( 10 MB)</i>
-C:\opt\Git-2.40.1\                <i>(314 MB)</i>
+C:\opt\Git-2.41.0\                <i>(314 MB)</i>
 C:\opt\gradle-8.1.1\              <i>(131 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.7_7\      <i>(299 MB)</i>
@@ -77,17 +77,17 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 Tool versions:
    javac 17.0.7, java 17.0.7,
    gradle 8.1.1, mvn 3.9.2,
-   git 2.40.1.windows.1, diff 3.9, bash 5.2.15(1)-release
+   git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.7_7\bin\javac.exe
    C:\opt\jdk-temurin-17.0.7_7\bin\java.exe
    C:\opt\gradle-8.1.1\bin\gradle.bat
    C:\opt\apache-maven-3.9.2\bin\mvn.cmd
-   C:\opt\Git-2.40.1\bin\git.exe
-   C:\opt\Git-2.40.1\usr\bin\diff.exe
-   C:\opt\Git-2.40.1\bin\bash.exe
+   C:\opt\Git-2.41.0\bin\git.exe
+   C:\opt\Git-2.41.0\usr\bin\diff.exe
+   C:\opt\Git-2.41.0\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.40.1"
+   "GIT_HOME=C:\opt\Git-2.41.0"
    "GRADLE_HOME=C:\opt\gradle-8.1.1"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.7_7"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.19_7"
@@ -95,8 +95,10 @@ Environment variables:
    "MAVEN_HOME=C:\opt\apache-maven-3.9.2"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn</b>
 C:\opt\gradle-8.1.1\bin\gradle.bat
+C:\opt\apache-maven-3.9.2\bin\mvn
+C:\opt\apache-maven-3.9.2\bin\mvn.cmd
 </pre>
 
 > **:mag_right:** Subcommand `help` prints the following help message :
@@ -126,7 +128,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://gradle.org/install/">gradle-8.1.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(176 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.40.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
 
@@ -170,7 +172,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
