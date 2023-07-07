@@ -87,6 +87,8 @@
 
 - Twittter &ndash; [SpringCentral](https://twitter.com/springcentral).
 - [VMware Tanzu Blog](https://tanzu.vmware.com/blog) by Josh Long :
+  - [This Month in Spring - June 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-june-2023).
+  - [This Month in Spring - May 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-may-2023).
   - [This Month in Spring - April 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2023).
   - [This Month in Spring - March 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2023).
   - [This Month in Spring - February 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2023).
@@ -105,7 +107,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
