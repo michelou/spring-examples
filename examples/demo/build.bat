@@ -232,8 +232,6 @@ set __FILTERS=/FI "SESSIONNAME eq Console" /FI "WINDOWTITLE eq %__PROC_NAME%*"
 
 set _IMAGE_NAME=
 set _PID=
-goto :eof
-
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% tasklist /NH %__FILTERS% 1>&2
 ) else if %_VERBOSE%==1 ( echo Search for user process with name "%__PROC_NAME%" 1>&2
 )
@@ -241,7 +239,6 @@ for /f "usebackq tokens=1,2,*" %%i in (`tasklist /NH %__FILTERS%`) do (
     set "_IMAGE_NAME=%%i"
     set "_PID=%%j"
 )
-echo 777777777777777777 _IMAGE_NAME=%_IMAGE_NAME%
 if "%_IMAGE_NAME:~0,11%"=="Information" (
     set _IMAGE_NAME=
     set _PID=
@@ -296,7 +293,8 @@ if exist "%_SOURCE_DIR%\main\resources\application.properties" (
         )
     )
 )
-set __URL=http://%__SERVER_HOST%:%__SERVER_PORT%/hello
+set __REQ=hello
+set __URL=http://%__SERVER_HOST%:%__SERVER_PORT%/%__REQ%
 set __N_ATTEMPTS=0
 :run_ping
 if %__N_ATTEMPTS% LEQ 3 (
@@ -313,23 +311,24 @@ if %_DEBUG%==1 ( set __CURL_OPTS=--get --verbose
 ) else ( set __CURL_OPTS=--get --silent
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__URL%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__REQ%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__URL%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__REQ%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
 echo.
-set "__URL2=http://%__SERVER_HOST%:%__SERVER_PORT%/hello?name=John"
+set "__REQ2=hello?name=John"
+set "__URL2=http://%__SERVER_HOST%:%__SERVER_PORT%/%__REQ2%"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__URL2%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__REQ2%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__URL2%" to Spring boot server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__REQ2%" to Spring boot server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )

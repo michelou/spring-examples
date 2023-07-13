@@ -64,6 +64,7 @@
 
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
+- [Pro Spring 6][book_cosmina_6] by Iuliana Cosmina et al., 2023<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8639-5, 949 pages)</span>
 - [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
 - [Spring Boot in Practice][book_musib] by Somnath Musib, June 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9881-3, 584 pages).</span>
 - [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
@@ -74,7 +75,7 @@
 - [Spring Security in Action][book_spilca] by Laurentiu Splica, October 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9773-1, 560 pages)</span>
 - [Beginning Spring 5][book_ottinger] by Joseph B. Ottinger and Andrew Lombardi, 2019.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-4485-2, 365 pages)</span>
 - [Spring Boot Persistance Best Practices][book_leonard] by Anghel Leonard, 2018.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-5625-1, 1041 pages)<br/>GitHub: <a href="https://github.com/Apress/spring-boot-persistence-best-practices"><code>Apress/spring-boot-persistence-best-practices</code></a></span>
-- [Pro Spring 5][book_cosmina] by Iuliana Cosmina et al., 2017.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-2807-4, 866 pages)<br/>GitHub: <a href="https://github.com/Apress/pro-spring-5"><code>Apress/pro-spring-5</code></a></span>
+- [Pro Spring 5][book_cosmina_5] by Iuliana Cosmina et al., 2017.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-2807-4, 866 pages)<br/>GitHub: <a href="https://github.com/Apress/pro-spring-5"><code>Apress/pro-spring-5</code></a></span>
 
 ## <span id="guides">Guides</span>
 
@@ -128,7 +129,8 @@
 [blog_kumar]: https://blogs.perficient.com/2016/07/16/spring-boot-actuator-application-monitoring-made-easy/
 [blog_suresh]: https://suresh-stalin.medium.com/why-embedded-server-is-so-important-a4952491ac78
 [blog_williams]: https://betterprogramming.pub/demystifying-spring-boot-245e71feffc0
-[book_cosmina]: https://link.springer.com/book/10.1007/978-1-4842-2808-1
+[book_cosmina_5]: https://link.springer.com/book/10.1007/978-1-4842-2808-1
+[book_cosmina_6]: https://link.springer.com/book/10.1007/978-1-4842-8640-1
 [book_heckler]: https://www.oreilly.com/library/view/spring-boot-up/9781492076971/
 [book_leonard]: https://link.springer.com/book/10.1007/978-1-4842-5626-8
 [book_musib]: https://www.manning.com/books/spring-boot-in-practice

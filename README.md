@@ -35,7 +35,7 @@ For instance our development environment looks as follows (*July 2023*) <sup id=
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.3\        <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\                <i>(314 MB)</i>
-C:\opt\gradle-8.2\                <i>(131 MB)</i>
+C:\opt\gradle-8.2.1\              <i>(135 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.7_7\      <i>(299 MB)</i>
 </pre>
@@ -76,19 +76,19 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.7, java 17.0.7,
-   gradle 8.2, mvn 3.9.3,
+   gradle 8.2.1, mvn 3.9.3,
    git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.7_7\bin\javac.exe
    C:\opt\jdk-temurin-17.0.7_7\bin\java.exe
-   C:\opt\gradle-8.2\bin\gradle.bat
+   C:\opt\gradle-8.2.1\bin\gradle.bat
    C:\opt\apache-maven-3.9.3\bin\mvn.cmd
    C:\opt\Git-2.41.0\bin\git.exe
    C:\opt\Git-2.41.0\usr\bin\diff.exe
    C:\opt\Git-2.41.0\bin\bash.exe
 Environment variables:
    "GIT_HOME=C:\opt\Git-2.41.0"
-   "GRADLE_HOME=C:\opt\gradle-8.2"
+   "GRADLE_HOME=C:\opt\gradle-8.2.1"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.7_7"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.19_7"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.7_7"
@@ -96,7 +96,7 @@ Environment variables:
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn</b>
-C:\opt\gradle-8.2\bin\gradle.bat
+C:\opt\gradle-8.2.1\bin\gradle.bat
 C:\opt\apache-maven-3.9.3\bin\mvn
 C:\opt\apache-maven-3.9.3\bin\mvn.cmd
 </pre>
@@ -125,7 +125,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.3-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.2-bin.zip</a>                                 <i>(110 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(176 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
