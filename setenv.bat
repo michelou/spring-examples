@@ -34,6 +34,9 @@ if not %_EXITCODE%==0 goto end
 call :jdk 17
 if not %_EXITCODE%==0 goto end
 
+call :jdk 20
+if not %_EXITCODE%==0 goto end
+
 call :gradle
 if not %_EXITCODE%==0  goto end
 
@@ -58,7 +61,6 @@ goto end
 @rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
-set _DRIVE_NAME=G
 set "_ROOT_DIR=%~dp0"
 
 call :env_colors
@@ -147,46 +149,67 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto args_loop
 :args_done
-call :subst %_DRIVE_NAME% "%_ROOT_DIR%"
+call :drive_name "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
 goto :eof
 
-@rem input parameter(s): %1: drive letter, %2: path to be substituted
-:subst
-set __DRIVE_NAME=%~1
-set "__GIVEN_PATH=%~2"
+@rem input parameter: %1: path to be substituted
+@rem output parameter: _DRIVE_NAME (2 characters: letter + ':')
+:drive_name
+set "__GIVEN_PATH=%~1"
 
-if not "%__DRIVE_NAME:~-1%"==":" set __DRIVE_NAME=%__DRIVE_NAME%:
-if /i "%__DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
-
-if "%__GIVEN_PATH:~-1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
-if not exist "%__GIVEN_PATH%" (
-    echo %_ERROR_LABEL% Provided path does not exist ^(%__GIVEN_PATH%^) 1>&2
+@rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
+set __LETTERS=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
+for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
+    set "__LETTERS=!__LETTERS:%%i=!"
+)
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __LETTERS=%__LETTERS% ^(WMIC^) 1>&2
+if not defined __LETTERS (
+    echo %_ERROR_LABEL% No more free drive letter 1>&2
     set _EXITCODE=1
     goto :eof
 )
-for /f "tokens=1,2,*" %%f in ('subst ^| findstr /b "%__DRIVE_NAME%" 2^>NUL') do (
+for /f "tokens=1,2,*" %%f in ('subst') do (
+    set "__SUBST_DRIVE=%%f"
+    set "__SUBST_DRIVE=!__SUBST_DRIVE:~0,2!"
     set "__SUBST_PATH=%%h"
-    if "!__SUBST_PATH!"=="!__GIVEN_PATH!" (
-        set __MESSAGE=
-        for /f %%i in ('subst ^| findstr /b "%__DRIVE_NAME%\"') do "set __MESSAGE=%%i"
-        if defined __MESSAGE (
-            if %_DEBUG%==1 ( echo %_DEBUG_LABEL% !__MESSAGE! 1>&2
-            ) else if %_VERBOSE%==1 ( echo !__MESSAGE! 1>&2
-            )
+    if "!__SUBST_DRiVE!"=="!__GIVEN_PATH:~0,2!" (
+        set _DRIVE_NAME=!__SUBST_DRIVE:~0,2!
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
+        ) else if %_VERBOSE%==1 ( echo Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
+        )
+        goto :eof
+    ) else if "!__SUBST_PATH!"=="!__GIVEN_PATH!" (
+        set "_DRIVE_NAME=!__SUBST_DRIVE!"
+        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
+        ) else if %_VERBOSE%==1 ( echo Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
         )
         goto :eof
     )
 )
-if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%__DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
-) else if %_VERBOSE%==1 ( echo Assign path %__GIVEN_PATH% to drive %__DRIVE_NAME% 1>&2
+for /f "tokens=1,2,*" %%f in ('subst') do (
+    set __USED=%%i
+    call :drive_name_update_letters "!__USED:~0,2!"
 )
-subst "%__DRIVE_NAME%" "%__GIVEN_PATH%"
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __LETTERS=%__LETTERS% ^(SUBST^) 1>&2
+
+set "_DRIVE_NAME=!__LETTERS:~0,2!"
+if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
+) else if %_VERBOSE%==1 ( echo Assign path "%__GIVEN_PATH%" to drive %_DRIVE_NAME% 1>&2
+)
+subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assigned drive %__DRIVE_NAME% to path 1>&2
+    echo %_ERROR_LABEL% Failed to assigned drive %_DRIVE_NAME% to path 1>&2
     set _EXITCODE=1
     goto :eof
 )
+goto :eof
+
+:drive_name_update_letters
+set "__USED=%~1"
+set "__LETTERS=!__LETTERS:%__USED%=!"
 goto :eof
 
 :help
@@ -499,6 +522,7 @@ if %__VERBOSE%==1 (
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
     if defined JAVA11_HOME echo    "JAVA11_HOME=%JAVA11_HOME%" 1>&2
     if defined JAVA17_HOME echo    "JAVA17_HOME=%JAVA17_HOME%" 1>&2
+    if defined JAVA20_HOME echo    "JAVA20_HOME=%JAVA20_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     echo Path associations: 1>&2
@@ -517,6 +541,7 @@ endlocal & (
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
         if not defined JAVA11_HOME set "JAVA11_HOME=%_JAVA11_HOME%"
         if not defined JAVA17_HOME set "JAVA17_HOME=%_JAVA17_HOME%"
+        if not defined JAVA20_HOME set "JAVA20_HOME=%_JAVA20_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
@@ -526,9 +551,9 @@ endlocal & (
             @rem see https://conemu.github.io/en/GitForWindows.html
             if %_DEBUG%==1 echo %_DEBUG_LABEL% %_GIT_HOME%\usr\bin\bash.exe --login 1>&2
             cmd.exe /c "%_GIT_HOME%\usr\bin\bash.exe --login"
-        ) else if not "%CD:~0,2%"=="%_DRIVE_NAME%:" (
-            if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME%: 1>&2
-            cd /d %_DRIVE_NAME%:
+        ) else if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
+            cd /d %_DRIVE_NAME%
         )
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2

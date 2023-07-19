@@ -26,6 +26,7 @@ This project depends on the following external software for the **Microsoft Wind
 Optionally one may also install the following software:
 
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
+- [Temurin OpenJDK 20 LTS][temurin_openjdk20] ([*release notes*][temurin_openjdk20_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
@@ -38,6 +39,7 @@ C:\opt\Git-2.41.0\                <i>(314 MB)</i>
 C:\opt\gradle-8.2.1\              <i>(135 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\     <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.7_7\      <i>(299 MB)</i>
+C:\opt\jdk-temurin-20.0.1_9\      <i>(317 MB)</i>
 </pre>
 
 
@@ -70,7 +72,7 @@ where
 
 ### **`setenv.bat`** <sup id="anchor_02">[2](#footnote_02)</sup>
 
-Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`gradle.bat`**][gradle_cli] and [**`git.exe`**][git_cli] directly available from the command prompt.
+Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`gradle.bat`**][gradle_cli], [**`git.exe`**][git_cli] and [**`sh.exe`**][sh_cli] directly available from the command prompt.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
@@ -92,13 +94,16 @@ Environment variables:
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.7_7"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.19_7"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.7_7"
+   "JAVA20_HOME=C:\opt\jdk-temurin-20.0.1_9"
    "MAVEN_HOME=C:\opt\apache-maven-3.9.3"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn sh</b>
 C:\opt\gradle-8.2.1\bin\gradle.bat
 C:\opt\apache-maven-3.9.3\bin\mvn
 C:\opt\apache-maven-3.9.3\bin\mvn.cmd
+C:\opt\Git-2.41.0\bin\sh.exe
+C:\opt\Git-2.41.0\usr\bin\sh.exe
 </pre>
 
 > **:mag_right:** Subcommand `help` prints the following help message :
@@ -128,6 +133,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(176 MB)</i>
+<a href="https://adoptium.net/temurin/releases/?variant=openjdk20&jvmVariant=hotspot">OpenJDK20U-jdk_x64_windows_hotspot_20.0.1_9.zip</a>    <i>(189 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 </pre>
 </dd></dl>
@@ -199,16 +205,36 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [maven_relnotes]: https://maven.apache.org/docs/3.9.3/release-notes.html
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
+<!--
+[oracle_jdk20]: https://www.oracle.com/java/technologies/downloads/#java20
+[oracle_jdk20_relnotes]: https://www.oracle.com/java/technologies/javase/20-0-2-relnotes.html
+-->
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
+[sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spark_examples]: https://github.com/michelou/spark-examples
 [spring]: https://spring.io/
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
-[temurin_openjdk11_relnotes]: https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-October/009368.html
+[temurin_openjdk11_relnotes]: https://www.oracle.com/java/technologies/javase/11-0-20-relnotes.html
+<!--
+#### Archives ### https://mail.openjdk.org/pipermail/jdk-updates-dev/
+11.0.9  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2020-July/003498.html
+11.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2021-October/009368.html
+11.0.14 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-January/011643.html
+11.0.20 -> https://www.oracle.com/java/technologies/javase/11-0-20-relnotes.html
+-->
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-1-bugfixes.html
-[temurin_openjdk17_relnotes]: https://github.com/openjdk/jdk/compare/jdk-17%2B20...jdk-17%2B21
+[temurin_openjdk17_relnotes]: https://www.oracle.com/java/technologies/javase/17-0-8-relnotes.html
+<!--
+17.0.8  -> https://www.oracle.com/java/technologies/javase/17-0-8-relnotes.html
+-->
+[temurin_openjdk20]: https://adoptium.net/releases.html?variant=openjdk20&jvmVariant=hotspot
+[temurin_openjdk20_relnotes]: https://adoptium.net/temurin/release-notes/?version=jdk-20.0.1+9
+<!--
+20.0.1  -> https://adoptium.net/temurin/release-notes/?version=jdk-20.0.1+9
+-->
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [unix_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [windows_installer]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
