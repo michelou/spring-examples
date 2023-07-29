@@ -33,7 +33,9 @@ call :add_jar "commons-logging" "commons-logging" "1.2"
 @rem Spring Boot 3.0.5  depends on Spring Framework 6.0.7
 @rem Spring Boot 3.0.6  depends on Spring Framework 6.0.8
 @rem Spring Boot 3.1.0  depends on Spring Framework 6.0.9
-set __SPRING_VERSION=6.0.9
+@rem Spring Boot 3.1.1  depends on Spring Framework 6.0.10
+@rem Spring Boot 3.1.2  depends on Spring Framework 6.0.11
+set __SPRING_VERSION=6.0.11
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -59,7 +61,7 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
 
-set __SPRING_BOOT_VERSION=3.1.0
+set __SPRING_BOOT_VERSION=3.1.2
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -114,7 +116,7 @@ call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_V
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
 call :add_jar "org.springframework.data" "spring-data-jpa" "%__SPRING_DATA_VERSION%"
 
-set __JUPITER_VERSION=5.9.3
+set __JUPITER_VERSION=5.10.0
 
 @rem https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
 call :add_jar "org.junit.jupiter" "junit-jupiter" "%__JUPITER_VERSION%"
@@ -129,7 +131,7 @@ call :add_jar "org.junit.jupiter" "junit-jupiter-engine" "%__JUPITER_VERSION%"
 call :add_jar "org.junit.jupiter" "junit-jupiter-params" "%__JUPITER_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.junit.platform/junit-platform-console-standalone
-call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.2"
+call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.10.0"
 
 @rem https://mvnrepository.com/artifact/org.hamcrest/hamcrest
 @rem contains "org.hamcrest.SelfDescribing"
@@ -137,7 +139,7 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.9.2"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.0"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.1"
 
 set _SLF4J_VERSION=2.0.7
 

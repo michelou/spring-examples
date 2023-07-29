@@ -34,6 +34,10 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
 <tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.2">3.1.2</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.2">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.11">6.0.11</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.11">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.1">3.1.1</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.1">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.10">6.0.10</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.10">relnotes</a>)</td>
 <td>17+ (21)</td>
@@ -90,6 +94,11 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Spring Boot 2</th>
 <th>Spring 5 Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.14">2.7.14</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.14">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.29">5.3.29</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.29">relnotes</a>)</td>
+<td>8, 11, 17</td>
+</tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.13">2.7.13</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.13">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.28">5.3.28</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.28">relnotes</a>)</td>
@@ -166,7 +175,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

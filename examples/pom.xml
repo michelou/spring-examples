@@ -15,8 +15,6 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <!-- Spring Boot 2.7.4 depends on Spring Framework 5.3.23 -->
-        <!-- Spring Boot 2.7.6 depends on Spring Framework 5.3.24 -->
         <!-- Spring Boot 3.0.0 depends on Spring Framework 6.0.2 -->
         <!-- Spring Boot 3.0.1 depends on Spring Framework 6.0.3 -->
         <!-- Spring Boot 3.0.2 depends on Spring Framework 6.0.4 -->
@@ -24,8 +22,10 @@
         <!-- Spring Boot 3.0.4 depends on Spring Framework 6.0.6 -->
         <!-- Spring Boot 3.0.5 depends on Spring Framework 6.0.7 -->
         <!-- Spring Boot 3.1.0 depends on Spring Framework 6.0.9 -->
-        <spring.version>6.0.9</spring.version>
-        <spring-boot.version>3.1.0</spring-boot.version>
+        <!-- Spring Boot 3.1.1 depends on Spring Framework 6.0.10 -->
+        <!-- Spring Boot 3.1.2 depends on Spring Framework 6.0.11 -->
+        <spring.version>6.0.11</spring.version>
+        <spring-boot.version>3.1.2</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <maven.compiler.version>3.11.0</maven.compiler.version>
