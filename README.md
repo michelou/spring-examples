@@ -34,7 +34,7 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*August 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.3\        <i>( 10 MB)</i>
+C:\opt\apache-maven-3.9.4\        <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\                <i>(314 MB)</i>
 C:\opt\gradle-8.2.1\              <i>(135 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\     <i>(300 MB)</i>
@@ -78,13 +78,13 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.8, java 17.0.8,
-   gradle 8.2.1, mvn 3.9.3,
+   gradle 8.2.1, mvn 3.9.4,
    git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.8_7\bin\javac.exe
    C:\opt\jdk-temurin-17.0.8_7\bin\java.exe
    C:\opt\gradle-8.2.1\bin\gradle.bat
-   C:\opt\apache-maven-3.9.3\bin\mvn.cmd
+   C:\opt\apache-maven-3.9.4\bin\mvn.cmd
    C:\opt\Git-2.41.0\bin\git.exe
    C:\opt\Git-2.41.0\usr\bin\diff.exe
    C:\opt\Git-2.41.0\bin\bash.exe
@@ -95,13 +95,13 @@ Environment variables:
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.20_8"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.8_7"
    "JAVA20_HOME=C:\opt\jdk-temurin-20.0.2_9"
-   "MAVEN_HOME=C:\opt\apache-maven-3.9.3"
+   "MAVEN_HOME=C:\opt\apache-maven-3.9.4"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn sh</b>
 C:\opt\gradle-8.2.1\bin\gradle.bat
-C:\opt\apache-maven-3.9.3\bin\mvn
-C:\opt\apache-maven-3.9.3\bin\mvn.cmd
+C:\opt\apache-maven-3.9.4\bin\mvn
+C:\opt\apache-maven-3.9.4\bin\mvn.cmd
 C:\opt\Git-2.41.0\bin\sh.exe
 C:\opt\Git-2.41.0\usr\bin\sh.exe
 </pre>
@@ -129,7 +129,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.3-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(176 MB)</i>
@@ -171,7 +171,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.3/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.4/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
@@ -203,7 +203,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.3/release-notes.html
+[maven_relnotes]: https://maven.apache.org/docs/3.9.4/release-notes.html
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 <!--
