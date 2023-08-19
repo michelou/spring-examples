@@ -24,7 +24,6 @@ if %_HELP%==1 (
 )
 
 set _GRADLE_PATH=
-set _JDK_PATH=
 set _MAVEN_PATH=
 set _VSCODE_PATH=
 
@@ -34,7 +33,7 @@ if not %_EXITCODE%==0 goto end
 call :java "temurin" 17
 if not %_EXITCODE%==0 goto end
 
-call :java "temurin" 20
+call :java "oracle" 21
 if not %_EXITCODE%==0 goto end
 
 call :gradle
@@ -116,10 +115,10 @@ set _STRONG_BG_BLUE=[104m
 goto :eof
 
 @rem input parameter: %*
-@rem output parameter: _BASH, _HELP, _VERBOSE
+@rem output parameters: _BASH, _HELP, _VERBOSE
 :args
-set _HELP=0
 set _BASH=0
+set _HELP=0
 set _VERBOSE=0
 @rem Spring Boot 3.0 requires Java 17 while Spring Boot 2.7 requires Java 11
 set _JAVA_VERSION=17
@@ -203,11 +202,11 @@ set "_DRIVE_NAME=!__DRIVE_NAMES:~0,2!"
 if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
-) else if %_VERBOSE%==1 ( echo Assign path "%__GIVEN_PATH%" to drive %_DRIVE_NAME% 1>&2
+) else if %_VERBOSE%==1 ( echo Assign drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
 )
 subst "%_DRIVE_NAME%" "%__GIVEN_PATH%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to assigned drive %_DRIVE_NAME% to path 1>&2
+    echo %_ERROR_LABEL% Failed to assigned drive %_DRIVE_NAME% to path "%__GIVEN_PATH%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -277,7 +276,7 @@ if not defined __JAVA_HOME (
 )
 if not defined __JAVA_HOME (
     set "__PATH=%ProgramFiles%\Java"
-    for /f %%f in ('dir /ad /b "!__PATH!\%__JDK_NAME%*" 2^>NUL') do set "__JAVA_HOME=!__PATH!\%%f"
+    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_NAME%*" 2^>NUL') do set "__JAVA_HOME=!__PATH!\%%f"
 )
 if not exist "%__JAVA_HOME%\bin\javac.exe" (
     echo %_ERROR_LABEL% javac executable not found ^(%__JDK_NAME%^) 1>&2
@@ -309,7 +308,7 @@ set _GRADLE_HOME=
 set _GRADLE_PATH=
 
 set __GRADLE_CMD=
-for /f %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
+for /f "delims=" %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
 if defined __GRADLE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
     for %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
@@ -341,7 +340,7 @@ set _MAVEN_HOME=
 set _MAVEN_PATH=
 
 set __MVN_CMD=
-for /f %%f in ('where mvn.cmd 2^>NUL') do (
+for /f "delims=" %%f in ('where mvn.cmd 2^>NUL') do (
     set "__MVN_CMD=%%f"
     @rem we ignore Scoop managed Maven installation
     if not "!__MVN_CMD:scoop=!"=="!__MVN_CMD!" set __MVN_CMD=
@@ -374,7 +373,7 @@ set _PYTHON_HOME=
 set _PYTHON_PATH=
 
 set _PYTHON_CMD=
-for /f %%f in ('where python.exe 2^>NUL') do set "_PYTHON_CMD=%%f"
+for /f "delims=" %%f in ('where python.exe 2^>NUL') do set "_PYTHON_CMD=%%f"
 if defined _PYTHON_CMD (
     for %%i in ("%_PYTHON_CMD%") do set "_PYTHON_HOME=%%~dpi"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Python executable found in PATH 1>&2
@@ -389,7 +388,7 @@ if defined _PYTHON_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\Python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
         if not defined _PYTHON_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
         )
     )
     if defined _PYTHON_HOME (
@@ -410,7 +409,7 @@ set _VSCODE_PATH=
 
 set __VSCODE_HOME=
 set __CODE_CMD=
-for /f %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
+for /f "delims=" %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
 if defined __CODE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
     @rem keep _VSCODE_PATH undefined since executable already in path
@@ -425,7 +424,7 @@ if defined __CODE_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "__VSCODE_HOME=!__PATH!\%%f"
         if not defined __VSCODE_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "__VSCODE_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "__VSCODE_HOME=!__PATH!\%%f"
         )
     )
 )
@@ -446,7 +445,7 @@ set _GIT_HOME=
 set _GIT_PATH=
 
 set __GIT_CMD=
-for /f %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
+for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     for %%i in ("%__GIT_CMD%") do set "__GIT_BIN_DIR=%%~dpi"
@@ -467,7 +466,7 @@ if defined __GIT_CMD (
         for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         )
     )
     if defined _GIT_HOME (
@@ -536,7 +535,7 @@ if %__VERBOSE%==1 (
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
     if defined JAVA11_HOME echo    "JAVA11_HOME=%JAVA11_HOME%" 1>&2
     if defined JAVA17_HOME echo    "JAVA17_HOME=%JAVA17_HOME%" 1>&2
-    if defined JAVA20_HOME echo    "JAVA20_HOME=%JAVA20_HOME%" 1>&2
+    if defined JAVA21_HOME echo    "JAVA21_HOME=%JAVA21_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     echo Path associations: 1>&2
@@ -555,11 +554,11 @@ endlocal & (
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
         if not defined JAVA11_HOME set "JAVA11_HOME=%_JAVA11_HOME%"
         if not defined JAVA17_HOME set "JAVA17_HOME=%_JAVA17_HOME%"
-        if not defined JAVA20_HOME set "JAVA20_HOME=%_JAVA20_HOME%"
+        if not defined JAVA21_HOME set "JAVA21_HOME=%_JAVA21_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%_JDK_PATH%%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2

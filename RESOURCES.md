@@ -28,6 +28,7 @@
 
 ## <span id="blogs">Blogs</span>
 
+- [Master Spring Boot 3 with GraalVM Native Image](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dimitry Chuyko, February 2023.
 - [Enable HTTPS in Spring Boot with Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates), February 2023.
 - [Bellsoft Blog](https://bell-sw.com/blog/) :
   - [Master Spring Boot 3 with GraalVM Native...](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dmitry Chuyko, February 2023.
@@ -106,6 +107,10 @@
 
 - [Data Flair](https://data-flair.training/) &ndash; [Spring Tutorials](https://data-flair.training/blogs/spring-tutorials-home/)
 - [Spring Framework / Spring Boot](https://gayerie.dev/docs/spring/) by David Gayerie.
+
+## <span id="videos">Videos</span>
+
+- [GraalVM Native and Spring Boot 3.0](https://www.youtube.com/watch?v=5aZtF5stYeU) by Brian Clozel, March 2023.
 
 ***
 
