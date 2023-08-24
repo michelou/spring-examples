@@ -16,8 +16,8 @@
 This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.41][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 8.2][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Git 2.42][git_downloads] ([*release notes*][git_relnotes])
+- [Gradle 8.3][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
 > **&#9755;** ***Maven packages***<br/>
@@ -34,12 +34,12 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*August 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.4\        <i>( 10 MB)</i>
-C:\opt\Git-2.41.0\                <i>(314 MB)</i>
-C:\opt\gradle\                    <i>(135 MB)</i>
-C:\opt\jdk-oracle-21-ea-35\       <i>(320 MB)</i>
-C:\opt\jdk-temurin-11.0.20_8\     <i>(300 MB)</i>
-C:\opt\jdk-temurin-17.0.8_7\      <i>(299 MB)</i>
+C:\opt\apache-maven-3.9.4\      <i>( 10 MB)</i>
+C:\opt\Git\                     <i>(367 MB)</i>
+C:\opt\gradle\                  <i>(135 MB)</i>
+C:\opt\jdk-oracle-21-ea-35\     <i>(320 MB)</i>
+C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
+C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
 </pre>
 
 
@@ -72,24 +72,24 @@ where
 
 ### **`setenv.bat`** <sup id="anchor_02">[2](#footnote_02)</sup>
 
-Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`gradle.bat`**][gradle_cli], [**`git.exe`**][git_cli] and [**`sh.exe`**][sh_cli] directly available from the command prompt.
+We execute command [**`setenv.bat`**](setenv.bat) once to setup our development environment; it makes external tools such as [**`gradle.bat`**][gradle_cli], [**`git.exe`**][git_cli] and [**`sh.exe`**][sh_cli] directly available from the command prompt.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.8, java 17.0.8,
-   gradle 8.2.1, mvn 3.9.4,
-   git 2.41.0.windows.1, diff 3.9, bash 5.2.15(1)-release
+   gradle 8.3, mvn 3.9.4,
+   git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.8_7\bin\javac.exe
    C:\opt\jdk-temurin-17.0.8_7\bin\java.exe
    C:\opt\gradle\bin\gradle.bat
    C:\opt\apache-maven-3.9.4\bin\mvn.cmd
-   C:\opt\Git-2.41.0\bin\git.exe
-   C:\opt\Git-2.41.0\usr\bin\diff.exe
-   C:\opt\Git-2.41.0\bin\bash.exe
+   C:\opt\Git\bin\git.exe
+   C:\opt\Git\usr\bin\diff.exe
+   C:\opt\Git\bin\bash.exe
 Environment variables:
-   "GIT_HOME=C:\opt\Git-2.41.0"
+   "GIT_HOME=C:\opt\Git"
    "GRADLE_HOME=C:\opt\gradle"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.8_7"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.20_8"
@@ -102,8 +102,8 @@ Environment variables:
 C:\opt\gradle\bin\gradle.bat
 C:\opt\apache-maven-3.9.4\bin\mvn
 C:\opt\apache-maven-3.9.4\bin\mvn.cmd
-C:\opt\Git-2.41.0\bin\sh.exe
-C:\opt\Git-2.41.0\usr\bin\sh.exe
+C:\opt\Git\bin\sh.exe
+C:\opt\Git\usr\bin\sh.exe
 </pre>
 
 > **:mag_right:** Subcommand `help` prints the following help message :
@@ -113,7 +113,7 @@ C:\opt\Git-2.41.0\usr\bin\sh.exe
 >   &nbsp;
 >     Options:
 >       -bash       start Git bash shell instead of Windows command prompt
->       -debug      show commands executed by this script
+>       -debug      display commands executed by this script
 >       -verbose    display environment settings
 >   &nbsp;
 >     Subcommands:
@@ -130,18 +130,18 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(110 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.3-bin.zip</a>                                 <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(176 MB)</i>
 <a href="https://jdk.java.net/21/">openjdk-21_windows-x64_bin_build_35.zip</a>            <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
 </pre>
 </dd></dl>
 
 <span id="footnote_02">[2]</span> **`setenv.bat` *usage*** [↩](#anchor_02)
 
 <dl><dd>
-<a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
+Batch file <a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
 </dd>
 <dd>It is similar to the setup scripts described on the page <a href="https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell" rel="external">"Visual Studio Developer Command Prompt and Developer PowerShell"</a> of the <a href="https://learn.microsoft.com/en-us/visualstudio/windows" rel="external">Visual Studio</a> online documentation.
 </dd>
@@ -156,7 +156,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 </pre>
 </dd>
 <dd>
-Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>), <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
 ***
@@ -179,7 +179,7 @@ Concretely, <code><b>setenv.bat</b></code> in our GitHub projects which depend o
 [flix_examples]: https://github.com/michelou/flix-examples
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.42.0.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
