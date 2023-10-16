@@ -31,13 +31,13 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*August 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*October 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.4\      <i>( 10 MB)</i>
+C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\jdk-oracle-21-ea-35\     <i>(320 MB)</i>
+C:\opt\jdk-oracle-21-ga\        <i>(320 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
 </pre>
@@ -84,7 +84,7 @@ Tool paths:
    C:\opt\jdk-temurin-17.0.8_7\bin\javac.exe
    C:\opt\jdk-temurin-17.0.8_7\bin\java.exe
    C:\opt\gradle\bin\gradle.bat
-   C:\opt\apache-maven-3.9.4\bin\mvn.cmd
+   C:\opt\apache-maven\bin\mvn.cmd
    C:\opt\Git\bin\git.exe
    C:\opt\Git\usr\bin\diff.exe
    C:\opt\Git\bin\bash.exe
@@ -94,14 +94,14 @@ Environment variables:
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.8_7"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.20_8"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.8_7"
-   "JAVA21_HOME=C:\opt\jdk-oracle-21-ea-35"
-   "MAVEN_HOME=C:\opt\apache-maven-3.9.4"
+   "JAVA21_HOME=C:\opt\jdk-oracle-21-ga"
+   "MAVEN_HOME=C:\opt\apache-maven"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn sh</b>
 C:\opt\gradle\bin\gradle.bat
-C:\opt\apache-maven-3.9.4\bin\mvn
-C:\opt\apache-maven-3.9.4\bin\mvn.cmd
+C:\opt\apache-maven\bin\mvn
+C:\opt\apache-maven\bin\mvn.cmd
 C:\opt\Git\bin\sh.exe
 C:\opt\Git\usr\bin\sh.exe
 </pre>
@@ -113,11 +113,11 @@ C:\opt\Git\usr\bin\sh.exe
 >   &nbsp;
 >     Options:
 >       -bash       start Git bash shell instead of Windows command prompt
->       -debug      display commands executed by this script
->       -verbose    display environment settings
+>       -debug      print commands executed by this script
+>       -verbose    print environment settings
 >   &nbsp;
 >     Subcommands:
->       help        display this help message
+>       help        print this help message
 >   </pre>
 
 ## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
@@ -156,12 +156,12 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 </pre>
 </dd>
 <dd>
-Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>), <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>), <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> does invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
