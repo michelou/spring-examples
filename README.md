@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:90px;"><a href="https://spring.io/" rel="external"><img style="border:0;width:90px;" src="./docs/images/spring-icon.svg" alt="Spring project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spring.io/" rel="external">Spring</a> code examples coming from various websites and books.<br/>
-  It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://spring.io/" rel="external">Spring</a> on a Windows machine.
+  It also includes several build scripts (<a href="https://www.gnu.org/software/bash/manual/bash.html" rel="external">bash scripts</a>, <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://spring.io/" rel="external">Spring</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -17,7 +17,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.42][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 8.3][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.4][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
 > **&#9755;** ***Maven packages***<br/>
@@ -25,8 +25,9 @@ This project depends on the following external software for the **Microsoft Wind
 
 Optionally one may also install the following software:
 
-- [Oracle OpenJDK 21 LTS][oracle_openjdk21] ([*release notes*][oracle_openjdk21_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
+- [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*bug fixes*][temurin_openjdk21_bugfixes], [*Java 21 API*][oracle_openjdk21_api])
+- [Visual Studio Code 1.83][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
@@ -37,9 +38,9 @@ For instance our development environment looks as follows (*October 2023*) <sup 
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\jdk-oracle-21-ga\        <i>(320 MB)</i>
-C:\opt\jdk-temurin-11.0.20_8\   <i>(300 MB)</i>
+C:\opt\jdk-temurin-11.0.21_9\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
+C:\opt\jdk-temurin-21_35\       <i>(325 MB)</i>
 </pre>
 
 
@@ -78,7 +79,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
    javac 17.0.8, java 17.0.8,
-   gradle 8.3, mvn 3.9.4,
+   gradle 8.4, mvn 3.9.5,
    git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.8_7\bin\javac.exe
@@ -92,9 +93,9 @@ Environment variables:
    "GIT_HOME=C:\opt\Git"
    "GRADLE_HOME=C:\opt\gradle"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.8_7"
-   "JAVA11_HOME=C:\opt\jdk-temurin-11.0.20_8"
+   "JAVA11_HOME=C:\opt\jdk-temurin-11.0.21_9"
    "JAVA17_HOME=C:\opt\jdk-temurin-17.0.8_7"
-   "JAVA21_HOME=C:\opt\jdk-oracle-21-ga"
+   "JAVA21_HOME=C:\opt\jdk-temurin-21_35"
    "MAVEN_HOME=C:\opt\apache-maven"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
@@ -129,9 +130,9 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.3-bin.zip</a>                                 <i>(110 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>( 99 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.5-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.4-bin.zip</a>                                 <i>(110 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.21_9.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(176 MB)</i>
 <a href="https://jdk.java.net/21/">openjdk-21_windows-x64_bin_build_35.zip</a>            <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
@@ -171,7 +172,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.4/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.5/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
@@ -203,40 +204,61 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.4/release-notes.html
+[maven_relnotes]: https://maven.apache.org/docs/3.9.5/release-notes.html
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples
 [oracle_openjdk21]: https://jdk.java.net/21/
+[oracle_openjdk21_api]: https://download.java.net/java/early_access/jdk21/docs/api/
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spark_examples]: https://github.com/michelou/spark-examples
 [spring]: https://spring.io/
+<!--
+#### Archives ### https://mail.openjdk.org/pipermail/jdk-updates-dev/
+11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html
+11.0.4  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-July/001423.html
+11.0.5  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-October/002025.html
+11.0.6  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2020-January/002374.html
+11.0.7  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2020-April/003019.html
+11.0.8  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2020-July/003498.html
+11.0.9  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2020-October/004007.html
+11.0.10 -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-January/004689.html
+11.0.11 -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2021-April/005860.html
+11.0.12 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2021-July/006954.html
+11.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2021-October/009368.html
+11.0.14 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-January/011643.html
+11.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-April/014104.html
+11.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-July/016017.html
+11.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-October/018119.html
+11.0.18 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-January/020111.html
+11.0.19 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021900.html
+11.0.20 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024064.html
+11.0.21 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+-->
+[temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-15-bugfixes.html
 [temurin_openjdk11_relnotes]: https://www.oracle.com/java/technologies/javase/11-0-20-relnotes.html
 <!--
-#### Archives ### https://mail.openjdk.org/pipermail/jdk-updates-dev/
-11.0.9  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2020-July/003498.html
-11.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2021-October/009368.html
-11.0.14 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-January/011643.html
-11.0.20 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024064.html
--->
-[temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
-[temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
-[temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-1-bugfixes.html
-[temurin_openjdk17_relnotes]: https://www.oracle.com/java/technologies/javase/17-0-8-relnotes.html
-<!--
 17.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021899.html
 17.0.8  -> https://www.oracle.com/java/technologies/javase/17-0-8-relnotes.html
+17.0.9  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
 -->
-[temurin_openjdk20]: https://adoptium.net/releases.html?variant=openjdk20&jvmVariant=hotspot
-[temurin_openjdk20_relnotes]: https://adoptium.net/temurin/release-notes/?version=jdk-20.0.1+9
+[temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
+[temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-9-relnotes.html
+[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
 <!--
-20.0.1  -> https://adoptium.net/temurin/release-notes/?version=jdk-20.0.1+9
+#### Bug fixes ### https://www.java.com/releases/
+21_35   -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 -->
+[temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
+[temurin_openjdk21_bugfixes]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
+[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [unix_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
+[vscode_downloads]: https://code.visualstudio.com/#alt-downloads
+[vscode_relnotes]: https://code.visualstudio.com/updates/
 [windows_installer]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst

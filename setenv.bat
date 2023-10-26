@@ -27,13 +27,16 @@ set _GRADLE_PATH=
 set _MAVEN_PATH=
 set _VSCODE_PATH=
 
-call :java "temurin" 11
+@rem %1=version, %2=vendor
+@rem eg. bellsoft, corretto, bellsoft, openj9, redhat, sapmachine, temurin, zulu
+call :java 17 "temurin"
 if not %_EXITCODE%==0 goto end
 
-call :java "temurin" 17
+call :java 21 "temurin"
 if not %_EXITCODE%==0 goto end
 
-call :java "oracle" 21
+@rem last call to :java defines variable JAVA_HOME
+call :java 11 "temurin"
 if not %_EXITCODE%==0 goto end
 
 call :gradle
@@ -162,6 +165,8 @@ goto :eof
 @rem output parameter: _DRIVE_NAME (2 characters: letter + ':')
 :drive_name
 set "__GIVEN_PATH=%~1"
+@rem remove trailing path separator if present
+if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
@@ -235,21 +240,23 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
-echo     %__BEG_O%-debug%__END%      display commands executed by this script
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
-echo     %__BEG_O%help%__END%        display this help message
+echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
 @rem input parameter: %1=vendor %1^=required version
 @rem output parameter: _JAVA<version>_HOME (version=11, 17)
 :java
-set __JDK_VENDOR=%~1
-set __JDK_VERSION=%~2
-set __JDK_NAME=jdk-%__JDK_VENDOR%-%__JDK_VERSION%
-set __JAVA_HOME=
+set _JAVA_HOME=
 
+set __VERSION=%~1
+set __VENDOR=%~2
+if not defined __VENDOR ( set __JDK_NAME=jdk-%__VERSION%
+) else ( set __JDK_NAME=jdk-%__VENDOR%-%__VERSION%
+)
 set __JAVAC_CMD=
 for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
     set "__JAVAC_CMD=%%f"
@@ -257,49 +264,55 @@ for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
     if not "!__JAVAC_CMD:scoop=!"=="!__JAVAC_CMD!" set __JAVAC_CMD=
 )
 if defined __JAVAC_CMD (
-    call :is_java_ok %__JDK_VERSION% "%__JAVAC_CMD%"
-    if defined _IS_JAVA_OK (
-        for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
-        for %%f in ("%__BIN_DIR%") do set "_JAVA%__JDK_VERSION%_HOME=%%~dpi"
+    call :jdk_version "%__JAVAC_CMD%"
+    if !_JDK_VERSION!==%__VERSION% (
+        for /f "delims=" %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
+        for /f "delims=" %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpi"
+    ) else (
+        echo %_ERROR_LABEL% Required JDK installation not found ^("%__JDK_NAME%"^) 1>&2
+        set _EXITCODE=1
+        goto :eof
     )
 )
-if not defined __JAVA_HOME if defined JAVA_HOME (
-    call :is_java_ok %__JDK_VERSION% "%JAVA_HOME%\bin\javac.exe"
-    if defined _IS_JAVA_OK (
-        set "__JAVA_HOME=%JAVA_HOME%"
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
+if defined JAVA_HOME (
+    set "_JAVA_HOME=%JAVA_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable JAVA_HOME 1>&2
+) else (
+    set _PATH=C:\opt
+    for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__JDK_NAME%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+    if not defined _JAVA_HOME (
+        set "_PATH=%ProgramFiles%\Java"
+        for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__JDK_NAME%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
+    )
+    if defined _JAVA_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory "!_JAVA_HOME!" 1>&2
     )
 )
-if not defined __JAVA_HOME (
-    set __PATH=C:\opt
-    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_NAME%*" 2^>NUL') do set "__JAVA_HOME=!__PATH!\%%f"
-)
-if not defined __JAVA_HOME (
-    set "__PATH=%ProgramFiles%\Java"
-    for /f "delims=" %%f in ('dir /ad /b "!__PATH!\%__JDK_NAME%*" 2^>NUL') do set "__JAVA_HOME=!__PATH!\%%f"
-)
-if not exist "%__JAVA_HOME%\bin\javac.exe" (
-    echo %_ERROR_LABEL% javac executable not found ^(%__JDK_NAME%^) 1>&2
+if not exist "%_JAVA_HOME%\bin\javac.exe" (
+    echo %_ERROR_LABEL% Executable javac.exe not found ^("%_JAVA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_JAVA%__JDK_VERSION%_HOME=%__JAVA_HOME%"
-if %_JAVA_VERSION%==%__JDK_VERSION% set "_JAVA_HOME=%__JAVA_HOME%"
+call :jdk_version "%_JAVA_HOME%\bin\javac.exe"
+set "_JAVA!_JDK_VERSION!_HOME=%_JAVA_HOME%"
 goto :eof
 
-@rem input parameters: %1=expected version, %2=javac file path
-@rem output parameter: _IS_JAVA_OK
-:is_java_ok
-set __EXPECTED_VERSION=%~1
-set _IS_JAVA_OK=
-
-set __JAVAC_CMD=%~2
-if not exist "%__JAVAC_CMD%" goto :eof
-
-set __JAVA_VERSION=
-for /f "tokens=1,*" %%i in ('%__JAVAC_CMD% -version 2^>^&1') do set __JAVA_VERSION=%%j
-if not "!__JAVA_VERSION:~0,2!"=="%__EXPECTED_VERSION%" goto :eof
-set _IS_JAVA_OK=1
+@rem input parameter: %1=javac file path
+@rem output parameter: _JDK_VERSION
+:jdk_version
+set "__JAVAC_CMD=%~1"
+if not exist "%__JAVAC_CMD%" (
+    echo %_ERROR_LABEL% Command javac.exe not found ^("%__JAVAC_CMD%"^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set __JAVAC_VERSION=
+for /f "usebackq tokens=1,*" %%i in (`"%__JAVAC_CMD%" -version 2^>^&1`) do set __JAVAC_VERSION=%%j
+set "__PREFIX=%__JAVAC_VERSION:~0,2%"
+@rem either 1.7, 1.8 or 11..18
+if "%__PREFIX%"=="1." ( set _JDK_VERSION=%__JAVAC_VERSION:~2,1%
+) else ( set _JDK_VERSION=%__PREFIX%
+)
 goto :eof
 
 @rem output parameters: _GRADLE_HOME, _GRADLE_PATH
@@ -310,9 +323,9 @@ set _GRADLE_PATH=
 set __GRADLE_CMD=
 for /f "delims=" %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
 if defined __GRADLE_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
     for /f "delims=" %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
     for /f "delims=" %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
     @rem keep _GRADLE_PATH undefined since executable already in path
     goto :eof
 ) else if defined GRADLE_HOME (
@@ -329,11 +342,11 @@ if defined __GRADLE_CMD (
         )
     )
     if defined _GRADLE_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Gradle installation directory !_GRADLE_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Gradle installation directory "!_GRADLE_HOME!" 1>&2
     )
 )
 if not exist "%_GRADLE_HOME%\bin\gradle.bat" (
-    echo %_ERROR_LABEL% Executable gradle.bat not found ^(%_GRADLE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Executable gradle.bat not found ^("%_GRADLE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -390,7 +403,7 @@ set _PYTHON_PATH=
 set _PYTHON_CMD=
 for /f "delims=" %%f in ('where python.exe 2^>NUL') do set "_PYTHON_CMD=%%f"
 if defined _PYTHON_CMD (
-    for %%i in ("%_PYTHON_CMD%") do set "_PYTHON_HOME=%%~dpi"
+    for /f "delims=" %%i in ("%_PYTHON_CMD%") do set "_PYTHON_HOME=%%~dpi"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Python executable found in PATH 1>&2
     goto :eof
 ) else if defined PYTHON_HOME (
@@ -411,7 +424,7 @@ if defined _PYTHON_CMD (
     )
 )
 if not exist "%_PYTHON_HOME%\python.exe" (
-    echo %_ERROR_LABEL% Python executable not found ^(%_PYTHON_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Python executable not found ^("%_PYTHON_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -462,12 +475,12 @@ set _GIT_PATH=
 set __GIT_CMD=
 for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
+    for /f "delims=" %%i in ("%__GIT_CMD%") do set "__GIT_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__GIT_BIN_DIR!.") do set "_GIT_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
-    for %%i in ("%__GIT_CMD%") do set "__GIT_BIN_DIR=%%~dpi"
-    for %%f in ("!__GIT_BIN_DIR!.") do set "_GIT_HOME=%%~dpf"
     @rem Executable git.exe is present both in bin\ and \mingw64\bin\
     if not "!_GIT_HOME:mingw=!"=="!_GIT_HOME!" (
-        for %%f in ("!_GIT_HOME!.") do set "_GIT_HOME=%%~dpf"
+        for /f "delims=" %%f in ("!_GIT_HOME!.") do set "_GIT_HOME=%%~dpf"
     )
     @rem keep _GIT_PATH undefined since executable already in path
     goto :eof
@@ -489,7 +502,7 @@ if defined __GIT_CMD (
     )
 )
 if not exist "%_GIT_HOME%\bin\git.exe" (
-    echo %_ERROR_LABEL% Git executable not found ^(%_GIT_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Git executable not found ^("%_GIT_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
