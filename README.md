@@ -32,15 +32,15 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*October 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*November 2023*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\jdk-temurin-11.0.21_9\   <i>(300 MB)</i>
-C:\opt\jdk-temurin-17.0.8_7\    <i>(299 MB)</i>
-C:\opt\jdk-temurin-21_35\       <i>(325 MB)</i>
+C:\opt\jdk-temurin-17.0.9_9\    <i>(299 MB)</i>
+C:\opt\jdk-temurin-21.0.1_12\   <i>(326 MB)</i>
 </pre>
 
 
@@ -82,8 +82,8 @@ Tool versions:
    gradle 8.4, mvn 3.9.5,
    git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 Tool paths:
-   C:\opt\jdk-temurin-17.0.8_7\bin\javac.exe
-   C:\opt\jdk-temurin-17.0.8_7\bin\java.exe
+   C:\opt\jdk-temurin-17.0.9_9\bin\javac.exe
+   C:\opt\jdk-temurin-17.0.9_9\bin\java.exe
    C:\opt\gradle\bin\gradle.bat
    C:\opt\apache-maven\bin\mvn.cmd
    C:\opt\Git\bin\git.exe
@@ -92,10 +92,10 @@ Tool paths:
 Environment variables:
    "GIT_HOME=C:\opt\Git"
    "GRADLE_HOME=C:\opt\gradle"
-   "JAVA_HOME=C:\opt\jdk-temurin-17.0.8_7"
+   "JAVA_HOME=C:\opt\jdk-temurin-17.0.9_9"
    "JAVA11_HOME=C:\opt\jdk-temurin-11.0.21_9"
-   "JAVA17_HOME=C:\opt\jdk-temurin-17.0.8_7"
-   "JAVA21_HOME=C:\opt\jdk-temurin-21_35"
+   "JAVA17_HOME=C:\opt\jdk-temurin-17.0.9_9"
+   "JAVA21_HOME=C:\opt\jdk-temurin-21.0.1_12"
    "MAVEN_HOME=C:\opt\apache-maven"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
 
@@ -133,8 +133,8 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.5-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.4-bin.zip</a>                                 <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.21_9.zip</a>   <i>( 99 MB)</i>
-<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(176 MB)</i>
-<a href="https://jdk.java.net/21/">openjdk-21_windows-x64_bin_build_35.zip</a>            <i>(191 MB)</i>
+<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.9_9.zip</a>    <i>(176 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.1_12.zip</a>   <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
 </pre>
 </dd></dl>
@@ -162,7 +162,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -250,7 +250,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026352.html
 <!--
 #### Bug fixes ### https://www.java.com/releases/
-21_35   -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+21_35   -> https://adoptium.net/fr/temurin/release-notes/?version=jdk-21+35
+21.0.1  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 -->
 [temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
 [temurin_openjdk21_bugfixes]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html

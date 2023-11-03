@@ -16,7 +16,7 @@ Depending on the build tool the above packages are stored locally in two differe
 
 | Build&nbsp;tool   | Local&nbsp;repository           |
 |:-----------------------|:--------------------------------|
-| [**`gradle.bat`**][gradle_cli], [**`mvn.cmd`**][mvn_cli], [`sbt.bat`][sbt_cli] | `%USERPROFILE%\.m2\repository\` | 
+| [**`gradle.bat`**][gradle_cli], [**`mvn.cmd`**][mvn_cli], [**`sbt.bat`**][sbt_cli] | `%USERPROFILE%\.m2\repository\` | 
 | [**`ant.bat`**][ant_cli] ([Ivy][ivy_lib] library)    | `%USERPROFILE%\.ivy2\cache\`    |
 
 
@@ -33,6 +33,11 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Spring Boot 3</th>
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.5">3.1.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.5">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.13">6.0.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.13">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.4">3.1.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.4">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.12">6.0.12</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.12">relnotes</a>)</td>
@@ -99,6 +104,11 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Spring Boot 2</th>
 <th>Spring 5 Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.17">2.7.17</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.17">relnotes</a>)</i></td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.30">5.3.30</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.30">relnotes</a>)</td>
+<td>8, 11, 17</td>
+</tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.16">2.7.16</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.16">relnotes</a>)</i></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/5.3.30">5.3.30</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.30">relnotes</a>)</td>
@@ -185,7 +195,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

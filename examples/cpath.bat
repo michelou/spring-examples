@@ -35,7 +35,8 @@ call :add_jar "commons-logging" "commons-logging" "1.2"
 @rem Spring Boot 3.1.0  depends on Spring Framework 6.0.9
 @rem Spring Boot 3.1.1  depends on Spring Framework 6.0.10
 @rem Spring Boot 3.1.2  depends on Spring Framework 6.0.11
-set __SPRING_VERSION=6.0.11
+@rem Spring Boot 3.1.5  depends on Spring Framework 6.0.13
+set __SPRING_VERSION=6.0.13
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -61,7 +62,7 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
 
-set __SPRING_BOOT_VERSION=3.1.2
+set __SPRING_BOOT_VERSION=3.1.5
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -108,7 +109,7 @@ call :add_jar "org.springframework.boot" "spring-boot-starter-data-jpa" "%__SPRI
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
 
-set __SPRING_DATA_VERSION=3.1.1
+set __SPRING_DATA_VERSION=3.1.5
 
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
 call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_VERSION%"
@@ -139,9 +140,9 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.10.0"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.1"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.2"
 
-set _SLF4J_VERSION=2.0.7
+set _SLF4J_VERSION=2.0.9
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 call :add_jar "org.slf4j" "slf4j-api" "%_SLF4J_VERSION%"
