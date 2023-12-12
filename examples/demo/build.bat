@@ -239,7 +239,8 @@ for /f "usebackq tokens=1,2,*" %%i in (`tasklist /NH %__FILTERS%`) do (
     set "_IMAGE_NAME=%%i"
     set "_PID=%%j"
 )
-if "%_IMAGE_NAME:~0,11%"=="Information" (
+set /a __N=0+%_PID%
+if %__N%==0 (
     set _IMAGE_NAME=
     set _PID=
 )

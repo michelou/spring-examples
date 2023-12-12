@@ -6,14 +6,14 @@
     <groupId>spring-examples</groupId>
     <artifactId>examples</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!-- <packaging>pom</packaging> -->
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
         <slf4j.version>2.0.9</slf4j.version>
         <!-- Spring Boot 3.0.0 depends on Spring Framework 6.0.2 -->
@@ -26,8 +26,9 @@
         <!-- Spring Boot 3.1.1 depends on Spring Framework 6.0.10 -->
         <!-- Spring Boot 3.1.2 depends on Spring Framework 6.0.11 -->
         <!-- Spring Boot 3.1.5 depends on Spring Framework 6.0.13 -->
-        <spring.version>6.0.13</spring.version>
-        <spring-boot.version>3.1.5</spring-boot.version>
+        <!-- Spring Boot 3.2.0 depends on String Framework 6.1.1  -->
+        <spring.version>6.1.1</spring.version>
+        <spring-boot.version>3.2.0</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <maven.compiler.version>3.11.0</maven.compiler.version>
@@ -54,14 +55,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
-            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
