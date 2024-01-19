@@ -31,74 +31,95 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <table>
 <tr>
 <th>Spring Boot 3</th>
+<th>Release Date</th>
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
 <tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.1">3.2.1</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.1">relnotes</a>)</i></td>
+<td>Dec 2023</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.1">6.1.1</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.1">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
+<tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.0">3.2.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.0">relnotes</a>)</i></td>
+<td>Nov 2023</td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.1">6.1.1</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.1">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.5">3.1.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.5">relnotes</a>)</i></td>
+<td>Oct 2023</td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.13">6.0.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.13">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.4">3.1.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.4">relnotes</a>)</i></td>
+<td>Sep 2023</td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.12">6.0.12</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.12">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.2">3.1.2</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.2">relnotes</a>)</i></td>
+<td>Jul 2023</td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.11">6.0.11</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.11">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.1">3.1.1</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.1">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.10">6.0.10</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.10">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.0">3.1.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.1.0">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.9">6.0.9</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.9">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.7">3.0.7</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.7">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.9">6.0.9</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.9">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.6">3.0.6</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.6">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.8">6.0.8</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.8">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.5">3.0.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.5">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.7">6.0.7</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.7">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.4">3.0.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.4">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.6">6.0.6</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.6">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.3">3.0.3</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.3">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.5">6.0.5</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.5">relnotes</a>)</td>
 <td>17+ (21)</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.2">3.0.2</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.2">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.4">6.0.4</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.4">relnotes</a>)</td>
 <td>17</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.1">3.0.1</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.1">relnotes</a>)</i></td>
+<td></td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.3">6.0.3</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.3">relnotes</a>)</td>
 <td>17</td>
 </tr>
 <tr>
 <td><a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.0.0">3.0.0</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.0">relnotes</a>)</i></td>
+<td>Nov 2022</td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.0.2">6.0.2</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.2">relnotes</a>)</td>
 <td>17</td>
 </tr>
@@ -206,7 +227,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
