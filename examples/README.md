@@ -75,8 +75,6 @@ Search for user process with name "gs-rest-service"
 Stop server process "gs-rest-service"
 </pre>
 
-### Maven
-
 > **:mag_right:** We can also launch the Spring Boot server before executing the above HTTP requests :
 > <pre style="font-size:80%;">
 > <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/start">start</a> "gs-rest-service" <a href="https://maven.apache.org/ref/current/maven-embedder/cli.html">mvn</a> spring-boot:run</b>
