@@ -35,8 +35,11 @@ call :add_jar "commons-logging" "commons-logging" "1.2"
 @rem Spring Boot 3.1.0  depends on Spring Framework 6.0.9
 @rem Spring Boot 3.1.1  depends on Spring Framework 6.0.10
 @rem Spring Boot 3.1.2  depends on Spring Framework 6.0.11
-@rem Spring Boot 3.1.4  depends on Spring Framework 6.0.12
-set __SPRING_VERSION=6.0.11
+@rem Spring Boot 3.1.5  depends on Spring Framework 6.0.13
+@rem Spring Boot 3.2.0  depends on String Framework 6.1.1
+@rem Spring Boot 3.2.1  depends on String Framework 6.1.2
+@rem Spring Boot 3.2.2  depends on String Framework 6.1.3
+set __SPRING_VERSION=6.1.3
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -62,7 +65,7 @@ call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
 @rem https://mvnrepository.com/artifact/org.springframework/spring-webmvc
 call :add_jar "org.springframework" "spring-webmvc" "%__SPRING_VERSION%"
 
-set __SPRING_BOOT_VERSION=3.1.4
+set __SPRING_BOOT_VERSION=3.2.2
 
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 call :add_jar "org.springframework.boot" "spring-boot" "%__SPRING_BOOT_VERSION%"
@@ -109,7 +112,7 @@ call :add_jar "org.springframework.boot" "spring-boot-starter-data-jpa" "%__SPRI
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
 
-set __SPRING_DATA_VERSION=3.1.4
+set __SPRING_DATA_VERSION=3.2.2
 
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
 call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_VERSION%"
@@ -117,7 +120,7 @@ call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_V
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
 call :add_jar "org.springframework.data" "spring-data-jpa" "%__SPRING_DATA_VERSION%"
 
-set __JUPITER_VERSION=5.10.0
+set __JUPITER_VERSION=5.10.1
 
 @rem https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
 call :add_jar "org.junit.jupiter" "junit-jupiter" "%__JUPITER_VERSION%"

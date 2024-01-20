@@ -26,7 +26,7 @@
 - [Building Microservices with Spring Boot][article_woods2015] by Dan Woods, February 2015.
 - [Exploring Micro-Frameworks: Spring Boot][article_woods2014] by Dan Woods, March 2014.
 
-## <span id="blogs">Blogs</span>
+## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
 - [Master Spring Boot 3 with GraalVM Native Image](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dimitry Chuyko, February 2023.
 - [Enable HTTPS in Spring Boot with Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates), February 2023.
@@ -78,7 +78,7 @@
 - [Spring Boot Persistance Best Practices][book_leonard] by Anghel Leonard, 2018.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-5625-1, 1041 pages)<br/>GitHub: <a href="https://github.com/Apress/spring-boot-persistence-best-practices"><code>Apress/spring-boot-persistence-best-practices</code></a></span>
 - [Pro Spring 5][book_cosmina_5] by Iuliana Cosmina et al., 2017.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-2807-4, 866 pages)<br/>GitHub: <a href="https://github.com/Apress/pro-spring-5"><code>Apress/pro-spring-5</code></a></span>
 
-## <span id="guides">Guides</span>
+## <span id="guides">Guides</span> [**&#x25B4;**](#top)
 
 - [What is Spring Framework? An Unorthodox Guide](https://www.marcobehler.com/guides/spring-framework), by Marco Behler, June 2022.
 - [Quarkus Guides](https://quarkus.io/guides/):
@@ -89,6 +89,9 @@
 
 - Twittter &ndash; [SpringCentral](https://twitter.com/springcentral).
 - [VMware Tanzu Blog](https://tanzu.vmware.com/blog) by Josh Long :
+  - [This Month in Spring - November 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2023).
+  - [This Month in Spring - October 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-october-2023).
+  - [This Month in Spring - September 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-september-2023).
   - [This Month in Spring - July 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-july-2023).
   - [This Month in Spring - June 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-june-2023).
   - [This Month in Spring - May 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-may-2023).
@@ -99,7 +102,7 @@
   - [This Month in Spring - December 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-december-2022).
   - [This Month in Spring - November 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2022).
 
-## <span id="projects">Projects</span>
+## <span id="projects">Projects</span> [**&#x25B4;**](#top)
 
 - [mkyong/spring-boot][project_mkyong] (GitHub) - a list of [Spring Boot] tutorials.
 
@@ -114,7 +117,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
