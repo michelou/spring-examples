@@ -65,7 +65,9 @@
 
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
-- [Pro Spring 6][book_cosmina_6] by Iuliana Cosmina et al., 2023<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8639-5, 949 pages)</span>
+- [Spring Boot 3 and Spring Framework 6][book_ullenboom] by Christian Ulleboom, 2024.<br/><span style="font-size:80%;">(Rheinwerk Publishing, ISBN 978-1-4932-2476-0, 934 pages)</span>
+- [Pro Spring 6][book_cosmina_6] by Iuliana Cosmina et al., 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8639-5, 949 pages)</span>
+- [Pro Spring Security][book_nardone] by Massimo Nardone &amp; Carlo Scarioni, December 2023.<br/><span style="font-size:80%;">(Apress, ISBN 979-8-8688-0034-4, 289 pages)</span>
 - [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
 - [Spring Boot in Practice][book_musib] by Somnath Musib, June 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9881-3, 584 pages).</span>
 - [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
@@ -117,7 +119,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -143,11 +145,13 @@
 [book_heckler]: https://www.oreilly.com/library/view/spring-boot-up/9781492076971/
 [book_leonard]: https://link.springer.com/book/10.1007/978-1-4842-5626-8
 [book_musib]: https://www.manning.com/books/spring-boot-in-practice
+[book_nardone]: https://link.springer.com/book/10.1007/979-8-8688-0035-1
 [book_ottinger]: https://link.springer.com/book/10.1007/978-1-4842-4486-9
 [book_sacco]: https://link.springer.com/book/10.1007/978-1-4842-8764-4
 [book_spilca]: https://www.manning.com/books/spring-security-in-action
 [book_spilca2]: https://www.manning.com/books/spring-start-here
 [book_turnquist]: https://www.packtpub.com/product/learning-spring-boot-30-third-edition/9781803233307
+[book_ullenboom]: https://www.sap-press.com/spring-boot-3-and-spring-framework-6_5764/
 [book_varanasi]: https://link.springer.com/book/10.1007/978-1-4842-7477-4
 [book_walls]: https://www.manning.com/books/spring-in-action-sixth-edition
 [guide_quarkus_cache]: https://quarkus.io/guides/spring-cache
