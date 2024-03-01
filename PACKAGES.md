@@ -10,7 +10,7 @@
 
 We also install the following [Maven packages][maven_repository] : 
 
-- [Spring Boot 3.2][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
+- [Spring Boot 3.3][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
 
 Depending on the build tool the above packages are stored locally in two different locations :
 
@@ -34,6 +34,12 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Release Date</th>
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.0-M2">3.3.0-M2</a></td>
+<td>Feb 2024</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.4">6.1.4</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.4">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.2">3.2.2</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.2">relnotes</a>)</i></td>
 <td>Jan 2024</td>
@@ -233,7 +239,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -242,7 +248,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 [gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
 [ivy_lib]: https://ant.apache.org/ivy/
 [maven_repository]: https://mvnrepository.com/
-[mvn_cli]: https://maven.apache.org/ref/3.9.3/maven-embedder/cli.html
+[mvn_cli]: https://maven.apache.org/ref/3.9.6/maven-embedder/cli.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
 [spring_boot_downloads]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
 [spring_boot_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes
