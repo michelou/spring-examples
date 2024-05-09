@@ -28,6 +28,8 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Spring Boot 3.3.0-M2’s Support for Bitnami Container Images](https://tanzu.vmware.com/content/blog/spring-boot-3-3-0-m2-s-support-for-bitnami-container-images-developer-s-guide) by Augustin Ventura, March 2024.
+- [Native Image with Spring Boot](https://medium.com/ekino-france/native-image-with-spring-boot-70f32788528c) by Philippe Agra, January 2024.
 - [Master Spring Boot 3 with GraalVM Native Image](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dimitry Chuyko, February 2023.
 - [Enable HTTPS in Spring Boot with Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates), February 2023.
 - [Bellsoft Blog](https://bell-sw.com/blog/) :
@@ -43,6 +45,7 @@
 - [Spring Framework Guru Blog](https://springframework.guru/blog/) :
   - [JWT Token Authentication in Spring Boot Microservices](https://springframework.guru/jwt-authentication-in-spring-microservices-jwt-token/) by SFG, September 2022. 
   - [Hikari Configuration for MySQL in Spring Boot 2](https://springframework.guru/hikari-configuration-for-mysql-in-spring-boot-2/) by [SFG](https://springframework.guru/author/sfg-contributor/), July 2022.
+  - [Using Filters in Spring Web Applications](https://springframework.guru/using-filters-in-spring-web-applications/) by SFB, September 2021.
   - [Bootstrapping Data in Spring Boot](https://springframework.guru/bootstrapping-data-in-spring-boot/) by SFG, September 2021.
   - [Scheduling in Spring Boot](https://springframework.guru/bootstrapping-data-in-spring-boot/) by SFG, September 2021.
   - [Spring Boot CLI](https://springframework.guru/spring-boot-cli/) by SFG, July 2021.
@@ -91,6 +94,9 @@
 
 - Twittter &ndash; [SpringCentral](https://twitter.com/springcentral).
 - [VMware Tanzu Blog](https://tanzu.vmware.com/blog) by Josh Long :
+  - [This Month in Spring - April 2024](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2024).
+  - [This Month in Spring - March 2024](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2024).
+  - [This Month in Spring - February 2024](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2024).
   - [This Month in Spring - November 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2023).
   - [This Month in Spring - October 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-october-2023).
   - [This Month in Spring - September 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-september-2023).
@@ -119,7 +125,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

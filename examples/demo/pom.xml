@@ -27,7 +27,7 @@
 
     <properties>
         <!-- see parent pom.xml -->
-        <exec.maven.version>3.1.0</exec.maven.version>
+        <exec.maven.version>3.2.0</exec.maven.version>
     </properties>
 
     <dependencies>

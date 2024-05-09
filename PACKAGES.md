@@ -1,4 +1,4 @@
-# <span id="top">Maven Packages</span> <span style="size:25%;"><a href="README.md">↩</a></span>
+# <span id="top">Maven Packages</span> <span style="font-size:90%;">[↩](README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -35,7 +35,25 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
 <tr>
-<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.0-M2">3.3.0-M2</a></td>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.0-RC1">3.3.0-RC1</a></td>
+<td>Apr 2024</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.6">6.1.6</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.6">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.5">3.2.5</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.5">relnotes</a>)</i></td>
+<td>Apr 2024</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.6">6.1.6</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.6">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.4">3.2.4</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.4">relnotes</a>)</i></td>
+<td>Mar 2024</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.5">6.1.5</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.5">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.3">3.2.3</a> <i>(<a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.2.3">relnotes</a>)</i></td>
 <td>Feb 2024</td>
 <td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.4">6.1.4</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.4">relnotes</a>)</td>
 <td>17+ (21)</td>
@@ -239,7 +257,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

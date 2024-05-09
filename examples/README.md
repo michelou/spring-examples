@@ -10,6 +10,30 @@
 
 ## <span id="demo">`demo` Example</span>
 
+This example has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
+|   <a href="./demo/build.bat">build.bat</a>
+|   <a href="./demo/build.gradle">build.gradle</a>
+|   <a href="./demo/pom.xml">pom.xml</a>
+\---src
+    +---main
+    |   +---java
+    |   |   \---com
+    |   |       \---example
+    |   |           \---demo
+    |   |                   <a href="./demo/src/main/java/com/example/demo/DemoApplication.java">DemoApplication.java</a>
+    |   \---resources
+    |           <a href="./demo/src/main/resources/application.properties">application.properties</a>
+    \---test
+        \---java
+            \---com
+                \---example
+                    \---demo
+                            <a href="./demo/src/test/java/com/example/demo/DemoApplicationTests.java">DemoApplicationTests.java</a>
+</pre>
+
 Command [**`build.bat run`**](./demo/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
 <pre style="font-size:80%;">
@@ -112,7 +136,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
