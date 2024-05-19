@@ -28,7 +28,9 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Java Runtimes: Insights From the Spring Boot Point of View](https://blog.jetbrains.com/idea/2024/05/java-runtimes-insights-from-the-spring-boot-point-of-view/) by Aleksey Stukalov and Cathering Edelveis, May 2024.
 - [Spring Boot 3.3.0-M2’s Support for Bitnami Container Images](https://tanzu.vmware.com/content/blog/spring-boot-3-3-0-m2-s-support-for-bitnami-container-images-developer-s-guide) by Augustin Ventura, March 2024.
+- [What is Spring Boot in Java? An Overview in 2024](https://flatirons.com/blog/what-is-spring-boot-in-java/) by Flatirons, February 2024.
 - [Native Image with Spring Boot](https://medium.com/ekino-france/native-image-with-spring-boot-70f32788528c) by Philippe Agra, January 2024.
 - [Master Spring Boot 3 with GraalVM Native Image](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dimitry Chuyko, February 2023.
 - [Enable HTTPS in Spring Boot with Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates), February 2023.
@@ -71,6 +73,7 @@
 - [Spring Boot 3 and Spring Framework 6][book_ullenboom] by Christian Ulleboom, 2024.<br/><span style="font-size:80%;">(Rheinwerk Publishing, ISBN 978-1-4932-2476-0, 934 pages)</span>
 - [Pro Spring 6][book_cosmina_6] by Iuliana Cosmina et al., 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8639-5, 949 pages)</span>
 - [Pro Spring Security][book_nardone] by Massimo Nardone &amp; Carlo Scarioni, December 2023.<br/><span style="font-size:80%;">(Apress, ISBN 979-8-8688-0034-4, 289 pages)</span>
+- [Testing Spring Boot Applications Demystified](https://leanpub.com/testing-spring-boot-applications-demystified) by Philip Riecks, July 2023.</br><span style="font-size:80%;">(LeanPub, 101 pages)</span>
 - [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
 - [Spring Boot in Practice][book_musib] by Somnath Musib, June 2022.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9881-3, 584 pages).</span>
 - [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
