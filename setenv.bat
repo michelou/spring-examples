@@ -25,6 +25,7 @@ if %_HELP%==1 (
 
 set _GRADLE_PATH=
 set _MAVEN_PATH=
+set _SPRING_PATH=
 set _VSCODE_PATH=
 
 @rem %1=version, %2=vendor
@@ -45,6 +46,9 @@ if not %_EXITCODE%==0 goto end
 @rem optional (used in "python -m json.tool")
 call :python3
 @rem if not %_EXITCODE%==0 goto end
+
+call :spring_cli
+if not %_EXITCODE%==0 goto end
 
 call :vscode
 if not %_EXITCODE%==0 goto end
@@ -430,6 +434,42 @@ if not exist "%_PYTHON_HOME%\python.exe" (
 set "_PYTHON_PATH=;%_PYTHON_HOME%;%_PYTHON_HOME%\Scripts"
 goto :eof
 
+@rem output parameters: _SPRING_HOME, _SPRING_PATH
+:spring_cli
+set _SPRING_HOME=
+set _SPRING_PATH=
+
+set __SPRING_CMD=
+for /f "delims=" %%f in ('where spring.bat 2^>NUL') do set "__SPRING_CMD=%%f"
+if defined __SPRING_CMD (
+    for /f "delims=" %%i in ("%__SPRING_CMD%") do set "__SPRING_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__SPRING_BIN_DIR!\.") do set "_SPRING_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Spring CLI executable found in PATH 1>&2
+) else if defined SPRING_HOME (
+    set "_SPRING_HOME=%SPRING_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SPRING_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\sping\" ( set "_SPRING_HOME=!__PATH!\spring"
+    ) else (
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spring-*" 2^>NUL') do set "_SPRING_HOME=!__PATH!\%%f"
+        if not defined _SPRING_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spring-*" 2^>NUL') do set "_SPRING_HOME=!__PATH!\%%f"
+        )
+    )
+    if defined _SPRING_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Spring CLI installation directory "!_SPRING_HOME!" 1>&2
+    )
+)
+if not exist "%_SPRING_HOME%\bin\spring.bat" (
+    echo %_ERROR_LABEL% Executable spring.bat not found ^("%_SPRING_HOME%"^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_SPRING_PATH=;%_SPRING_HOME%\bin"
+goto :eof
+
 @rem output parameters: _VSCODE_HOME, _VSCODE_PATH
 :vscode
 set _VSCODE_HOME=
@@ -524,6 +564,11 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('"%JAVA_HOME%\bin\java.exe" -version 2^>^&1 ^| findstr version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% java %%~k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%JAVA_HOME%\bin:java.exe"
 )
+where /q "%SPRING_HOME%\bin:spring.bat"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=*" %%i in ('call "%SPRING_HOME%\bin\spring.bat" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% %%i,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%SPRING_HOME%\bin:spring.bat"
+)
 where /q "%GRADLE_HOME%\bin:gradle.bat"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,*" %%i in ('call "%GRADLE_HOME%\bin\gradle.bat" -version ^| findstr Gradle') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% gradle %%j,"
@@ -571,6 +616,7 @@ if %__VERBOSE%==1 (
     if defined JAVA21_HOME echo    "JAVA21_HOME=%JAVA21_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
+    if defined SPRING_HOME echo    "SPRING_HOME=%SPRING_HOME%" 1>&2
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
         set "__LINE=%%i"
@@ -594,8 +640,9 @@ endlocal & (
         if not defined JAVA21_HOME set "JAVA21_HOME=%_JAVA21_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
+        if not defined SPRING_HOME set "SPRING_HOME=%_SPRING_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_SPRING_HOME%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2

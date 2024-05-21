@@ -26,6 +26,7 @@ This project depends on the following external software for the **Microsoft Wind
 Optionally one may also install the following software:
 
 - [ConEmu][conemu_downloads] ([*release notes*][conemu_relnotes])
+- [Spring Boot CLI 3][spring_cli_downloads]
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*bug fixes*][temurin_openjdk21_bugfixes], [*Java 21 API*][oracle_openjdk21_api])
 - [Visual Studio Code 1.89][vscode_downloads] ([*release notes*][vscode_relnotes])
@@ -43,6 +44,7 @@ C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\jdk-temurin-11.0.23_9\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.11_9\   <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.3_9\    <i>(326 MB)</i>
+C:\opt\spring_3.2.5\            <i>(  6 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -81,12 +83,13 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   javac 17.0.10, java 17.0.10,
+   javac 17.0.11, java 17.0.11, Spring CLI v3.2.5,
    gradle 8.7, mvn 3.9.6,
    git 2.45.1, diff 3.10, bash 5.2.26(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.11_9\bin\javac.exe
    C:\opt\jdk-temurin-17.0.11_9\bin\java.exe
+   C:\opt\spring-3.2.5\bin\spring.bat
    C:\opt\gradle\bin\gradle.bat
    C:\opt\apache-maven\bin\mvn.cmd
    C:\opt\Git\bin\git.exe
@@ -101,6 +104,7 @@ Environment variables:
    "JAVA21_HOME=C:\opt\jdk-temurin-21.0.3_9"
    "MAVEN_HOME=C:\opt\apache-maven"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
+   "SPRING_HOME=C:\opt\spring-3.2.5"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn sh</b>
 C:\opt\gradle\bin\gradle.bat
@@ -140,6 +144,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(176 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.3_9.zip</a>    <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.45.1-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli" rel="external">spring-boot-cli-3.2.5-bin.zip</a>                      <i>(  5 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.89.1.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
@@ -225,6 +230,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spark_examples]: https://github.com/michelou/spark-examples#top
 [spring]: https://spring.io/
+[spring_cli_downloads]: https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli
+[spring_cmd]: https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
 <!--
 #### Archives ### https://mail.openjdk.org/pipermail/jdk-updates-dev/
 11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html

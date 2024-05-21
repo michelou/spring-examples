@@ -70,6 +70,7 @@
 
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
+- [Spring Security in Action][book_spilca_2nd] (2<sup>nd</sup> Edition) by Laurentiu Spilca, April 2024.<br/><span style="font-size:80%;">(Manning,  ISBN 978-1-6334-3797-5, 440 pages)</span>
 - [Spring Boot 3 and Spring Framework 6][book_ullenboom] by Christian Ulleboom, 2024.<br/><span style="font-size:80%;">(Rheinwerk Publishing, ISBN 978-1-4932-2476-0, 934 pages)</span>
 - [Pro Spring 6][book_cosmina_6] by Iuliana Cosmina et al., 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8639-5, 949 pages)</span>
 - [Pro Spring Security][book_nardone] by Massimo Nardone &amp; Carlo Scarioni, December 2023.<br/><span style="font-size:80%;">(Apress, ISBN 979-8-8688-0034-4, 289 pages)</span>
@@ -81,10 +82,12 @@
 - [Spring REST][book_varanasi] (2<sup>nd</sup> edition) by Balaji Varanasi and Maxim Bartkov, Novembre 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7476-7, 251 pages)<br/>GitHub: [`Apress/spring-rest-2e`][Apress/spring-rest-2e]</span>
 - [Spring Start Here][book_spilca2] by Laurentiu Spilca, September 2021.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9869-1, 416 pages)</span>
 - [Spring Boot Up &amp; Running][book_heckler] by Mark Heckler, 2021.<br/><span style="font-size:80%;">(O'Reilly, ISBN 978-1-4920-7698-8, 330 pages)</span>
-- [Spring Security in Action][book_spilca] by Laurentiu Splica, October 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9773-1, 560 pages)</span>
 - [Beginning Spring 5][book_ottinger] by Joseph B. Ottinger and Andrew Lombardi, 2019.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-4485-2, 365 pages)</span>
 - [Spring Boot Persistance Best Practices][book_leonard] by Anghel Leonard, 2018.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-5625-1, 1041 pages)<br/>GitHub: <a href="https://github.com/Apress/spring-boot-persistence-best-practices"><code>Apress/spring-boot-persistence-best-practices</code></a></span>
 - [Pro Spring 5][book_cosmina_5] by Iuliana Cosmina et al., 2017.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-2807-4, 866 pages)<br/>GitHub: <a href="https://github.com/Apress/pro-spring-5"><code>Apress/pro-spring-5</code></a></span>
+<!--
+- [Spring Security in Action][book_spilca] by Laurentiu Splica, October 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9773-1, 560 pages)</span>
+-->
 
 ## <span id="guides">Guides</span> [**&#x25B4;**](#top)
 
@@ -119,6 +122,7 @@
 
 ## <span id="tutorials">Tutorials</span>
 
+- [Java Spring Tutorial (VS Code)](https://medium.com/@alexandre.therrien3/java-spring-tutorial-the-only-tutorial-you-will-need-to-get-started-vs-code-13413e661db5) by Alex Therrien, March 2024.
 - [Data Flair](https://data-flair.training/) &ndash; [Spring Tutorials](https://data-flair.training/blogs/spring-tutorials-home/)
 - [Spring Framework / Spring Boot](https://gayerie.dev/docs/spring/) by David Gayerie.
 
@@ -158,6 +162,7 @@
 [book_ottinger]: https://link.springer.com/book/10.1007/978-1-4842-4486-9
 [book_sacco]: https://link.springer.com/book/10.1007/978-1-4842-8764-4
 [book_spilca]: https://www.manning.com/books/spring-security-in-action
+[book_spilca_2nd]: https://www.manning.com/books/spring-security-in-action-second-edition
 [book_spilca2]: https://www.manning.com/books/spring-start-here
 [book_turnquist]: https://www.packtpub.com/product/learning-spring-boot-30-third-edition/9781803233307
 [book_ullenboom]: https://www.sap-press.com/spring-boot-3-and-spring-framework-6_5764/

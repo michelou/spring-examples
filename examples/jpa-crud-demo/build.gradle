@@ -1,7 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '3.0.1'
-    id 'io.spring.dependency-management' version '1.1.0'
-    id 'java'
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'com.sivalabs'
@@ -24,6 +23,7 @@ ext {
     set('bootstrapVersion', "5.2.3")
     set('jqueryVersion', "3.6.1")
     set('fontawesomeVersion', "6.2.0")
+    // https://mvnrepository.com/artifact/org.webjars/vue
     set('vueVersion', "2.7.8")
 }
 

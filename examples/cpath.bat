@@ -22,7 +22,7 @@ if %_DEBUG%==1 echo [%~n0] "_TEMP_DIR=%_TEMP_DIR%"
 set _LIBS_CPATH=
 
 @rem https://mvnrepository.com/artifact/commons-logging/commons-logging
-call :add_jar "commons-logging" "commons-logging" "1.2"
+call :add_jar "commons-logging" "commons-logging" "1.3.2"
 
 @rem Spring Boot 2.7.6+ depend  on Spring Framework 5.3.24
 @rem Spring Boot 3.0.0  depends on Spring Framework 6.0.2
@@ -144,7 +144,7 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.10.0"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "5.3.2"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "5.4.0"
 
 set _SLF4J_VERSION=2.0.13
 
