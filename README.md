@@ -89,7 +89,7 @@ Tool versions:
 Tool paths:
    C:\opt\jdk-temurin-17.0.11_9\bin\javac.exe
    C:\opt\jdk-temurin-17.0.11_9\bin\java.exe
-   C:\opt\spring-3.2.5\bin\spring.bat
+   C:\opt\spring-cli\bin\spring.bat
    C:\opt\gradle\bin\gradle.bat
    C:\opt\apache-maven\bin\mvn.cmd
    C:\opt\Git\bin\git.exe
@@ -104,7 +104,7 @@ Environment variables:
    "JAVA21_HOME=C:\opt\jdk-temurin-21.0.3_9"
    "MAVEN_HOME=C:\opt\apache-maven"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
-   "SPRING_HOME=C:\opt\spring-3.2.5"
+   "SPRING_HOME=C:\opt\spring-cli"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn sh</b>
 C:\opt\gradle\bin\gradle.bat
@@ -144,7 +144,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(176 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.3_9.zip</a>    <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.45.2-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
-<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli" rel="external">spring-boot-cli-3.2.5-bin.zip</a>                      <i>(  5 MB)</i>
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli" rel="external">spring-boot-cli-3.3.0-bin.zip</a>                      <i>(  5 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.89.1.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
@@ -202,7 +202,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
 [gradle_latest]: https://gradle.org/releases/
-[gradle_relnotes]: https://docs.gradle.org/8.0/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.8/release-notes.html
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
 [kafka_examples]: https://github.com/michelou/kafka-examples#top
 [kotlin_examples]: https://github.com/michelou/kotlin-examples#top
