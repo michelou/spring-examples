@@ -450,12 +450,12 @@ if defined __SPRING_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SPRING_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    if exist "!__PATH!\sping\" ( set "_SPRING_HOME=!__PATH!\spring"
+    if exist "!__PATH!\sping-cli\" ( set "_SPRING_HOME=!__PATH!\spring-cli"
     ) else (
-        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spring-*" 2^>NUL') do set "_SPRING_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spring-cli*" 2^>NUL') do set "_SPRING_HOME=!__PATH!\%%f"
         if not defined _SPRING_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spring-*" 2^>NUL') do set "_SPRING_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spring-cli*" 2^>NUL') do set "_SPRING_HOME=!__PATH!\%%f"
         )
     )
     if defined _SPRING_HOME (

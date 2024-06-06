@@ -1,10 +1,9 @@
-# <span id="top">Spring examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Spring examples</span> <span style="font-size:90%;">[↩](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:100px;"><a href="https://spring.io/"><img style="border:0;" src="../docs/images/spring-icon.svg" width="100" alt="Spring project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://spring.io/" alt="Spring">Spring</a> code examples coming from various websites - mostly from the <a href="https://spring.io/" rel="external">Spring</a> project.
-  </td>
+  <td style="border:0;padding:0;vertical-align:text-top;">Directory <strong><code>examples\</code></strong> contains <a href="https://spring.io/" alt="Spring">Spring</a> code examples coming from various websites - mostly from the <a href="https://spring.io/" rel="external">Spring</a> project.</td>
   </tr>
 </table>
 
@@ -136,7 +135,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

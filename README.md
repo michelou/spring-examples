@@ -17,7 +17,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.45][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 8.7][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.8][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 
 > **&#9755;** ***Maven packages***<br/>
@@ -34,7 +34,7 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*May 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*June 2024*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\            <i>( 10 MB)</i>
@@ -44,7 +44,7 @@ C:\opt\gradle\                  <i>(135 MB)</i>
 C:\opt\jdk-temurin-11.0.23_9\   <i>(300 MB)</i>
 C:\opt\jdk-temurin-17.0.11_9\   <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.3_9\    <i>(326 MB)</i>
-C:\opt\spring_3.2.5\            <i>(  6 MB)</i>
+C:\opt\spring-cli\              <i>(  6 MB)</i>
 C:\opt\VSCode\                  <i>(341 MB)</i>
 </pre>
 
@@ -83,9 +83,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   javac 17.0.11, java 17.0.11, Spring CLI v3.2.5,
-   gradle 8.7, mvn 3.9.6,
-   git 2.45.1, diff 3.10, bash 5.2.26(1)-release
+   javac 17.0.11, java 17.0.11, Spring CLI v3.3.0,
+   gradle 8.8, mvn 3.9.7,
+   git 2.45.2, diff 3.10, bash 5.2.26(1)-release
 Tool paths:
    C:\opt\jdk-temurin-17.0.11_9\bin\javac.exe
    C:\opt\jdk-temurin-17.0.11_9\bin\java.exe
@@ -137,13 +137,13 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.7-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.7-bin.zip</a>                                 <i>(110 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.8-bin.zip</a>                                 <i>(110 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.23_9.zip</a>   <i>( 99 MB)</i>
 <a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(176 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.3_9.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.45.1-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.45.2-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli" rel="external">spring-boot-cli-3.2.5-bin.zip</a>                      <i>(  5 MB)</i>
 <a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.89.1.zip</a>                        <i>(131 MB)</i>
 </pre>
@@ -172,7 +172,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -182,7 +182,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.6/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.7/release-notes.html
 [cobol_examples]: https://github.com/michelou/cobol-examples#top
 [conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
 [conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
@@ -194,7 +194,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [flix_examples]: https://github.com/michelou/flix-examples#top
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.2.txt
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
@@ -219,7 +219,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.6/release-notes.html
+[maven_relnotes]: https://maven.apache.org/docs/3.9.7/release-notes.html
 [maven_repository]: https://mvnrepository.com/
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
 [oracle_openjdk21]: https://jdk.java.net/21/
