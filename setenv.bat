@@ -593,7 +593,11 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%GIT_HOME%\bin:bash.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash %%l"
+    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do (
+        set "__VERSION=%%l"
+        setlocal enabledelayedexpansion
+        set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash !__VERSION:-release=!"
+    )
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
 )
 echo Tool versions:
@@ -632,6 +636,7 @@ goto :eof
 :end
 endlocal & (
     if %_EXITCODE%==0 (
+        echo 1111111111111111111111111 %_SPRING_PATH%
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
@@ -642,7 +647,7 @@ endlocal & (
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         if not defined SPRING_HOME set "SPRING_HOME=%_SPRING_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_SPRING_HOME%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_SPRING_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2

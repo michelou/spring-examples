@@ -53,6 +53,7 @@
   - [Spring Boot CLI](https://springframework.guru/spring-boot-cli/) by SFG, July 2021.
   - [Internationalization with Spring Boot](https://springframework.guru/internationalization-with-spring-boot/) by SFG, July 2021.
 - [Adservio Blog](https://www.adservio.fr) :
+  - [What is Spring Boot?](https://www.adservio.fr/post/what-is-spring-boot), October 2022.
   - [Advantages of Spring Boot](https://www.adservio.fr/post/advantages-of-spring-boot), April 2022.
   - [Spring Performance Best Practices](https://www.adservio.fr/post/spring-performance-best-practices), February 2022.
 - [Critical Vulnerability in Spring Core: Spring4Shell](https://sysdig.com/blog/cve-2022-22965-spring-core-spring4shell/) by Stefano Chierici, March 2022.
@@ -132,7 +133,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -16,8 +16,8 @@ This example has the following directory structure :
 |   <a href="./demo/build.bat">build.bat</a>
 |   <a href="./demo/build.gradle">build.gradle</a>
 |   <a href="./demo/pom.xml">pom.xml</a>
-\---src
-    +---main
+\---<b>src</b>
+    +---<b>main</b>
     |   +---java
     |   |   \---com
     |   |       \---example
@@ -135,7 +135,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

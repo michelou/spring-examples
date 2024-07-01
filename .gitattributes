@@ -3,26 +3,33 @@
 
 # Explicitly declare text files you want to always be normalized and converted
 # to native line endings on checkout.
+# (see https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml)
 *.ada text linguist-language=Ada
 *.adb text linguist-language=Ada
 *.ads text linguist-language=Ada
-*.awk text linguist-vendored=false
+*.awk text linguist-language=Awk
 *.c text linguist-language=C
 *.cabal text linguist-language=Cabal Config
 *.cpp text linguist-language=C++
+*.cs text linguist-language=CSharp
 *.daml text linguist-language=Haskell
 *.es text linguist-language=JavaScript
+*.flix text linguist-language=Flix
 *.go text linguist-language=Go
 *.h text linguist-language=C
 *.hpp text linguist-language=C++
 *.hs text linguist-language=Haskell
 *.hsc text linguist-language=Haskell
+*.inc text linguist-language=Makefile
 *.ini text linguist-language=INI
 *.java text linguist-language=Java
 *.js text linguist-language=JavaScript
 *.json text linguist-language=JSON
 *.jsx text linguist-language=JavaScript
+*.kt text linguist-language=Kotlin
+*.kts text linguist-language=Kotlin
 *.md text linguist-documentation=true
+*.mod test linguist-language=Modula-2
 *.properties text linguist-language=INI
 *.py text linguist-language=Python
 *.rs text linguist-language=Rust
@@ -33,6 +40,7 @@
 *.xml text linguist-language=XML
 *.xslt text linguist-language=XSLT
 *.yaml text linguist-language=MiniYAML
+*.zig text linguist-language=Zig
 
 # Declare files that will always have CRLF line endings on checkout.
 *.bat eol=crlf linguist-detectable=false
@@ -60,4 +68,7 @@ Makefile.inc text eol=crlf linguist-detectable=false
 *.rtf binary
 *.zip binary
 
+# Project specific attributes
+# https://aldomann.com/post/override-github-linguist-with-gitattributes-files/
+bin/* linguist-vendored
 docs/* linguist-documentation

@@ -27,14 +27,15 @@
         <!-- Spring Boot 3.1.1 depends on Spring Framework 6.0.10 -->
         <!-- Spring Boot 3.1.2 depends on Spring Framework 6.0.11 -->
         <!-- Spring Boot 3.1.5 depends on Spring Framework 6.0.13 -->
-        <!-- Spring Boot 3.2.0 depends on String Framework 6.1.1  -->
-        <spring.version>6.1.6</spring.version>
-        <spring-boot.version>3.2.5</spring-boot.version>
+        <!-- Spring Boot 3.2.0 depends on Spring Framework 6.1.1  -->
+        <!-- Spring Boot 3.3.1 depends on Spring Framework 6.1.10 -->
+        <spring.version>6.1.10</spring.version>
+        <spring-boot.version>3.3.1</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <maven.compiler.version>3.13.0</maven.compiler.version>
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-        <exec.maven.version>3.2.0</exec.maven.version>
+        <exec.maven.version>3.3.0</exec.maven.version>
     </properties>
 
     <dependencies>
