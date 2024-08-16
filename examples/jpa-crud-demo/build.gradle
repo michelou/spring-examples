@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '3.2.5'
+    id 'org.springframework.boot' version '3.3.2'
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
@@ -18,13 +18,23 @@ repositories {
 }
 
 ext {
-    set('testcontainersVersion', "1.17.6")
-    set('webjarsLocatorVersion', "0.46")
-    set('bootstrapVersion', "5.2.3")
-    set('jqueryVersion', "3.6.1")
-    set('fontawesomeVersion', "6.2.0")
+    // https://mvnrepository.com/artifact/org.testcontainers/testcontainers-bom
+    testcontainersVersion = "1.20.0"
+
+    // https://mvnrepository.com/artifact/org.webjars/webjars-locator
+    webjarsLocatorVersion = "0.52"
+
+    // https://mvnrepository.com/artifact/org.webjars/bootstrap
+    bootstrapVersion = "5.2.3"
+
+    // https://mvnrepository.com/artifact/org.webjars/jquery
+    jqueryVersion = "3.7.1"
+
+    // https://mvnrepository.com/artifact/org.webjars/font-awesome
+    fontawesomeVersion = "6.2.0"
+
     // https://mvnrepository.com/artifact/org.webjars/vue
-    set('vueVersion', "2.7.8")
+    vueVersion = "2.7.8"
 }
 
 dependencies {

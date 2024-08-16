@@ -17,11 +17,23 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<testcontainers.version>1.17.6</testcontainers.version>
-		<webjarsLocator.version>0.46</webjarsLocator.version>
-		<bootstrap.version>5.2.3</bootstrap.version>
-		<jquery.version>3.6.1</jquery.version>
-		<fontawesome.version>6.2.0</fontawesome.version>
+
+        <!-- https://mvnrepository.com/artifact/org.testcontainers/testcontainers -->
+		<testcontainers.version>1.20.0</testcontainers.version>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/webjars-locator -->
+		<webjarsLocator.version>0.52</webjarsLocator.version>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+		<bootstrap.version>5.3.3</bootstrap.version>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+		<jquery.version>3.7.1</jquery.version>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
+		<fontawesome.version>6.5.2</fontawesome.version>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/vue -->
 		<vue.version>2.7.8</vue.version>
 	</properties>
 

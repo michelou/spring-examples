@@ -28,6 +28,9 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Geeksforgeeks](https://www.geeksforgeeks.org/) :
+  - [Migrating a Spring Boot Application from Spring Security 5 to Spring Security 6](https://www.geeksforgeeks.org/migrating-a-spring-boot-application-from-spring-security-5-to-spring-security-6/), July 2024.
+  - [How Spring Boot Application Works Internally?](https://www.geeksforgeeks.org/how-spring-boot-application-works-internally/), October 2023.
 - [Java Runtimes: Insights From the Spring Boot Point of View](https://blog.jetbrains.com/idea/2024/05/java-runtimes-insights-from-the-spring-boot-point-of-view/) by Aleksey Stukalov and Cathering Edelveis, May 2024.
 - [Spring Boot 3.3.0-M2’s Support for Bitnami Container Images](https://tanzu.vmware.com/content/blog/spring-boot-3-3-0-m2-s-support-for-bitnami-container-images-developer-s-guide) by Augustin Ventura, March 2024.
 - [What is Spring Boot in Java? An Overview in 2024](https://flatirons.com/blog/what-is-spring-boot-in-java/) by Flatirons, February 2024.
@@ -38,7 +41,7 @@
   - [Master Spring Boot 3 with GraalVM Native...](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dmitry Chuyko, February 2023.
   - [Spring Boot with GraalVM Native Image](https://bell-sw.com/blog/spring-boot-with-graalvm-native-image-performance-compatibility-migration/) by Dmitry Chuyko, January 2023.
 - [Spring Boot — Power of Value Objects](https://dev.to/kirekov/spring-boot-power-of-value-objects-1oah) by Semyon Kirekov, December 2022.
-- [JavaTechOnline](https://javatechonline.com/?s=Spring)
+- [JavaTechOnline](https://javatechonline.com/?s=Spring) :
   - [Spring Security LDAP Authentication Example](https://javatechonline.com/spring-security-ldap-authentication-example/), November 2022.
   - [Spring Security Annotations With Examples](https://javatechonline.com/spring-security-annotations/), August 2022.
   - [Spring Boot Batch Example CSV to MySQL Using JPA](https://javatechonline.com/spring-boot-batch-example-csv-to-mysql-using-jpa/), June 2022.
@@ -99,23 +102,12 @@
 
 ## <span id="news">News</span> [**&#x25B4;**](#top)
 
+- [endoflife.date](https://endoflife.date/) &ndash; [Spring Boot lifecycle](https://endoflife.date/spring-boot)
 - Twittter &ndash; [SpringCentral](https://twitter.com/springcentral).
-- [VMware Tanzu Blog](https://tanzu.vmware.com/blog) by Josh Long :
-  - [This Month in Spring - April 2024](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2024).
-  - [This Month in Spring - March 2024](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2024).
-  - [This Month in Spring - February 2024](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2024).
-  - [This Month in Spring - November 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2023).
-  - [This Month in Spring - October 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-october-2023).
-  - [This Month in Spring - September 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-september-2023).
-  - [This Month in Spring - July 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-july-2023).
-  - [This Month in Spring - June 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-june-2023).
-  - [This Month in Spring - May 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-may-2023).
-  - [This Month in Spring - April 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2023).
-  - [This Month in Spring - March 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2023).
-  - [This Month in Spring - February 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2023).
-  - [This Month in Spring - January 2023](https://tanzu.vmware.com/content/blog/this-month-in-spring-january-2023).
-  - [This Month in Spring - December 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-december-2022).
-  - [This Month in Spring - November 2022](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2022).
+- [VMware Tanzu Blog](https://tanzu.vmware.com/blog) &ndash; This Month in Spring, by Josh Long :
+  - 2024: [February](https://tanzu.vmware.com/content/blog/this-month-in-spring-february-2024), [March](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2024), [April](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2024), [July](https://tanzu.vmware.com/content/blog/this-month-in-spring-july-2024).
+  - 2023: [January](https://tanzu.vmware.com/content/blog/this-month-in-spring-january-2023), [March](https://tanzu.vmware.com/content/blog/this-month-in-spring-march-2023), [April](https://tanzu.vmware.com/content/blog/this-month-in-spring-april-2023), [May](https://tanzu.vmware.com/content/blog/this-month-in-spring-may-2023), [June](https://tanzu.vmware.com/content/blog/this-month-in-spring-june-2023), [July](https://tanzu.vmware.com/content/blog/this-month-in-spring-july-2023), [September](https://tanzu.vmware.com/content/blog/this-month-in-spring-september-2023), [October](https://tanzu.vmware.com/content/blog/this-month-in-spring-october-2023), [November](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2023).
+  - 2022: [November](https://tanzu.vmware.com/content/blog/this-month-in-spring-november-2022), [December](https://tanzu.vmware.com/content/blog/this-month-in-spring-december-2022).
 
 ## <span id="projects">Projects</span> [**&#x25B4;**](#top)
 
@@ -133,7 +125,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

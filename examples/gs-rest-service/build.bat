@@ -73,6 +73,11 @@ set _PYTHON_CMD=
 if exist "%PYTHON_HOME%\python.exe" (
     set "_PYTHON_CMD=%PYTHON_HOME%\python.exe"
 )
+@rem use newer PowerShell version if available
+where /q pwsh.exe
+if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
+) else ( set _PWSH_CMD=powershell.exe
+)
 goto :eof
 
 :env_colors
@@ -181,7 +186,7 @@ if %_DEBUG%==1 (
     if defined PYTHON_HOME echo %_DEBUG_LABEL% Variables  : "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : _SERVER_PROC_NAME=%_SERVER_PROC_NAME% 1>&2
 )
-if %_TIMER%==1 for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set _TIMER_START=%%i
+if %_TIMER%==1 for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
 :help
@@ -365,11 +370,11 @@ if %_DEBUG%==1 ( set __CURL_OPTS=--get --verbose
 ) else ( set __CURL_OPTS=--get --silent
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__URL%" to server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__URL%" on server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" %__FORMAT_JSON%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__URL%" to server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__URL%" on server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -377,18 +382,18 @@ echo.
 set "__URL2=http://localhost:%__SERVER_PORT%/greeting?name=John"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__URL2%" to server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__URL2%" on server "%_SERVER_PROC_NAME%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" %__FORMAT_JSON%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__URL2%" to server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__URL2%" on server "%_SERVER_PROC_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
 goto :eof
 
 :run_browser
-set __URL=http://localhost:8080/greeting
+set __URL=http://localhost:%__SERVER_PORT%/greeting
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% start "demo-client" "%__URL%" 1>&2
 ) else if %_VERBOSE%==1 ( echo Open URL in default browser 1>&2
@@ -468,7 +473,7 @@ goto :eof
 set __START=%~1
 set __END=%~2
 
-for /f "delims=" %%i in ('powershell -c "$interval = New-TimeSpan -Start '%__START%' -End '%__END%'; Write-Host $interval"') do set _DURATION=%%i
+for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "$interval = New-TimeSpan -Start '%__START%' -End '%__END%'; Write-Host $interval"') do set _DURATION=%%i
 goto :eof
 
 @rem #########################################################################
@@ -476,7 +481,7 @@ goto :eof
 
 :end
 if %_TIMER%==1 (
-    for /f "delims=" %%i in ('powershell -c "(Get-Date)"') do set __TIMER_END=%%i
+    for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "(Get-Date)"') do set __TIMER_END=%%i
     call :duration "%_TIMER_START%" "!__TIMER_END!"
     echo Total execution time: !_DURATION! 1>&2
 )

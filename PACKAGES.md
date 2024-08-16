@@ -30,10 +30,16 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <dd>
 <table>
 <tr>
-<th>Spring Boot 3</th>
-<th>Release Date</th>
+<th>Spring&nbsp;Boot&nbsp;3</th>
+<th>Release&nbsp;Date</th>
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.2">3.3.2</a></td>
+<td>July 2024</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.11">6.1.11</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.11">relnotes</a>)</td>
+<td>17+ (21)</td>
+</tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.1">3.3.1</a></td>
 <td>June 2024</td>
@@ -263,7 +269,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

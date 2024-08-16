@@ -18,14 +18,14 @@ This example has the following directory structure :
 |   <a href="./demo/pom.xml">pom.xml</a>
 \---<b>src</b>
     +---<b>main</b>
-    |   +---java
-    |   |   \---com
+    |   +---<b>java</b>
+    |   |   \---<b>com</b>
     |   |       \---example
     |   |           \---demo
     |   |                   <a href="./demo/src/main/java/com/example/demo/DemoApplication.java">DemoApplication.java</a>
-    |   \---resources
+    |   \---<b>resources</b>
     |           <a href="./demo/src/main/resources/application.properties">application.properties</a>
-    \---test
+    \---<b>test</b>
         \---java
             \---com
                 \---example
@@ -58,7 +58,7 @@ Hello John!buil
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v3.2.2)
+>  :: Spring Boot ::                (v3.3.2)
 > [...]
 > </pre>
 
@@ -71,7 +71,34 @@ Stop server process "demo-service"
 
 ## <span id="gs-rest-service">`gs-rest-service` Example<span> [**&#x25B4;**](#top)
 
-### Batch command
+This example has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+|   <a href="./gs-rest-service/build.bat">build.bat</a>
+|   <a href="./gs-rest-service/build.gradle">build.gradle</a>
+|   <a href="./gs-rest-service/manifest.yml">manifest.yml</a>
+|   <a href="./gs-rest-service/pom.xml">pom.xml</a>
+|   <a href="./gs-rest-service/settings.gradle">settings.gradle</a>
+\---<b>src</b>
+    +---<b>main</b>
+    |   +---<b>java</b>
+    |   |   \---<b>com</b>
+    |   |       \---<b>example</b>
+    |   |           \---<b>restservice</b>
+    |   |                   <a href="./gs-rest-service/src/main/java/com/example/restservice/Greeting.java">Greeting.java</a>
+    |   |                   GreetingController.java</a>
+    |   |                   RestServiceApplication.java</a>
+    |   |
+    |   \---<b>resources</b>
+    |           <a href="./gs-rest-service/src/main/resources/application.properties">application.properties</a>
+    \---<b>test</b>
+        \---<b>java</b>
+            \---<b>com</b>
+                \---<b>example</b>
+                    \---<b>restservice</b>
+                            GreetingControllerTests.java</a>
+</pre>
 
 Command [**`build run`**](./gs-test-service/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
@@ -112,7 +139,7 @@ Stop server process "gs-rest-service"
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v3.2.2)
+>  :: Spring Boot ::                (v3.3.2)
 > [...]
 > </pre>
 
@@ -135,7 +162,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

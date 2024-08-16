@@ -1,8 +1,8 @@
 plugins {
     // https://plugins.gradle.org/plugin/org.springframework.boot
-    id 'org.springframework.boot' version '3.3.1'
+    id 'org.springframework.boot' version '3.3.2'
     // https://plugins.gradle.org/plugin/io.spring.dependency-management
-    id 'io.spring.dependency-management' version '1.1.5'
+    id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'com.example.demo'
@@ -13,19 +13,33 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    // https://mvnrepository.com/artifact/org.springframework/spring-core
+    springVersion = "6.1.12"
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
+    springBotVersion = "3.3.2"
+
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    h2databaseVersion = "2.3.232"
+}
+
 dependencies {
+    // https://mvnrepository.com/artifact/org.springframework/spring-core
+    implementation 'org.springframework:spring-core:$springVersion'
+
     // https://mvnrepository.com/artifact/org.springframework/spring-web
-    implementation 'org.springframework:spring-web:6.1.10'
+    implementation 'org.springframework:spring-web:$springVersion'
 
     // https://mvnrepository.com/artifact/org.eclipse.persistence/javax.persistence
     implementation 'org.eclipse.persistence:javax.persistence:2.2.1'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:$springBotVersion'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    implementation 'org.springframework.boot:org.spring-boot-starter-test'
+    implementation 'org.springframework.boot:org.spring-boot-starter-test:$springBotVersion'
 
     // https://mvnrepository.com/artifact/com.h2database/h2
-    implementation 'com.h2database:h2:2.2.224'
+    implementation 'com.h2database:$h2databaseVersion'
 }
