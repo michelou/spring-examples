@@ -400,6 +400,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% start "demo-client" "%__URL%" 1>&2
 )
 start "demo-client" "%__URL%"
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to open URL in default browser 1>&2
     set _EXITCODE=1
     goto :eof
 )

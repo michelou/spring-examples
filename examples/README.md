@@ -12,7 +12,7 @@
 This example has the following directory structure :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
 |   <a href="./demo/build.bat">build.bat</a>
 |   <a href="./demo/build.gradle">build.gradle</a>
 |   <a href="./demo/pom.xml">pom.xml</a>
@@ -28,12 +28,12 @@ This example has the following directory structure :
     \---<b>test</b>
         \---java
             \---com
-                \---example
-                    \---demo
+                \---<b>example</b>
+                    \---<b>demo</b>
                             <a href="./demo/src/test/java/com/example/demo/DemoApplicationTests.java">DemoApplicationTests.java</a>
 </pre>
 
-Command [**`build.bat run`**](./demo/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
+Command [**`build.bat`**](./demo/build.bat)`-verbose run` starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./demo/build.bat">build</a> -verbose run</b>
@@ -58,11 +58,11 @@ Hello John!buil
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v3.3.2)
+>  :: Spring Boot ::                (v3.3.3)
 > [...]
 > </pre>
 
-Command [**`build stop`**](./demo/build.bat) terminates the server process :
+Command [**`build`**](./demo/build.bat)`stop` terminates the server process :
 <pre style="font-size:80%;">
 <b>&gt; <a href="./demo/build.bat">build</a> -verbose stop</b>
 Search for user process with name "demo-service"
@@ -87,9 +87,8 @@ This example has the following directory structure :
     |   |       \---<b>example</b>
     |   |           \---<b>restservice</b>
     |   |                   <a href="./gs-rest-service/src/main/java/com/example/restservice/Greeting.java">Greeting.java</a>
-    |   |                   GreetingController.java</a>
-    |   |                   RestServiceApplication.java</a>
-    |   |
+    |   |                   <a href="./gs-rest-service/src/main/java/com/example/restservice/GreetingController.java">GreetingController.java</a>
+    |   |                   <a href="./gs-rest-service/src/main/java/com/example/restservice/RestServiceApplication.java">RestServiceApplication.java</a>
     |   \---<b>resources</b>
     |           <a href="./gs-rest-service/src/main/resources/application.properties">application.properties</a>
     \---<b>test</b>
@@ -97,10 +96,10 @@ This example has the following directory structure :
             \---<b>com</b>
                 \---<b>example</b>
                     \---<b>restservice</b>
-                            GreetingControllerTests.java</a>
+                            <a href="./gs-rest-service/src/test/java/com/example/restservice/GreetingControllerTests.java">GreetingControllerTests.java</a>
 </pre>
 
-Command [**`build run`**](./gs-test-service/build.bat) starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
+Command [**`build`**](./gs-test-service/build.bat)`run` starts the Spring Boot server &ndash; *if not yet running* &ndash; and executes two HTTP requests (using [`cURL`][curl_cli]) :
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./gs-rest-service/build.bat">build</a> -verbose run</b>
@@ -118,7 +117,7 @@ Execute request to server "gs-rest-service"
 }
 </pre>
 
-Command [**`build stop`**](./gs-rest-service/build.bat) terminates the server process :
+Command [**`build`**](./gs-rest-service/build.bat)`stop` terminates the server process :
 <pre style="font-size:80%;">
 <b>&gt; <a href="./demo/build.bat">build</a> -verbose stop</b>
 Search for user process with name "gs-rest-service"
@@ -139,10 +138,9 @@ Stop server process "gs-rest-service"
 >  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
 >   '  |____| .__|_| |_|_| |_\__, | / / / /
 >  =========|_|==============|___/=/_/_/_/
->  :: Spring Boot ::                (v3.3.2)
+>  :: Spring Boot ::                (v3.3.3)
 > [...]
 > </pre>
-
 
 <!--
 ## <span id="footnotes">Footnotes</span>
@@ -162,7 +160,7 @@ Stop server process "gs-rest-service"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

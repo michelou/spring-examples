@@ -138,7 +138,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -150,7 +150,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="run" ( set _COMMANDS=!_COMMANDS! run
     ) else if "%__ARG%"=="test" ( set _COMMANDS=!_COMMANDS! test
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )

@@ -34,7 +34,10 @@
 - [Java Runtimes: Insights From the Spring Boot Point of View](https://blog.jetbrains.com/idea/2024/05/java-runtimes-insights-from-the-spring-boot-point-of-view/) by Aleksey Stukalov and Cathering Edelveis, May 2024.
 - [Spring Boot 3.3.0-M2’s Support for Bitnami Container Images](https://tanzu.vmware.com/content/blog/spring-boot-3-3-0-m2-s-support-for-bitnami-container-images-developer-s-guide) by Augustin Ventura, March 2024.
 - [What is Spring Boot in Java? An Overview in 2024](https://flatirons.com/blog/what-is-spring-boot-in-java/) by Flatirons, February 2024.
-- [Native Image with Spring Boot](https://medium.com/ekino-france/native-image-with-spring-boot-70f32788528c) by Philippe Agra, January 2024.
+- Medium Blog :
+  - [Introduction To Spring AI with Example (Part-1)](https://medium.com/@jai.mail67/introduction-to-spring-ai-with-example-part-1-f36bea64e0d3) by Jangnya Datta Panigrahi, August 2024.
+  - [Advanced Configuration with Spring Boot: Profiles, Properties, and YAML](https://blog.igventurelli.io/advanced-configuration-with-spring-boot-profiles-properties-and-yaml-5726db925415) by Igor Venturelli, August 2024.
+  - [Native Image with Spring Boot](https://medium.com/ekino-france/native-image-with-spring-boot-70f32788528c) by Philippe Agra, January 2024.
 - [Master Spring Boot 3 with GraalVM Native Image](https://bell-sw.com/blog/master-spring-boot-3-with-graalvm-native-image/) by Dimitry Chuyko, February 2023.
 - [Enable HTTPS in Spring Boot with Azure Key Vault certificates](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates), February 2023.
 - [Bellsoft Blog](https://bell-sw.com/blog/) :
@@ -125,7 +128,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
