@@ -59,6 +59,7 @@
   - [Spring Boot CLI](https://springframework.guru/spring-boot-cli/) by SFG, July 2021.
   - [Internationalization with Spring Boot](https://springframework.guru/internationalization-with-spring-boot/) by SFG, July 2021.
 - [Adservio Blog](https://www.adservio.fr) :
+  - [Spring Cloud - Everything you need to know](https://www.adservio.fr/post/spring-cloud-everything-you-need-to-know), November 2022.
   - [What is Spring Boot?](https://www.adservio.fr/post/what-is-spring-boot), October 2022.
   - [Advantages of Spring Boot](https://www.adservio.fr/post/advantages-of-spring-boot), April 2022.
   - [Spring Performance Best Practices](https://www.adservio.fr/post/spring-performance-best-practices), February 2022.
@@ -128,7 +129,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
