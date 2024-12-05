@@ -10,7 +10,7 @@
 
 We also install the following [Maven packages][maven_repository] : 
 
-- [Spring Boot 3.3][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
+- [Spring Boot 3.4][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
 
 Depending on the build tool the above packages are stored locally in two different locations :
 
@@ -25,7 +25,7 @@ Depending on the build tool the above packages are stored locally in two differe
 <span id="footnote_01">[1]</span> ***Spring Boot vs. Spring Framework*** [↩](#anchor_01)
 
 <dl><dd>
-Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5.3 which has long-term support provided on JDK 8, 11 and 17 :
+Spring Boot 3.x depend on Spring Framework 6 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5 which has long-term support provided on JDK 8, 11 and 17 :
 </dd>
 <dd>
 <table>
@@ -34,6 +34,12 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 <th>Release&nbsp;Date</th>
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.4.0">3.4.0</a> (<i><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.4.0">relnotes</a></i>)</td>
+<td>Nov 2024</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.2.0">6.2.0</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.2.0">relnotes</a>)</td>
+<td><a href="https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/system/JavaVersion.java" rel="external">17+</a> (23)</td>
+</tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.4">3.3.4</a> (<i><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.4">relnotes</a></i>)</td>
 <td>Sep 2024</td>
@@ -281,7 +287,7 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -293,4 +299,4 @@ Spring Boot 3.x depend on Spring Framework 6.0 and requires <b>JDK 17</b> as a m
 [mvn_cli]: https://maven.apache.org/ref/3.9.6/maven-embedder/cli.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
 [spring_boot_downloads]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
-[spring_boot_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes
+[spring_boot_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes
