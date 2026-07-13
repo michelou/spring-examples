@@ -10,7 +10,7 @@
 
 We also install the following [Maven packages][maven_repository] : 
 
-- [Spring Boot 3.4][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
+- [Spring Boot 4.1][spring_boot_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spring_boot_relnotes])
 
 Depending on the build tool the above packages are stored locally in two different locations :
 
@@ -25,7 +25,12 @@ Depending on the build tool the above packages are stored locally in two differe
 <span id="footnote_01">[1]</span> ***Spring Boot vs. Spring Framework*** [↩](#anchor_01)
 
 <dl><dd>
-Spring Boot 3.x depend on Spring Framework 6 and requires <b>JDK 17</b> as a minimum version while Spring Boot 2.x depend on the Spring Framework 5 which has long-term support provided on JDK 8, 11 and 17 :
+In short :
+<ul>
+<li>Spring Boot 4.x depends on <a href="https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes" rel="external">Spring Framework 7</a> and requires <b>JDK 17</b> or newer (JDK 25 recommended).</li>
+<li>Spring Boot 3.x depends on <a href="https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.0-Release-Notes" rel="external">Spring Framework 6</a> and requires <b>JDK 17</b> or newer.</li>
+<li>Spring Boot 2.x depends on <a href="https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-5.0-Release-Notes" rel="external">Spring Framework 5</a> which has long-term support provided on JDK 8, 11 and 17.</li>
+</ul>
 </dd>
 <dd>
 <table>
@@ -35,15 +40,27 @@ Spring Boot 3.x depend on Spring Framework 6 and requires <b>JDK 17</b> as a min
 <th>Spring 6 Framework</th>
 <th>JDK</th></tr>
 <tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v4.1.0">4.1.0 (<i><a href="https://github.com/spring-projects/spring-boot/releases/tag/v4.1.0">relnotes</a></i>)</a></td>
+<td>June 2026</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/7.0.8">7.0.8</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v7.0.1">relnotes</a>)</i></td>
+<td>17+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v4.0.0">4.0.0 (<i><a href="https://github.com/spring-projects/spring-boot/releases/tag/v4.0.0">relnotes</a></i>)</a></td>
+<td>Nov 2025</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/7.0.1">7.0.1</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v7.0.8">relnotes</a>)</i></td>
+<td>17+</td>
+</tr>
+<tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.4.0">3.4.0</a> (<i><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.4.0">relnotes</a></i>)</td>
 <td>Nov 2024</td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.2.0">6.2.0</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.2.0">relnotes</a>)</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.2.0">6.2.0</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.2.0">relnotes</a>)</i></td>
 <td><a href="https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/system/JavaVersion.java" rel="external">17+</a> (23)</td>
 </tr>
 <tr>
 <td><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.4">3.3.4</a> (<i><a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.3.4">relnotes</a></i>)</td>
 <td>Sep 2024</td>
-<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.13">6.1.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.13">relnotes</a>)</td>
+<td><a href="https://mvnrepository.com/artifact/org.springframework/spring-core/6.1.13">6.1.13</a> <i>(<a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.1.13">relnotes</a>)</i></td>
 <td><a href="https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/system/JavaVersion.java" rel="external">17+</a> (23)</td>
 </tr>
 <tr>
@@ -287,15 +304,15 @@ Spring Boot 3.x depend on Spring Framework 6 and requires <b>JDK 17</b> as a min
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
-[ant_cli]: https://ant.apache.org/
+[ant_cli]: https://ant.apache.org/ "https://ant.apache.org/"
 [gradle_cli]: https://docs.gradle.org/current/userguide/declaring_repositories.html
 [ivy_lib]: https://ant.apache.org/ivy/
-[maven_repository]: https://mvnrepository.com/
+[maven_repository]: https://mvnrepository.com/ "https://mvnrepository.com/"
 [mvn_cli]: https://maven.apache.org/ref/3.9.6/maven-embedder/cli.html
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
 [spring_boot_downloads]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot

@@ -3,10 +3,10 @@
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;max-width:90px;">
-    <a href="https://spring.io/" rel="external"><img style="border:0;width:90px;" src="docs/images/spring-icon.svg" alt="Spring project"/></a>
+    <a href="https://spring.io/" rel="external" title="https://spring.io/"><img style="border:0;width:90px;" src="docs/images/spring-icon.svg" alt="Spring project"/></a>
   </td>
   <td style="border:0;padding:0;vertical-align:text-top;">
-    This document gathers <a href="https://spring.io/" rel="external">Spring</a> related resources that caught our attention.
+    This document gathers <a href="https://spring.io/" rel="external" title="https://spring.io/">Spring</a> related resources that caught our attention.
   </td>
   </tr>
 </table>
@@ -28,6 +28,10 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Rieckpil Blog](https://rieckpil.de/all-posts/) :
+  - [What’s New for Testing in Spring Boot 4 and Spring Framework 7](https://rieckpil.de/whats-new-for-testing-in-spring-boot-4-0-and-spring-framework-7/), November 2025.
+  - [From Unit to End-to-End Testing with Spring Boot](https://rieckpil.de/spring-boot-testing-from-unit-to-end-to-end-testing/), September 2025.
+  - [Best Practices for Spring Boot Logging Test Configuration](https://rieckpil.de/spring-boot-test-logging-configuration-best-practices/), July 2025.
 - [Geeksforgeeks](https://www.geeksforgeeks.org/) :
   - [Migrating a Spring Boot Application from Spring Security 5 to Spring Security 6](https://www.geeksforgeeks.org/migrating-a-spring-boot-application-from-spring-security-5-to-spring-security-6/), July 2024.
   - [How Spring Boot Application Works Internally?](https://www.geeksforgeeks.org/how-spring-boot-application-works-internally/), October 2023.
@@ -129,7 +133,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

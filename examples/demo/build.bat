@@ -18,7 +18,7 @@ if not %_EXITCODE%==0 goto end
 @rem ## Main
 
 if %_HELP%==1 (
-    call :help
+    call :print_help
     exit /b !_EXITCODE!
 )
 for %%i in (%_COMMANDS%) do (
@@ -185,7 +185,7 @@ if %_DEBUG%==1 (
 if %_TIMER%==1 for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
-:help
+:print_help
 if %_VERBOSE%==1 (
     set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
@@ -214,11 +214,11 @@ echo     %__BEG_O%test%__END%        execute test suite ^(JUnit 5^)
 goto :eof
 
 :clean
-call :rmdir "%_TARGET_DIR%"
+call :remove_dir "%_TARGET_DIR%"
 goto :eof
 
 @rem input parameter: %1=directory path
-:rmdir
+:remove_dir
 set "__DIR=%~1"
 if not exist "!__DIR!\" goto :eof
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
@@ -241,7 +241,7 @@ set __FILTERS=/FI "SESSIONNAME eq Console" /FI "WINDOWTITLE eq %__PROC_NAME%*"
 set _IMAGE_NAME=
 set _PID=
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% tasklist /NH %__FILTERS% 1>&2
-) else if %_VERBOSE%==1 ( echo Search for user process with name "%__PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Search for user process with name "%_NORMAL_FG_CYAN%%__PROC_NAME%%_RESET%" 1>&2
 )
 for /f "usebackq tokens=1,2,*" %%i in (`tasklist /NH %__FILTERS%`) do (
     set "_IMAGE_NAME=%%i"
@@ -282,7 +282,7 @@ if not defined _PID (
     goto :eof
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% taskkill /pi "%_PID%" 1>&2
-) else if %_VERBOSE%==1 ( echo Stop server process "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Stop server process "%_NORMAL_FG_CYAN%%_SERVER_PROC_NAME%%_RESET%" 1>&2
 )
 taskkill /pid "%_PID%" %_STDOUT_REDIRECT%
 if not %ERRORLEVEL%==0 (
@@ -320,7 +320,7 @@ if %_DEBUG%==1 ( set __CURL_OPTS=--get --verbose
 ) else ( set __CURL_OPTS=--get --silent
 )
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__REQ%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__REQ%" to Spring Boot server "%_NORMAL_FG_CYAN%%_SERVER_PROC_NAME%%_RESET%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL%"
 if not %ERRORLEVEL%==0 (
@@ -333,11 +333,11 @@ set "__REQ2=hello?name=John"
 set "__URL2=http://%__SERVER_HOST%:%__SERVER_PORT%/%__REQ2%"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%" 1>&2
-) else if %_VERBOSE%==1 ( echo Execute request "%__REQ2%" to Spring Boot server "%_SERVER_PROC_NAME%" 1>&2
+) else if %_VERBOSE%==1 ( echo Execute request "%__REQ2%" to Spring Boot server "%_NORMAL_FG_CYAN%%_SERVER_PROC_NAME%%_RESET%" 1>&2
 )
 call "%_CURL_CMD%" %__CURL_OPTS% "%__URL2%"
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute request "%__REQ2%" to Spring boot server "%_SERVER_PROC_NAME%" 1>&2
+    echo %_ERROR_LABEL% Failed to execute request "%__REQ2%" to Spring boot server "%_NORMAL_FG_CYAN%%_SERVER_PROC_NAME%%_RESET%" 1>&2
     set _EXITCODE=1
     goto :eof
 )

@@ -27,7 +27,7 @@ if not exist "%_TEMP_DIR%" mkdir "%_TEMP_DIR%"
 if %_DEBUG%==1 echo [%~n0] "_TEMP_DIR=%_TEMP_DIR%" 1>&2
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-set __SLF4J_VERSION=2.0.16
+set __SLF4J_VERSION=2.0.18
 @rem Spring Boot 2.7.6+ depend  on Spring Framework 5.3.24
 @rem Spring Boot 3.0.0  depends on Spring Framework 6.0.2
 @rem Spring Boot 3.0.1  depends on Spring Framework 6.0.3
@@ -48,8 +48,10 @@ set __SLF4J_VERSION=2.0.16
 @rem Spring Boot 3.3.2  depends on Spring Framework 6.1.11
 @rem Spring Boot 3.3.3  depends on Spring Framework 6.1.12
 @rem Spring Boot 3.4.1  depends on Spring Framework 6.2.1
-set __SPRING_VERSION=6.2.1
-set __SPRING_BOOT_VERSION=3.4.1
+@rem Spring Boot 4.0.6  depends on Spring Framework 7.0.7
+@rem Spring Boot 4.1.0  depends on Spring Framework 7.0.8
+set __SPRING_VERSION=7.0.8
+set __SPRING_BOOT_VERSION=4.1.0
 
 @rem #########################################################################
 @rem ## _LIBS_CPATH
@@ -57,7 +59,7 @@ set __SPRING_BOOT_VERSION=3.4.1
 set _LIBS_CPATH=
 
 @rem https://mvnrepository.com/artifact/commons-logging/commons-logging
-call :add_jar "commons-logging" "commons-logging" "1.3.4"
+call :add_jar "commons-logging" "commons-logging" "1.4.0"
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-aop
 call :add_jar "org.springframework" "spring-aop" "%__SPRING_VERSION%"
@@ -75,7 +77,7 @@ call :add_jar "org.springframework" "spring-core" "%__SPRING_VERSION%"
 call :add_jar "org.springframework" "spring-expression" "%__SPRING_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-jcl
-call :add_jar "org.springframework" "spring-jcl" "%__SPRING_VERSION%"
+call :add_jar "org.springframework" "spring-jcl" "6.2.19"
 
 @rem https://mvnrepository.com/artifact/org.springframework/spring-web
 call :add_jar "org.springframework" "spring-web" "%__SPRING_VERSION%"
@@ -107,6 +109,9 @@ call :add_jar "org.springframework.boot" "spring-boot-starter-tomcat" "%__SPRING
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web/
 call :add_jar "org.springframework.boot" "spring-boot-starter-web" "%__SPRING_BOOT_VERSION%"
 
+@rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webmvc
+call :add_jar "org.springframework.boot" "spring-boot-starter-webmvc" "%__SPRING_BOOT_VERSION%"
+
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux/
 @rem call :add_jar "org.springframework.boot" "spring-boot-starter-webflux" "%__SPRING_BOOT_VERSION%"
 
@@ -131,7 +136,10 @@ call :add_jar "org.springframework.boot" "spring-boot-starter-data-jpa" "%__SPRI
 @rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 call :add_jar "org.springframework.boot" "spring-boot-starter-test" "%__SPRING_BOOT_VERSION%"
 
-set __SPRING_DATA_VERSION=3.4.1
+@rem https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webmvc-test
+call :add_jar "org.springframework.boot" "spring-boot-starter-webmvc-test" "%__SPRING_BOOT_VERSION%"
+
+set __SPRING_DATA_VERSION=4.1.0
 
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
 call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_VERSION%"
@@ -139,7 +147,7 @@ call :add_jar "org.springframework.data" "spring-data-commons" "%__SPRING_DATA_V
 @rem https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
 call :add_jar "org.springframework.data" "spring-data-jpa" "%__SPRING_DATA_VERSION%"
 
-set __JUPITER_VERSION=5.11.4
+set __JUPITER_VERSION=6.1.1
 
 @rem https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
 call :add_jar "org.junit.jupiter" "junit-jupiter" "%__JUPITER_VERSION%"
@@ -162,7 +170,7 @@ call :add_jar "org.junit.platform" "junit-platform-console-standalone" "1.10.3"
 
 @rem https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc
 @rem solves error:  No qualifying bean of type 'org.springframework.test.web.servlet.MockMvc'
-call :add_jar "io.rest-assured" "spring-mock-mvc" "5.5.0"
+call :add_jar "io.rest-assured" "spring-mock-mvc" "6.0.0"
 
 @rem https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 call :add_jar "org.slf4j" "slf4j-api" "%__SLF4J_VERSION%"
@@ -178,7 +186,7 @@ set _SPRING_AI_VERSION=1.0.3
 
 @rem https://mvnrepository.com/artifact/io.springboot.ai/spring-ai-core
 @rem spring-ai-bom is a POM dependency with managed packages such as spring-ai-core
-call :add_jar "io.springboot.ai" "spring-ai-core" "%_SPRING_AI_VERSION%"
+@rem call :add_jar "io.springboot.ai" "spring-ai-core" "%_SPRING_AI_VERSION%"
 
 goto end
 

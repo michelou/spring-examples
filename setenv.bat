@@ -23,18 +23,26 @@ if %_HELP%==1 (
     exit /b !_EXITCODE!
 )
 
+set _CLAUDE_PATH=
 set _GRADLE_PATH=
 set _MAVEN_PATH=
 set _SPRING_PATH=
 set _VSCODE_PATH=
 
+if %_USE_CLAUDE%==1 (
+    call :claude
+    if not !_EXITCODE!==0 (
+        echo %_WARNING_LABEL% Claude not installed 1>&2
+        set _EXITCODE=0
+    )
+)
 @rem %1=version, %2=vendor
 @rem eg. bellsoft, corretto, bellsoft, openj9, redhat, sapmachine, temurin, zulu
-call :java 21 "temurin"
+call :java 25 "temurin"
 if not %_EXITCODE%==0 goto end
 
 @rem last call to :java defines variable JAVA_HOME
-call :java 17 "temurin"
+call :java 21 "temurin"
 if not %_EXITCODE%==0 goto end
 
 call :gradle
@@ -125,9 +133,10 @@ goto :eof
 :args
 set _BASH=0
 set _HELP=0
+set _USE_CLAUDE=0
 set _VERBOSE=0
 @rem Spring Boot 3.0 requires Java 17 while Spring Boot 2.7 requires Java 11
-set _JAVA_VERSION=17
+set _JAVA_VERSION=21
 
 :args_loop
 set "__ARG=%~1"
@@ -136,6 +145,7 @@ if not defined __ARG goto args_done
 if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-bash" ( set _BASH=1
+    ) else if "%__ARG%"=="-claude" ( set _USE_CLAUDE=1
     ) else if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
@@ -158,7 +168,7 @@ goto args_loop
 call :drive_name "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _BASH=%_BASH% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _BASH=%_BASH% _USE_CLAUDE=%_USE_CLAUDE% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
     echo %_DEBUG_LABEL% Variables  : _DRIVE_NAME=%_DRIVE_NAME% 1>&2
 )
@@ -173,10 +183,20 @@ if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
-for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
-    set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
+@rem deprecated since Windows 11
+@rem for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
+@rem     set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
+@rem )
+@rem alternative in Windows 11
+for /f "delims=" %%i in ('fsutil fsinfo drives') do (
+    set "__LINE=%%i"
+    set "__DRIVES=!__LINE:Drives:=!"
+    set "__DRIVES=!__DRIVES:\=!"
+    for %%d in (!__DRIVES!) do (
+        set "__DRIVE_NAMES=!__DRIVE_NAMES:%%d=!"
+    )
 )
-if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(WMIC^) 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(fsutil^) 1>&2
 if not defined __DRIVE_NAMES (
     echo %_ERROR_LABEL% No more free drive name 1>&2
     set _EXITCODE=1
@@ -251,8 +271,36 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        print this help message
 goto :eof
 
+@rem output parameters: _CLAUDE_HOME, _CLAUDE_PATH
+:claude
+set _CLAUDE_HOME=
+set _CLAUDE_PATH=
+
+set __CLAUDE_CMD=
+for /f "delims=" %%f in ('where claude.exe 2^>NUL') do set "__CLAUDE_CMD=%%f"
+if defined __CLAUDE_CMD (
+    for /f "delims=" %%i in ("%__CLAUDE_CMD%") do set "__CLAUDE_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__CLAUDE_BIN_DIR!\.") do set "_CLAUDE_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Claude executable found in PATH 1>&2
+) else if defined CLAUDE_HOME (
+    set "_CLAUDE_HOME=%CLAUDE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable CLAUDE_HOME 1>&2
+) else (
+    if exist "%USERPROFILE%\.local\bin" set "_CLAUDE_HOME=%USERPROFILE%\.local"
+    if defined _CLAUDE_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Claude installation directory "!_CLAUDE_HOME!" 1>&2
+    )
+)
+if not exist "%_CLAUDE_HOME%\bin\claude.exe" (
+    echo %_ERROR_LABEL% Claude executable not found ^("%_CLAUDE_HOME%"^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_CLAUDE_PATH=;%_CLAUDE_HOME%\bin"
+goto :eof
+
 @rem input parameter: %1=vendor %1^=required version
-@rem output parameter: _JAVA<version>_HOME (version=11, 17)
+@rem output parameter: _JAVA<version>_HOME (version=11, 17, 21, 25)
 :java
 set _JAVA_HOME=
 
@@ -477,10 +525,12 @@ set _VSCODE_HOME=
 set _VSCODE_PATH=
 
 set __CODE_CMD=
-for /f "delims=" %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
+for /f "delims=" %%f in ('where code.cmd 2^>NUL') do set "__CODE_CMD=%%f"
 if defined __CODE_CMD (
+    for /f "delims=" %%i in ("%__CODE_CMD%") do set "__CODE_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__CODE_BIN_DIR!\.") do set "_VSCODE_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
-    @rem keep _VSCODE_PATH undefined since executable already in path
+    @rem keep _VSCODE_PATH untouched since executable already in path
     goto :eof
 ) else if defined VSCODE_HOME (
     set "_VSCODE_HOME=%VSCODE_HOME%"
@@ -489,22 +539,28 @@ if defined __CODE_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\VSCode\" ( set "_VSCODE_HOME=!__PATH!\VSCode"
     ) else (
-        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
         if not defined _VSCODE_HOME (
             set "__PATH=%ProgramFiles%"
-            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Microsoft*Code" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        )
+        if not defined _VSCODE_HOME (
+            set "__PATH=%LOCALAPPDATA%\Programs"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Microsoft*Code" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
         )
     )
-)
-if not exist "%_VSCODE_HOME%\code.exe" (
-    echo %_WARNING_LABEL% VSCode executable not found ^("%_VSCODE_HOME%"^) 1>&2
-    if exist "%_VSCODE_HOME%\Code - Insiders.exe" (
-        echo %_WARNING_LABEL% It looks like you've installed an Insider version of VSCode 1>&2
+    if defined _VSCODE_HOME (
+        @rem remove trailing path separator if present
+        if "!_VSCODE_HOME:~-1!" == "\" set "_VSCODE_HOME=!_VSCODE_HOME:~0,-1!"
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default VSCode installation directory "!_VSCODE_HOME!" 1>&2
     )
+)
+if not exist "%_VSCODE_HOME%\bin\code.cmd" (
+    echo %_ERROR_LABEL% VSCode command not found ^("%_VSCODE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
-set "_VSCODE_PATH=;%_VSCODE_HOME%"
+set "_VSCODE_PATH=;%_VSCODE_HOME%\bin"
 goto :eof
 
 @rem output parameters: _GIT_HOME, _GIT_PATH
@@ -550,11 +606,14 @@ set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\mingw64\bin;%_GIT_HOME%\usr\bin"
 goto :eof
 
 :print_env
-set __VERBOSE=%~1
+set __USE_CLAUDE=%1
+set __VERBOSE=%2
 set __VERSIONS_LINE1=
 set __VERSIONS_LINE2=
 set __VERSIONS_LINE3=
 set __WHERE_ARGS=
+setlocal enabledelayedexpansion
+
 where /q "%JAVA_HOME%\bin:javac.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,*" %%i in ('"%JAVA_HOME%\bin\javac.exe" -version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% javac %%j,"
@@ -569,6 +628,13 @@ where /q "%SPRING_HOME%\bin:spring.bat"
 if %ERRORLEVEL%==0 (
     for /f "tokens=*" %%i in ('call "%SPRING_HOME%\bin\spring.bat" --version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% %%i,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%SPRING_HOME%\bin:spring.bat"
+)
+if %__USE_CLAUDE%==1 (
+    where /q "%CLAUDE_HOME%\bin:claude.exe"
+    if !ERRORLEVEL!==0 (
+        for /f "tokens=1,*" %%i in ('call "%CLAUDE_HOME%\bin\claude.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% Claude %%i,"
+        set __WHERE_ARGS=%__WHERE_ARGS% "%CLAUDE_HOME%\bin:claude.exe"
+    )
 )
 where /q "%GRADLE_HOME%\bin:gradle.bat"
 if %ERRORLEVEL%==0 (
@@ -596,7 +662,6 @@ where /q "%GIT_HOME%\bin:bash.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do (
         set "__VERSION=%%l"
-        setlocal enabledelayedexpansion
         set "__VERSIONS_LINE3=%__VERSIONS_LINE3% bash !__VERSION:-release=!"
     )
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
@@ -609,26 +674,26 @@ if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
         set "__LINE=%%p"
-        setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
     echo Environment variables: 1>&2
+    if defined CLAUDE_HOME echo    "CLAUDE_HOME=!CLAUDE_HOME:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
-    if defined JAVA11_HOME echo    "JAVA11_HOME=%JAVA11_HOME%" 1>&2
-    if defined JAVA17_HOME echo    "JAVA17_HOME=%JAVA17_HOME%" 1>&2
     if defined JAVA21_HOME echo    "JAVA21_HOME=%JAVA21_HOME%" 1>&2
+    if defined JAVA25_HOME echo    "JAVA25_HOME=%JAVA25_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     if defined SPRING_HOME echo    "SPRING_HOME=%SPRING_HOME%" 1>&2
+    if defined VSCODE_HOME echo    "VSCODE_HOME=!VSCODE_HOME:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
         set "__LINE=%%i"
-        setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
 )
+endlocal
 goto :eof
 
 @rem #########################################################################
@@ -637,18 +702,24 @@ goto :eof
 :end
 endlocal & (
     if %_EXITCODE%==0 (
+    if %_USE_CLAUDE%==0 ( set _CLAUDE_PATH=
+    ) else (
+        if not defined CLAUDE_HOME set "CLAUDE_HOME=%_CLAUDE_HOME%"
+        @rem see https://wiip.fr/en/blog/claude-code-powershell-tool
+        set CLAUDE_CODE_USE_POWERSHELL_TOOL=1
+    )
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
-        if not defined JAVA11_HOME set "JAVA11_HOME=%_JAVA11_HOME%"
-        if not defined JAVA17_HOME set "JAVA17_HOME=%_JAVA17_HOME%"
         if not defined JAVA21_HOME set "JAVA21_HOME=%_JAVA21_HOME%"
+        if not defined JAVA25_HOME set "JAVA25_HOME=%_JAVA25_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         if not defined SPRING_HOME set "SPRING_HOME=%_SPRING_HOME%"
+        if not defined VSCODE_HOME set "VSCODE_HOME=%_VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
         set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_SPRING_PATH%%_VSCODE_PATH%%_GIT_PATH%;%~dp0bin"
-        call :print_env %_VERBOSE%
+        call :print_env %_USE_CLAUDE% %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
             cd /d %_DRIVE_NAME%

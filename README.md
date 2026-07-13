@@ -2,23 +2,27 @@
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:90px;"><a href="https://spring.io/" rel="external"><img style="border:0;width:90px;" src="./docs/images/spring-icon.svg" alt="Spring project"/></a></td>
-  <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spring.io/" rel="external">Spring</a> code examples coming from various websites and books.<br/>
-  It also includes several build scripts (<a href="https://www.gnu.org/software/bash/manual/bash.html" rel="external">Bash scripts</a>, <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://spring.io/" rel="external">Spring</a> on a Windows machine.
+  <td style="border:0;padding:0 10px 0 0;min-width:90px;"><a href="https://spring.io/" rel="external" title="https://spring.io/"><img style="border:0;width:90px;" src="./docs/images/spring-icon.svg" alt="Spring project"/></a></td>
+  <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spring.io/" rel="external" title="https://spring.io/">Spring</a> code examples coming from various websites and books.<br/>
+  It also includes several build scripts (<a href="https://www.gnu.org/software/bash/manual/bash.html" rel="external">Bash scripts</a>, <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://spring.io/" rel="external" title="https://spring.io/">Spring</a> on a Windows machine.
   </td>
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Common&nbsp;Lisp][cl_examples], [Component&nbsp;Pascal][component_pascal_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [PowerShell][powershell_examples], [Rust][rust_examples], [Scala&nbsp;3][scala3_examples], [Spark][spark_examples], [Standard&nbsp;ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX&nbsp;Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on the following external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.47][git_downloads] ([*release notes*][git_relnotes])
-- [Gradle 8.12][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Git 2.55][git_downloads] ([*release notes*][git_relnotes])
+- [Gradle 9.6][gradle_install] ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*bug fixes*][temurin_openjdk21_bugfixes], [*Java 21 API*][oracle_openjdk21_api])
+<!--
+- [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
+-->
 
 > **&#9755;** ***Maven packages***<br/>
 > We present the Maven package dependencies in document [**`PACKAGES.md`**](./PACKAGES.md).
@@ -26,27 +30,24 @@ This project depends on the following external software for the **Microsoft Wind
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [Spring Boot CLI 3][spring_cli_downloads]
-- [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*bug fixes*][temurin_openjdk21_bugfixes], [*Java 21 API*][oracle_openjdk21_api])
-- [Visual Studio Code 1.96][vscode_downloads] ([*release notes*][vscode_relnotes])
-<!--
-- [Temurin OpenJDK 11 LTS][temurin_openjdk11] ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
--->
+- [Spring Boot CLI 4.1][spring_cli_downloads] ([*release notes*][spring_relnotes])
+- [Temurin OpenJDK 25 LTS][temurin_openjdk25] ([*release notes*][temurin_openjdk25_relnotes], [*bug fixes*][temurin_openjdk25_bugfixes], [Java 25 API][oracle_openjdk25_api])
+- [Visual Studio Code 1.128][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a [Windows installer][windows_installer]. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [`/opt/`][unix_opt] directory on Unix).
 
-For instance our development environment looks as follows (*January 2025*) <sup id="anchor_01">[1](#footnote_01)</sup>:
+For instance our development environment looks as follows (*July 2026*) <sup id="anchor_01">[1](#footnote_01)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\            <i>( 10 MB)</i>
 C:\opt\ConEmu\                  <i>( 26 MB)</i>
 C:\opt\Git\                     <i>(367 MB)</i>
 C:\opt\gradle\                  <i>(135 MB)</i>
-C:\opt\jdk-temurin-17.0.13_11\  <i>(301 MB)</i>
-C:\opt\jdk-temurin-21.0.5_11\   <i>(326 MB)</i>
+C:\opt\jdk-temurin-21.0.11_10\  <i>(326 MB)</i>
+C:\opt\jdk-temurin-25.0.3_9\    <i>(289 MB)</i>
 C:\opt\spring-cli\              <i>(  6 MB)</i>
-C:\opt\VSCode\                  <i>(341 MB)</i>
+%USERPROFILE%\AppData\Local\Programs\Microsoft VS Code\  <i>(341 MB)</i>
 </pre>
 
 > **:mag_right:** [Git for Windows][git_downloads] provides a Bash emulation used to run [**`git`**][git_cli] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -84,12 +85,12 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a> -verbose</b>
 Tool versions:
-   javac 17.0.13, java 17.0.13, Spring CLI v3.4.1,
-   gradle 8.12, mvn 3.9.9,
-   git 2.47.1, diff 3.10, bash 5.2.37(1)
+   javac 21.0.11, java 21.0.11, Spring CLI v4.1.0,
+   gradle 9.6.1, mvn 3.9.16,
+   git 2.55.0, diff 3.12, bash 5.3.15(1)
 Tool paths:
-   C:\opt\jdk-temurin-17.0.13_11\bin\javac.exe
-   C:\opt\jdk-temurin-17.0.13_11\bin\java.exe
+   C:\opt\jdk-temurin-21.0.11_10\bin\javac.exe
+   C:\opt\jdk-temurin-21.0.11_10\bin\java.exe
    C:\opt\spring-cli\bin\spring.bat
    C:\opt\gradle\bin\gradle.bat
    C:\opt\apache-maven\bin\mvn.cmd
@@ -99,13 +100,13 @@ Tool paths:
 Environment variables:
    "GIT_HOME=C:\opt\Git"
    "GRADLE_HOME=C:\opt\gradle"
-   "JAVA_HOME=C:\opt\jdk-temurin-17.0.13_11"
-   "JAVA11_HOME=C:\opt\jdk-temurin-11.0.23_9"
-   "JAVA17_HOME=C:\opt\jdk-temurin-17.0.13_11"
-   "JAVA21_HOME=C:\opt\jdk-temurin-21.0.5_11"
+   "JAVA_HOME=C:\opt\jdk-temurin-21.0.11_10"
+   "JAVA17_HOME=C:\opt\jdk-temurin-21.0.11_10"
+   "JAVA21_HOME=C:\opt\jdk-temurin-25.0.3_9"
    "MAVEN_HOME=C:\opt\apache-maven"
    "PYTHON_HOME=C:\opt\Python-3.11.1"
    "SPRING_HOME=C:\opt\spring-cli"
+   "VSCODE_HOME=%USERPROFILE%\AppData\Local\Programs\Microsoft VS Code"
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> gradle mvn sh</b>
 C:\opt\gradle\bin\gradle.bat
@@ -138,14 +139,14 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.16-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.12-bin.zip</a>                                <i>(110 MB)</i>
-<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_17.0.13_11.zip</a>  <i>(176 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.5_11.zip</a>   <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.47.1-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
-<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli" rel="external">spring-boot-cli-3.4.1-bin.zip</a>                      <i>(  5 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.96.2.zip</a>                        <i>(131 MB)</i>
+<a href="https://gradle.org/install/">gradle-9.6.1-bin.zip</a>                               <i>(110 MB)</i>
+<a href="https://adoptium.net/temurin/releases/?variant=openjdk17&jvmVariant=hotspot">OpenJDK17U-jdk_x64_windows_hotspot_21.0.11_10.zip</a>  <i>(176 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_25.0.3_9.zip</a>    <i>(191 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.55.0-64-bit.7z.exe</a>                   <i>( 55 MB)</i>
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli" rel="external">spring-boot-cli-4.1.0-bin.zip</a>                      <i>(  7 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.128.0.zip</a>                       <i>(281 MB)</i>
 </pre>
 <!--
 <a href="https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot">OpenJDK11U-jdk_x64_windows_hotspot_11.0.25_9.zip</a>   <i>( 99 MB)</i>
@@ -175,18 +176,20 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2026* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
 [ada_examples]: https://github.com/michelou/ada-examples#top
 [akka_examples]: https://github.com/michelou/akka-examples#top
-[apache_maven]: https://maven.apache.org/download.cgi
+[apache_maven]: https://maven.apache.org/download.cgi "https://maven.apache.org/download.cgi"
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.9/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.16/release-notes.html "https://maven.apache.org/docs/3.9.16/release-notes.html"
+[cl_examples]: https://github.com/michelou/cl-examples#top
 [cobol_examples]: https://github.com/michelou/cobol-examples#top
+[component_pascal_examples]: https://github.com/michelou/component-pascal-examples#top
 [conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
 [conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
 [cpp_examples]: https://github.com/michelou/cpp-examples#top
@@ -198,15 +201,15 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [flix_examples]: https://github.com/michelou/flix-examples#top
 [git_cli]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.46.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.55.0.adoc
 [github_markdown]: https://github.github.com/gfm/
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
-[gradle_install]: https://gradle.org/install/
+[gradle_install]: https://gradle.org/install/ "https://gradle.org/install/"
 [gradle_latest]: https://gradle.org/releases/
-[gradle_relnotes]: https://docs.gradle.org/8.12/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/9.6.1/release-notes.html
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
 [kafka_examples]: https://github.com/michelou/kafka-examples#top
 [kotlin_examples]: https://github.com/michelou/kotlin-examples#top
@@ -222,13 +225,14 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [man1_rmdir]: https://www.linux.org/docs/man1/rmdir.html
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
-[maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.9/release-notes.html
-[maven_repository]: https://mvnrepository.com/
+[maven_latest]: https://maven.apache.org/download.cgi "https://maven.apache.org/download.cgi"
+[maven_repository]: https://mvnrepository.com/ "https://mvnrepository.com/"
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
-[oracle_openjdk21]: https://jdk.java.net/21/
-[oracle_openjdk21_api]: https://download.java.net/java/early_access/jdk21/docs/api/
+[oracle_openjdk21]: https://jdk.java.net/21/ "https://jdk.java.net/21/"
+[oracle_openjdk21_api]: https://docs.oracle.com/en/java/javase/21/docs/api/ "https://docs.oracle.com/en/java/javase/21/docs/api/"
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
+[oracle_openjdk25_api]: https://docs.oracle.com/en/java/javase/25/docs/api/ "https://docs.oracle.com/en/java/javase/25/docs/api/"
+[powershell_examples]: https://github.com/michelou/powershell-examples#top
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
@@ -237,6 +241,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [spring]: https://spring.io/
 [spring_cli_downloads]: https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli
 [spring_cmd]: https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
+[spring_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.1-Release-Notes "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.1-Release-Notes"
 <!--
 #### Archives ### https://mail.openjdk.org/pipermail/jdk-updates-dev/
 11.0.3  -> https://mail.openjdk.java.net/pipermail/jdk-updates-dev/2019-April/000951.html
@@ -271,6 +276,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 17.0.10 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-January/029089.html
 17.0.11 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032197.html
 17.0.12 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035798.html
+17.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038867.html
+17.0.14 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040827.html
+17.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043307.html
+17.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045614.html
+17.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
+17.0.18 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2026-January/051740.html
+21.0.11 -> https://adoptium.net/en-GB/temurin/release-notes?version=jdk-21.0.11+10
 -->
 [temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-9-relnotes.html
@@ -282,10 +294,20 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 21.0.2  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-January/029090.html
 21.0.3  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032196.html
 21.0.4  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035862.html
+21.0.5  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038866.html
+21.0.6  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040828.html
+21.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043308.html
+21.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045617.html
+21.0.10 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2026-January/051684.html
 -->
 [temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
 [temurin_openjdk21_bugfixes]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
 [temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
+<!--
+-->
+[temurin_openjdk25]: https://adoptium.net/temurin/releases?version=25&os=windows&arch=x64&jvmVariant=hotspot
+[temurin_openjdk25_bugfixes]: https://www.oracle.com/java/technologies/javase/25-0-3-relnotes.html "https://www.oracle.com/java/technologies/javase/25-0-3-relnotes.html"
+[temurin_openjdk25_relnotes]: https://adoptium.net/fr/temurin/release-notes?version=25
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top
 [unix_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [vscode_downloads]: https://code.visualstudio.com/#alt-downloads

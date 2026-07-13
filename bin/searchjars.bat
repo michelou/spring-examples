@@ -19,8 +19,8 @@ if not %_EXITCODE%==0 goto end
 @rem ## Main
 
 if defined _HELP (
-    call :help
-    exit /b !_EXITCODE!
+    call :print_help
+    goto end
 )
 if defined _SEARCH_SCALA (
     if exist "%SCALA3_HOME%\lib\" (
@@ -86,12 +86,12 @@ if not exist "%JAVA_HOME%\bin\jar.exe" (
 set "_JAR_CMD=%JAVA_HOME%\bin\jar.exe"
 set "_JAVAP_CMD=%JAVA_HOME%\bin\javap.exe"
 
-if not exist "%SCALA3_HOME%\lib\scala3-library_*.jar" (
+if defined SCALA3_HOME if not exist "%SCALA3_HOME%\lib\scala3-library_*.jar" (
     echo %_ERROR_LABEL% Scala 3 installation not found 1>&2
     set _EXITCODE=1
     goto :eof
 )
-if not exist "%SCALA_HOME%\lib\scala-library.jar" (
+if defined SCALA_HOME if not exist "%SCALA_HOME%\lib\scala-library.jar" (
     echo %_ERROR_LABEL% Scala 2 installation not found 1>&2
     set _EXITCODE=1
     goto :eof
@@ -202,7 +202,7 @@ if %_DEBUG%==1 (
 )
 goto :eof
 
-:help
+:print_help
 if %_VERBOSE%==1 (
     set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
@@ -218,13 +218,13 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> } ^<class_name^> [ ^<meth_name^> ]
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-artifact%__END%     search in %__BEG_O%~\.ivy2%__END% and %__BEG_O%~\.m2%__END% directories
-echo     %__BEG_O%-debug%__END%        display commands executed by this script
-echo     %__BEG_O%-help%__END%         display this help message
+echo     %__BEG_O%-debug%__END%        print commands executed by this script
+echo     %__BEG_O%-help%__END%         print this help message
 echo     %__BEG_O%-ivy%__END%          search in %__BEG_O%~\.ivy%__END% directory
 echo     %__BEG_O%-java%__END%         search in Java library directories
 echo     %__BEG_O%-maven%__END%        search in %__BEG_O%~\.m2%__END% directory
 echo     %__BEG_O%-scala%__END%        search in Scala 2 and Scala library directories
-echo     %__BEG_O%-verbose%__END%      display download progress
+echo     %__BEG_O%-verbose%__END%      print progress messages
 echo.
 echo   %__BEG_P%Arguments:%__END%
 echo     %__BEG_O%^<class_name^>%__END%  class name

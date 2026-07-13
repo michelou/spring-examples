@@ -18,7 +18,7 @@ if not %_EXITCODE%==0 goto end
 @rem ## Main
 
 if %_HELP%==1 (
-    call :help
+    call :print_help
     exit /b !_EXITCODE!
 )
 for %%i in (%_COMMANDS%) do (
@@ -179,7 +179,7 @@ set _SERVER_PROC_NAME=%_PROJECT_NAME%
 
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options    : _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
-    echo %_DEBUG_LABEL% Subcommands: _COMMANDS=%_COMMANDS% 1>&2
+    echo %_DEBUG_LABEL% Subcommands: %_COMMANDS% 1>&2
     echo %_DEBUG_LABEL% Variables  : "GIT_HOME=%GIT_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
@@ -189,7 +189,7 @@ if %_DEBUG%==1 (
 if %_TIMER%==1 for /f "delims=" %%i in ('call "%_PWSH_CMD%" -c "(Get-Date)"') do set _TIMER_START=%%i
 goto :eof
 
-:help
+:print_help
 if %_VERBOSE%==1 (
     set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
@@ -218,11 +218,11 @@ echo     %__BEG_O%test%__END%        execute test suite ^(JUnit 5^)
 goto :eof
 
 :clean
-call :rmdir "%_TARGET_DIR%"
+call :remove_dir "%_TARGET_DIR%"
 goto :eof
 
 @rem input parameter: %1=directory path
-:rmdir
+:remove_dir
 set "__DIR=%~1"
 if not exist "%__DIR%\" goto :eof
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
@@ -241,9 +241,9 @@ if not exist "%_CLASSES_DIR%" mkdir "%_CLASSES_DIR%"
 
 call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
+set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 
 set "__OPTS_FILE=%_TARGET_DIR%\javac_opts.txt"
-set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 echo -classpath "%__CPATH:\=\\%" -d "%_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
 
 set "__SOURCES_FILE=%_TARGET_DIR%\javac_sources.txt"
@@ -429,9 +429,9 @@ if %__N%==0 (
 )
 call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
+set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%;%_TEST_CLASSES_DIR%"
 
 set "__OPTS_FILE=%_TARGET_DIR%\test_javac_opts.txt"
-set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%;%_TEST_CLASSES_DIR%"
 echo -classpath "%__CPATH:\=\\%" -d "%_TEST_CLASSES_DIR:\=\\%" > "%__OPTS_FILE%"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVAC_CMD%" "@%__OPTS_FILE%" "@%__SOURCES_FILE%" 1>&2
@@ -449,11 +449,12 @@ goto :eof
 :test
 call :compile_test
 if not %_EXITCODE%==0 goto :eof
-
+goto :eof
 call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
+set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 
-set __TEST_JAVA_OPTS=-classpath "%_LIBS_CPATH%%_CLASSES_DIR%"
+set __TEST_JAVA_OPTS=-classpath "!__CPATH:%USERPROFILE%=%%USERPROFILE%%!"
 
 set __LAUNCHER_MAIN=org.junit.platform.console.ConsoleLauncher
 set __LAUNCHER_ARGS="--classpath=%_TEST_CLASSES_DIR%" "--select-package=com.example.restservice"
